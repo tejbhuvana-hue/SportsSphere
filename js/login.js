@@ -15,10 +15,10 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
         window.location.href = "player/player.html";
     }
     else if(username === "coach" && password === "123") {
-        window.location.href = "poach/coach.html";
+        window.location.href = "coach/coach.html";
     }
     else if(username === "club" && password === "123") {
-        window.location.href = "plub/club.html";
+        window.location.href = "club/club.html";
     }
     else if(username === "admin" && password === "123") {
         window.location.href = "admin/admin.html";
