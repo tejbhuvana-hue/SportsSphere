@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Coach Match Report</title>
+    <link rel="stylesheet" href="../css/coach-updates.css" />
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1>Coach Match Report</h1>
+      <p class="subtitle">Enter complete match details below</p>
+      
+      <form class="report-form">
+        <!-- Basic Match Info -->
+        <div class="section">
+          <h2>Match Information</h2>
+
+          <div class="field">
+            <label>Match / Tournament Name</label>
+            <input type="text" placeholder="Enter tournament name" />
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Date</label>
+              <input type="date" />
+            </div>
+
+            <div class="field">
+              <label>Venue</label>
+              <input type="text" placeholder="Enter venue" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Team A</label>
+              <input type="text" placeholder="Enter Team A name" />
+            </div>
+
+            <div class="field">
+              <label>Team B</label>
+              <input type="text" placeholder="Enter Team B name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Match Type</label>
+            <select>
+              <option>League</option>
+              <option>Final</option>
+              <option>Knockout</option>
+              <option>Friendly</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Score Details -->
+        <div class="section">
+          <h2>Score Details</h2>
+
+          <div class="row">
+            <div class="field">
+              <label>Team A Score</label>
+              <input type="text" placeholder="Example: 180/6 (20 overs)" />
+            </div>
+
+            <div class="field">
+              <label>Team B Score</label>
+              <input type="text" placeholder="Example: 150/9 (20 overs)" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Result</label>
+            <input type="text" placeholder="Example: Team A won by 30 runs" />
+          </div>
+        </div>
+
+        <!-- Key Performances -->
+        <div class="section">
+          <h2>Key Performances</h2>
+
+          <div class="row">
+            <div class="field">
+              <label>Best Player / Man of the Match</label>
+              <input type="text" placeholder="Enter player name" />
+            </div>
+
+            <div class="field">
+              <label>Best Bowler / Defender</label>
+              <input type="text" placeholder="Enter player name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Top Scorer / Goal Scorer</label>
+            <input type="text" placeholder="Enter player name and score" />
+          </div>
+        </div>
+
+        <!-- Submit --><!-- Coach Analysis -->
+        <div class="section coach-analysis">
+          <h2>Coach Analysis</h2>
+
+          <div class="field">
+            <label>Team Strengths</label>
+            <textarea placeholder="Write team strengths..."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Weaknesses / Mistakes</label>
+            <textarea placeholder="Write team weaknesses..."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Future Improvements</label>
+            <textarea placeholder="Write improvement plan..."></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Save Match Report</button>
+        </div>
+      </form>
+      <!-- Completed Matches Section -->
+      <div class="completed-section">
+        <h2>Completed Matches</h2>
+
+        <div class="matches-list">
+          <!-- Match 1 -->
+          <div class="match-card">
+            <div class="team left">
+              <div class="logo">L</div>
+              <div>
+                <div><strong>Lions</strong></div>
+                <div class="status">Defeated</div>
+              </div>
+            </div>
+
+            <div class="center-result">
+              <div class="score">145 - 160</div>
+              <div class="result">Tigers won by 15 runs</div>
+            </div>
+
+            <div class="team right">
+              <div>
+                <div><strong>Tigers</strong></div>
+                <div class="status">Winner</div>
+              </div>
+              <div class="logo">T</div>
+            </div>
+          </div>
+
+          <!-- Match 2 -->
+          <div class="match-card">
+            <div class="team left">
+              <div class="logo">E</div>
+              <div>
+                <div><strong>Eagles</strong></div>
+                <div class="status">Defeated</div>
+              </div>
+            </div>
+
+            <div class="center-result">
+              <div class="score">2 - 3</div>
+              <div class="result">Falcons won by 1 goal</div>
+            </div>
+
+            <div class="team right">
+              <div>
+                <div><strong>Falcons</strong></div>
+                <div class="status">Winner</div>
+              </div>
+              <div class="logo">F</div>
+            </div>
+          </div>
+
+          <!-- Match 3 -->
+          <div class="match-card">
+            <div class="team left">
+              <div class="logo">W</div>
+              <div>
+                <div><strong>Warriors</strong></div>
+                <div class="status">Defeated</div>
+              </div>
+            </div>
+
+            <div class="center-result">
+              <div class="score">98 - 120</div>
+              <div class="result">Knights won by 22 points</div>
+            </div>
+
+            <div class="team right">
+              <div>
+                <div><strong>Knights</strong></div>
+                <div class="status">Winner</div>
+              </div>
+              <div class="logo">K</div>
+            </div>
+          </div>
+
+          <!-- Match 4 -->
+          <div class="match-card">
+            <div class="team left">
+              <div class="logo">R</div>
+              <div>
+                <div><strong>Rangers</strong></div>
+                <div class="status">Defeated</div>
+              </div>
+            </div>
+
+            <div class="center-result">
+              <div class="score">180 - 182</div>
+              <div class="result">Royals won by 2 runs</div>
+            </div>
+
+            <div class="team right">
+              <div>
+                <div><strong>Royals</strong></div>
+                <div class="status">Winner</div>
+              </div>
+              <div class="logo">R</div>
+            </div>
+          </div>
+
+          <!-- Match 5 -->
+          <div class="match-card">
+            <div class="team left">
+              <div class="logo">S</div>
+              <div>
+                <div><strong>Sharks</strong></div>
+                <div class="status">Defeated</div>
+              </div>
+            </div>
+
+            <div class="center-result">
+              <div class="score">1 - 4</div>
+              <div class="result">Panthers won comfortably</div>
+            </div>
+
+            <div class="team right">
+              <div>
+                <div><strong>Panthers</strong></div>
+                <div class="status">Winner</div>
+              </div>
+              <div class="logo">P</div>
+            </div>
+          </div>
+
+          <!-- Match 6 -->
+          <div class="match-card">
+            <div class="team left">
+              <div class="logo">C</div>
+              <div>
+                <div><strong>Chargers</strong></div>
+                <div class="status">Defeated</div>
+              </div>
+            </div>
+
+            <div class="center-result">
+              <div class="score">210 - 215</div>
+              <div class="result">Titans won by 5 runs</div>
+            </div>
+
+            <div class="team right">
+              <div>
+                <div><strong>Titans</strong></div>
+                <div class="status">Winner</div>
+              </div>
+              <div class="logo">T</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/coach-updates.js"></script>
+  </body>
+</html>

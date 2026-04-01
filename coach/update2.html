@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SportsSphere • Ongoing Match Details</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/coach-updates.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background: #020617;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #cbd5f5;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #0f172a;
+      color: #e5e7eb;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .row .form-group {
+      flex: 1;
+    }
+
+    .progress-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    input[type="range"] {
+      flex: 1;
+    }
+
+    .progress-value {
+      width: 50px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #38bdf8;
+      color: #020617;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Ongoing Match Details (Coach Entry)</h2>
+
+    <!-- Team Names -->
+    <div class="row">
+      <div class="form-group">
+        <label>Team A Name</label>
+        <input type="text" placeholder="Enter Team A" />
+      </div>
+      <div class="form-group">
+        <label>Team B Name</label>
+        <input type="text" placeholder="Enter Team B" />
+      </div>
+    </div>
+
+    <!-- Scores -->
+    <div class="row">
+      <div class="form-group">
+        <label>Team A Score</label>
+        <input type="number" placeholder="0" />
+      </div>
+      <div class="form-group">
+        <label>Team B Score</label>
+        <input type="number" placeholder="0" />
+      </div>
+    </div>
+
+    <!-- Time -->
+    <div class="form-group">
+      <label>Match Time (minutes)</label>
+      <input type="number" placeholder="45" />
+    </div>
+
+    <!-- Strategy -->
+    <div class="form-group">
+      <label>Current Strategy</label>
+      <select>
+        <option>Attack</option>
+        <option>Defend</option>
+        <option>Balanced</option>
+      </select>
+    </div>
+
+    <!-- Instructions -->
+    <div class="form-group">
+      <label>Coach Instructions</label>
+      <textarea placeholder="Press high, pass fast, mark player 9..."></textarea>
+    </div>
+
+    <!-- Feedback -->
+    <div class="form-group">
+      <label>Performance Feedback</label>
+      <textarea placeholder="Good defense, improve passing..."></textarea>
+    </div>
+
+    <!-- Progress Percentage -->
+    <div class="form-group">
+      <label>Match Completion (%)</label>
+      <div class="progress-box">
+        <input type="range" min="0" max="100" value="50" oninput="progressValue.innerText = this.value + '%'" />
+        <div class="progress-value" id="progressValue">50%</div>
+      </div>
+    </div>
+
+    <!-- Discipline -->
+    <div class="form-group">
+      <label>Discipline Notes</label>
+      <textarea placeholder="Avoid fouls, stay calm..."></textarea>
+    </div>
+
+    <button>Save Match Details</button>
+
+  </div>
+
+  <script src="../js/coach-updates.js"></script>
+</body>
+</html>

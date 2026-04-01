@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Messages</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="../css/club-messeges.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="menu-toggle"><i class="bi bi-list"></i></div>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="./club.html"><i class="bi bi-house-fill"></i> Home</a>
+        <a href="./club-profile.html"
+          ><i class="bi bi-person-circle"></i> Profile</a
+        >
+        <a href="#"><i class="bi bi-send-fill"></i> Messages</a>
+        <a href="./club-events.html"><i class="bi bi-trophy-fill"></i> Events</a>
+      </div>
+      <div class="nav-left">
+        <h2 id="Logotext">SportsSphere</h2>
+        <div class="search-box">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="nav-right">
+        <a href="./club.html"
+          ><i class="bi bi-house-fill jelly-home"></i>Home</a
+        >
+        <div class="profile-dropdown">
+          <a href="./club-profile.html" class="profile-dropbtn"
+            ><i class="bi bi-person-circle"></i><span>Profile</span></a
+          >
+          <div class="profile-dropdown-content">
+            <a href="./club-profile.html"
+              ><i class="bi bi-person"></i> Profile</a
+            >
+            <a href="/index.html"
+              ><i class="bi bi-box-arrow-right"></i> Logout</a
+            >
+          </div>
+        </div>
+        <a href="#"><i class="bi bi-send-fill"></i>Messages</a>
+        <a href="./club-events.html"><i class="bi bi-trophy-fill"></i>Events</a>
+        <a href="#" class="notify-only"
+          ><i class="bi bi-bell-fill"></i> Notifications</a
+        >
+      </div>
+    </nav>
+
+    <div class="app">
+      <div class="sidebar" id="sidebarPage">
+        <div class="sidebar-header">
+          <span>Messages</span>
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="Search chats..."
+              id="searchInput"
+              onkeyup="searchChat()"
+            />
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <div class="chat-list">
+          <div
+            class="chat-item"
+            onclick="
+              openChat(
+                'Ronaldo',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1IR2Q3szlNtzNx9t5MBa5jU_XFDRNr6Vg6Q&s',
+              )
+            "
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1IR2Q3szlNtzNx9t5MBa5jU_XFDRNr6Vg6Q&s"
+            />
+            <span>Ronaldo</span>
+          </div>
+          <div
+            class="chat-item"
+            onclick="
+              openChat(
+                'Messi',
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO0-3_rjlMhvOzlYtuNHfnm2kjPNYHrFUkdg&s',
+              )
+            "
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO0-3_rjlMhvOzlYtuNHfnm2kjPNYHrFUkdg&s"
+            />
+            <span>Messi</span>
+          </div>
+          <div
+            class="chat-item"
+            onclick="
+              openChat(
+                'Dhoni',
+                'https://i.pinimg.com/736x/26/40/0d/26400d4383b46d7b76679b8c23ca4a30.jpg',
+              )
+            "
+          >
+            <img
+              src="https://i.pinimg.com/736x/26/40/0d/26400d4383b46d7b76679b8c23ca4a30.jpg"
+            />
+            <span>Dhoni</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="chat-area" id="chatPage">
+        <div class="chat-header">
+          <div class="header-left">
+            <i
+              class="fa fa-arrow-left back-btn"
+              id="backBtn"
+              onclick="goBack()"
+            ></i>
+            <img id="chatAvatar" src="https://i.pravatar.cc/100?img=1" />
+            <span id="chatName">Ravi</span>
+          </div>
+          <div class="header-right">
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-footer">
+          <input
+            id="messageInput"
+            type="text"
+            placeholder="Type a message"
+            onkeydown="if (event.key === 'Enter') sendMessage();"
+          />
+          <button onclick="sendMessage()">➤</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+    <div class="notification-dropdown" id="notificationDropdown">
+      <div class="arrow"></div>
+      <h4>Notifications</h4>
+      <div class="notification-item">
+        <strong>Messi</strong> liked your post <small>2 min ago</small>
+      </div>
+      <div class="notification-item">
+        <strong>Ronaldo</strong> commented on your post
+        <small>10 min ago</small>
+      </div>
+      <div class="notification-item">
+        <strong>Mbappe</strong> started following you <small>1 hour ago</small>
+      </div>
+    </div>
+
+    <script src="../js/club-messeges.js"></script>
+  </body>
+</html>

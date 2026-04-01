@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SportsSphere • Event Progress</title>
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* EVENT INFO */
+    .event-info {
+      background: #020617;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+    }
+
+    .progress-bar {
+      height: 10px;
+      background: #1e293b;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .progress-fill {
+      width: 60%;
+      height: 100%;
+      background: #22c55e;
+    }
+
+    /* MATCH CARD */
+    .match-card {
+      background: #020617;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .team {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 35%;
+      cursor: pointer;
+    }
+
+    .team img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid #38bdf8;
+      background: white;
+    }
+
+    .team-name {
+      font-weight: 600;
+    }
+
+    .vs {
+      background: #1e293b;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+
+    .score {
+      font-size: 18px;
+      font-weight: bold;
+      color: #22c55e;
+    }
+
+    /* BEST PLAYER */
+    .best-player {
+      background: #020617;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      cursor: pointer;
+    }
+
+    .best-player img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #facc15;
+      background: white;
+    }
+
+    .badge {
+      background: #facc15;
+      color: #020617;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      margin-left: 10px;
+      font-weight: 600;
+    }
+
+      </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- EVENT INFO -->
+  <div class="event-info">
+    <h2>Football Championship 2026</h2>
+    <p><b>Total Matches:</b> 13</p>
+    <p><b>Matches Completed:</b> 6</p>
+    <p><b>Ongoing Match:</b> 1</p>
+
+    <p><b>Event Progress:</b> 60%</p>
+    <div class="progress-bar">
+      <div class="progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- COMPLETED MATCHES -->
+  <h2>Completed Matches</h2>
+
+  <div class="match-card">
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" />
+      <span class="team-name">FC Barcelona</span>
+    </a>
+    <span class="vs">VS</span>
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" />
+      <span class="team-name">Real Madrid</span>
+    </a>
+    <span class="score">2 - 1</span>
+  </div>
+
+  <div class="match-card">
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" />
+      <span class="team-name">Manchester City</span>
+    </a>
+    <span class="vs">VS</span>
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg" />
+      <span class="team-name">Liverpool</span>
+    </a>
+    <span class="score">3 - 2</span>
+  </div>
+
+  <div class="match-card">
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_München_logo_%282017%29.svg" />
+      <span class="team-name">Bayern Munich</span>
+    </a>
+    <span class="vs">VS</span>
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg" />
+      <span class="team-name">PSG</span>
+    </a>
+    <span class="score">1 - 1</span>
+  </div>
+
+  <div class="match-card">
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg" />
+      <span class="team-name">Chelsea</span>
+    </a>
+    <span class="vs">VS</span>
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" />
+      <span class="team-name">Arsenal</span>
+    </a>
+    <span class="score">0 - 2</span>
+  </div>
+
+  <div class="match-card">
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Juventus_FC_2017_logo.svg" />
+      <span class="team-name">Juventus</span>
+    </a>
+    <span class="vs">VS</span>
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg" />
+      <span class="team-name">AC Milan</span>
+    </a>
+    <span class="score">2 - 2</span>
+  </div>
+
+  <div class="match-card">
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/FC_Internazionale_Milano_2021.svg" />
+      <span class="team-name">Inter Milan</span>
+    </a>
+    <span class="vs">VS</span>
+    <a href="" class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Atletico_Madrid_2017_logo.svg" />
+      <span class="team-name">Atletico Madrid</span>
+    </a>
+    <span class="score">1 - 0</span>
+  </div>
+
+  <!-- BEST PLAYER SO FAR -->
+  <h2>Best Player So Far</h2>
+
+  <a href="" class="best-player">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lionel_Messi_20180626.jpg" />
+    <div>
+      <h3>Lionel Messi <span class="badge">Top Performer</span></h3>
+      <p><b>Team:</b> FC Barcelona</p>
+      <p><b>Goals:</b> 6</p>
+      <p><b>Assists:</b> 3</p>
+      <p><b>Rating:</b> 9.4 / 10</p>
+    </div>
+  </a>
+
+</div>
+
+<script src="../js/club.js"></script>
+</body>
+</html>

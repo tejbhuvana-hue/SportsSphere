@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Events • SportsSphere</title>
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/club-events.css" />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <i class="bi bi-list menu-toggle"></i>
+        <div class="logo">SportsSphere</div>
+        <div class="search-bar">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search clubs, events, players..." />
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <div class="nav-item desktop-only">
+          <i class="bi bi-house"></i><span><a href="./club.html">Home</a></span>
+        </div>
+        <div class="profile-dropdown">
+          <a href="./club-profile.html" class="profile-dropbtn"
+            ><i class="bi bi-person-circle"></i><span>Profile</span></a
+          >
+          <div class="profile-dropdown-content">
+            <a href="./club-profile.html"
+              ><i class="bi bi-person"></i> Profile</a
+            >
+            <a href="/index.html"
+              ><i class="bi bi-box-arrow-right"></i> Logout</a
+            >
+          </div>
+        </div>
+        <div class="nav-item desktop-only">
+          <i class="bi bi-send-fill"></i
+          ><span><a href="./club-messeges.html">Messages</a></span>
+        </div>
+        <div class="nav-item desktop-only">
+          <i class="bi bi-calendar-event"></i
+          ><span><a href="#">Events</a></span>
+        </div>
+        <div class="nav-item notify-btn">
+          <i class="bi bi-bell"></i><span>Messages</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu">
+      <a href="./club.html"><i class="bi bi-house"></i> Home</a>
+      <a href="./club-profile.html"
+        ><i class="bi bi-person-circle"></i> Profile</a
+      >
+      <a href="./club-messeges.html"
+        ><i class="bi bi-send-fill"></i> Messages</a
+      >
+      <a href="#"><i class="bi bi-calendar-event"></i> Events</a>
+    </div>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="admin-container">
+      <h2 class="page-title">Football Programs</h2>
+
+      <div class="top-actions">
+        <a class="tab-btn active" data-tab="tournaments"
+          >Apply for Football Tournament</a
+        >
+        <a class="tab-btn" data-tab="trials">Football Trials</a>
+        <a class="tab-btn" data-tab="camps">Football Camps</a>
+      </div>
+
+      <!-- ================= TOURNAMENTS ================= -->
+      <div class="tab-content active" id="tournaments">
+        <div class="event-grid">
+          <div class="event-card">
+            <h3>State Level Football Cup</h3>
+            <p class="event-meta">📍 Hyderabad • 📅 Mar 2026</p>
+            <p>📞 Contact: 9876543210</p>
+            <p>⚽ Requirement: Under-19 Football Team</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+
+          <div class="event-card">
+            <h3>Inter-Club Football League</h3>
+            <p class="event-meta">📍 Bengaluru • 📅 Apr 2026</p>
+            <p>📞 Contact: 9988776655</p>
+            <p>⚽ Requirement: Senior Men's Team</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+
+          <div class="event-card">
+            <h3>National Youth Football Championship</h3>
+            <p class="event-meta">📍 Chennai • 📅 May 2026</p>
+            <p>📞 Contact: 9123456780</p>
+            <p>⚽ Requirement: Under-17 Team</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+
+          <div class="event-card">
+            <h3>All India Women's Football Cup</h3>
+            <p class="event-meta">📍 Pune • 📅 Jun 2026</p>
+            <p>📞 Contact: 9012345678</p>
+            <p>⚽ Requirement: Women's Team</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+
+          <div class="event-card">
+            <h3>University Football League</h3>
+            <p class="event-meta">📍 Delhi • 📅 Jul 2026</p>
+            <p>📞 Contact: 8899001122</p>
+            <p>⚽ Requirement: College Teams</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= TRIALS ================= -->
+      <div class="tab-content" id="trials">
+        <div class="event-grid">
+          <div class="event-card">
+            <h3>Senior Team Football Trials</h3>
+            <span class="status ongoing">Ongoing</span>
+            <p class="event-meta">📅 Feb 2026</p>
+            <a href="./progress.html" class="view-btn" target="_blank"
+              >View Progress</a
+            >
+          </div>
+
+          <div class="event-card">
+            <h3>Under-19 Football Trials</h3>
+            <span class="status ongoing">Ongoing</span>
+            <p class="event-meta">📅 Feb 2026</p>
+            <a href="./progress.html" class="view-btn" target="_blank"
+              >View Progress</a
+            >
+          </div>
+
+          <div class="event-card">
+            <h3>Under-17 Football Trials</h3>
+            <span class="status upcoming">Upcoming</span>
+            <p class="event-meta">📅 Mar 2026</p>
+            <a href="./players.html" class="view-btn" target="_blank"
+              >View Applications</a
+            >
+          </div>
+
+          <div class="event-card">
+            <h3>Goalkeepers Selection Trials</h3>
+            <span class="status upcoming">Upcoming</span>
+            <p class="event-meta">📅 Apr 2026</p>
+            <a href="./players.html" class="view-btn" target="_blank"
+              >View Applications</a
+            >
+          </div>
+
+          <div class="event-card">
+            <h3>Women's Team Football Trials</h3>
+            <span class="status upcoming">Upcoming</span>
+            <p class="event-meta">📅 May 2026</p>
+            <a href="./players.html" class="view-btn" target="_blank"
+              >View Applications</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= CAMPS ================= -->
+      <div class="tab-content" id="camps">
+        <div class="event-grid">
+          <div class="event-card">
+            <h3>Elite Football Training Camp</h3>
+            <span class="status ongoing">Ongoing</span>
+            <p class="event-meta">📅 Feb – Apr 2026</p>
+            <a href="./progress.html" class="view-btn" target="_blank"
+              >View Progress</a
+            >
+          </div>
+
+          <div class="event-card">
+            <h3>Pro Youth Football Camp</h3>
+            <span class="status ongoing">Ongoing</span>
+            <p class="event-meta">📅 Feb – Apr 2026</p>
+            <a href="./progress.html" class="view-btn" target="_blank"
+              >View Progress</a
+            >
+          </div>
+
+          <div class="event-card">
+            <h3>Under-15 Football Camp</h3>
+            <span class="status upcoming">Upcoming</span>
+            <p class="event-meta">📅 Mar 2026</p>
+            <a href="./players.html" class="view-btn" target="_blank"
+              >View Applications</a
+            >
+          </div>
+
+          <div class="event-card">
+            <h3>Women's Football Development Camp</h3>
+            <span class="status upcoming">Upcoming</span>
+            <p class="event-meta">📅 Apr 2026</p>
+            <a href="./players.html" class="view-btn" target="_blank"
+              >View Applications</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ================= APPLY MODAL ================= -->
+    <div class="applications-modal" id="applyModal">
+      <div class="modal-content">
+        <i class="bi bi-x-lg modal-close" id="closeApply"></i>
+        <h3 class="modal-title">Tournament Application</h3>
+        <form class="apply-form">
+          <input type="text" placeholder="Club Name" required />
+          <input type="text" placeholder="Manager Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="tel" placeholder="Contact Number" required />
+          <input type="number" placeholder="Number of Players" required />
+          <input type="text" placeholder="Age Category" required />
+          <textarea placeholder="Additional Notes" rows="3" required></textarea>
+          <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ================= JS ================= -->
+    <script src="../js/club-events.js"></script>
+  </body>
+</html>

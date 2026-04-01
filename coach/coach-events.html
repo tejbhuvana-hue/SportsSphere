@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Football Events</title>
+
+    <link rel="stylesheet" href="../css/coach-events.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+
+  <body>
+    <!-- ================= NAVBAR ================= -->
+
+    <nav class="navbar">
+      <div class="menu-toggle">
+        <i class="bi bi-list"></i>
+      </div>
+
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu">
+        <a href="./coach.html"><i class="bi bi-house-fill"></i> Home</a>
+        <a href="./coach-messeges.html"
+          ><i class="bi bi-send-fill"></i> Messages</a
+        >
+        <a href="#"><i class="bi bi-trophy-fill"></i> Events</a>
+        <a href="./coach-profile.html"
+          ><i class="bi bi-person-circle"></i> Profile</a
+        >
+      </div>
+
+      <!-- LEFT -->
+      <div class="nav-left">
+        <h2 id="Logotext">SportsSphere</h2>
+        <div class="search-box">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="nav-right">
+        <a href="./coach.html"><i class="bi bi-house-fill"></i>Home</a>
+        <a href="./coach-messeges.html"
+          ><i class="bi bi-send-fill"></i>Messages</a
+        >
+        <a href="#"><i class="bi bi-trophy-fill"></i>Events</a>
+        <div class="profile-dropdown">
+          <a href="./coach-profile.html" class="profile-dropbtn"
+            ><i class="bi bi-person-circle"></i><span>Profile</span></a
+          >
+          <div class="profile-dropdown-content">
+            <a href="./coach-profile.html"
+              ><i class="bi bi-person"></i> Profile</a
+            >
+            <a href="/index.html"
+              ><i class="bi bi-box-arrow-right"></i> Logout</a
+            >
+          </div>
+        </div>
+        <a href="#" class="notify-only">
+          <i class="bi bi-bell-fill"></i>Notifications
+        </a>
+      </div>
+    </nav>
+
+    <!-- ================= NOTIFICATION DROPDOWN ================= -->
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="notification-dropdown" id="notificationDropdown">
+      <h4>Notifications</h4>
+
+      <div class="notification-item">
+        <strong>Coach Rahul</strong> approved your request
+        <small>2 min ago</small>
+      </div>
+
+      <div class="notification-item">
+        <strong>GK Academy</strong> posted new football trials
+        <small>10 min ago</small>
+      </div>
+
+      <div class="notification-item">
+        <strong>SportsSphere</strong> event reminder
+        <small>1 hour ago</small>
+      </div>
+    </div>
+
+    <!-- ================= CONTENT ================= -->
+
+    <div class="container">
+      <!-- TOP TABS -->
+      <div class="event-tabs">
+        <button class="tab-btn active" data-target="clubEvents">
+          Club Tournaments
+        </button>
+        <button class="tab-btn" data-target="associationEvents">
+          Association Events
+        </button>
+      </div>
+
+      <!-- ================= CLUB TOURNAMENTS ================= -->
+
+      <div class="events-section show" id="clubEvents">
+        <div class="clubs">
+          <div class="club-card">
+            <h2>GK Football Academy</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>10 Feb – 10 May 2026</strong></div>
+            <div class="club-info"><strong>Bengaluru</strong></div>
+            <div class="club-info">
+              <strong>Age 10–18, Full kit required</strong>
+            </div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>Hyderabad Strikers Club</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>15 Feb – 15 June 2026</strong></div>
+            <div class="club-info"><strong>Hyderabad</strong></div>
+            <div class="club-info"><strong>Boots, shin guards</strong></div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>Chennai United FC</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>1 Mar – 30 June 2026</strong></div>
+            <div class="club-info"><strong>Chennai</strong></div>
+            <div class="club-info">
+              <strong>Training jersey mandatory</strong>
+            </div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>Pune Warriors FC</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>5 Mar – 20 July 2026</strong></div>
+            <div class="club-info"><strong>Pune</strong></div>
+            <div class="club-info">
+              <strong>Medical certificate needed</strong>
+            </div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>Vizag Young Stars</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>12 Mar – 30 July 2026</strong></div>
+            <div class="club-info"><strong>Visakhapatnam</strong></div>
+            <div class="club-info">
+              <strong>ID proof, football shoes</strong>
+            </div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= ASSOCIATION EVENTS ================= -->
+
+      <div class="events-section" id="associationEvents">
+        <div class="clubs">
+          <div class="club-card">
+            <h2>State Football Championship</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>1 Apr – 15 Apr 2026</strong></div>
+            <div class="club-info"><strong>Delhi</strong></div>
+            <div class="club-info">
+              <strong>Association ID required</strong>
+            </div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>National Junior Football Meet</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>10 Apr – 25 Apr 2026</strong></div>
+            <div class="club-info"><strong>Mumbai</strong></div>
+            <div class="club-info"><strong>Full team kit required</strong></div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>South Zone Football League</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>5 May – 20 May 2026</strong></div>
+            <div class="club-info"><strong>Bengaluru</strong></div>
+            <div class="club-info">
+              <strong>Registration card needed</strong>
+            </div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>Inter College Football Cup</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>12 May – 18 May 2026</strong></div>
+            <div class="club-info"><strong>Coimbatore</strong></div>
+            <div class="club-info"><strong>College ID mandatory</strong></div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+
+          <div class="club-card">
+            <h2>Youth Football Festival</h2>
+            <div class="club-info"><strong>Football</strong></div>
+            <div class="club-info"><strong>20 May – 28 May 2026</strong></div>
+            <div class="club-info"><strong>Kolkata</strong></div>
+            <div class="club-info">
+              <strong>Fitness certificate required</strong>
+            </div>
+            <button class="play-btn">Apply Now</button>
+          </div>
+        </div>
+      </div>
+      <!-- ================= UPDATE EVENT MANAGER ================= -->
+
+      <h2 style="text-align: center; margin: 50px 0 20px; color: #38bdf8">
+        Inter-State Football Championship(Current)
+      </h2>
+
+      <div class="match-tabs">
+        <button class="match-tab active" data-target="ongoingMatches">
+          Ongoing Matches
+        </button>
+        <button class="match-tab" data-target="upcomingMatches">
+          Upcoming Matches
+        </button>
+        <button class="match-tab" data-target="completedMatches">
+          Completed Matches
+        </button>
+      </div>
+
+      <!-- ================= ONGOING MATCHES ================= -->
+
+      <div class="match-section show" id="ongoingMatches">
+        <div class="clubs">
+          <div class="club-card">
+            <h2>GK Academy vs Chennai FC</h2>
+            <div class="club-info"><strong>Status:</strong> Ongoing</div>
+            <div class="club-info"><strong>Score:</strong> 1 - 0</div>
+            <div class="club-info"><strong>Location:</strong> Bengaluru</div>
+
+            <a href="./update2.html" target="_blank" class="report-btn"
+              >Update Score</a
+            >
+          </div>
+
+          <div class="club-card">
+            <h2>Pune Warriors vs Vizag Stars</h2>
+            <div class="club-info"><strong>Status:</strong> Ongoing</div>
+            <div class="club-info"><strong>Score:</strong> 2 - 2</div>
+            <div class="club-info"><strong>Location:</strong> Pune</div>
+
+            <a href="./update2.html" target="_blank" class="report-btn"
+              >Update Score</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= UPCOMING MATCHES ================= -->
+
+      <div class="match-section" id="upcomingMatches">
+        <div class="clubs">
+          <div class="club-card">
+            <h2>Hyderabad Strikers vs GK Academy</h2>
+            <div class="club-info"><strong>Status:</strong> Upcoming</div>
+            <div class="club-info"><strong>Date:</strong> 10 June 2026</div>
+            <div class="club-info"><strong>Location:</strong> Hyderabad</div>
+
+            <a href="./update3.html" target="_blank" class="report-btn"
+              >Shedule Match</a
+            >
+          </div>
+
+          <div class="club-card">
+            <h2>Chennai United vs Pune Warriors</h2>
+            <div class="club-info"><strong>Status:</strong> Upcoming</div>
+            <div class="club-info"><strong>Date:</strong> 14 June 2026</div>
+            <div class="club-info"><strong>Location:</strong> Chennai</div>
+
+            <a href="./update3.html" target="_blank" class="report-btn"
+              >Shedule Match</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= COMPLETED MATCHES ================= -->
+
+      <div class="match-section" id="completedMatches">
+        <div class="clubs">
+          <div class="club-card">
+            <h2>Vizag Stars vs Chennai FC</h2>
+            <div class="club-info"><strong>Status:</strong> Completed</div>
+            <div class="club-info"><strong>Result:</strong> 3 - 1</div>
+            <div class="club-info"><strong>Winner:</strong> Vizag Stars</div>
+
+            <a href="./coach-updates.html" target="_blank" class="report-btn"
+              >Make Report</a
+            >
+          </div>
+
+          <div class="club-card">
+            <h2>Pune Warriors vs Hyderabad</h2>
+            <div class="club-info"><strong>Status:</strong> Completed</div>
+            <div class="club-info"><strong>Result:</strong> 2 - 2</div>
+            <div class="club-info"><strong>Draw Match</strong></div>
+
+            <a href="./coach-updates.html" target="_blank" class="report-btn"
+              >Make Report</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= APPLY MODAL ================= -->
+
+    <div class="apply-overlay" id="applyOverlay"></div>
+
+    <div class="apply-modal" id="applyModal">
+      <div class="apply-header">
+        <h3>Apply for Football Event</h3>
+        <i class="bi bi-x-lg close-apply" id="closeApply"></i>
+      </div>
+
+      <form class="apply-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" required />
+        </div>
+
+        <div class="form-group">
+          <label>Train Position</label>
+          <input
+            type="text"
+            placeholder="Forward / Midfielder / Defender / GK"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Physical Certificate</label>
+          <input type="file" required />
+        </div>
+
+        <button type="submit" class="apply-submit">Apply</button>
+      </form>
+    </div>
+
+    <script src="../js/coach-events.js"></script>
+  </body>
+</html>

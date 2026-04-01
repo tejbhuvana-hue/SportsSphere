@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SportsSphere • Club Dashboard</title>
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="../css/club-profile.css" />
+  </head>
+  <body>
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+      <!-- LEFT -->
+      <div class="nav-left">
+        <i class="bi bi-list menu-toggle"></i>
+        <div class="logo">SportsSphere</div>
+
+        <div class="search-bar">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search clubs, events, players..." />
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+      <div class="nav-actions">
+        <div class="nav-item desktop-only">
+          <i class="bi bi-house"></i><span><a href="./club.html">Home</a></span>
+        </div>
+        <div class="profile-dropdown">
+          <a href="./club-profile.html" class="profile-dropbtn"
+            ><i class="bi bi-person-circle"></i><span>Profile</span></a
+          >
+          <div class="profile-dropdown-content">
+            <a href="./club-profile.html"
+              ><i class="bi bi-person"></i> Profile</a
+            >
+            <a href="/index.html"
+              ><i class="bi bi-box-arrow-right"></i> Logout</a
+            >
+          </div>
+        </div>
+        <div class="nav-item desktop-only">
+          <i class="bi bi-send-fill"></i
+          ><span><a href="./club-messeges.html">Messages</a></span>
+        </div>
+        <div class="nav-item desktop-only">
+          <i class="bi bi-calendar-event"></i
+          ><span><a href="./club-events.html">Events</a></span>
+        </div>
+        <!-- Notification -->
+        <div class="nav-item notify-btn">
+          <i class="bi bi-bell"></i><span>Messages</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MOBILE MENU DROPDOWN -->
+    <div class="mobile-menu">
+      <a href="./club.html"><i class="bi bi-house"></i> Home</a>
+      <a href="#"><i class="bi bi-person-circle"></i> Profile</a>
+      <a href="./club-messeges.html"
+        ><i class="bi bi-send-fill"></i> Messages</a
+      >
+      <a href="./club-events.html"
+        ><i class="bi bi-calendar-event"></i> Events</a
+      >
+    </div>
+
+    <!-- NOTIFICATION DROPDOWN -->
+
+    <!-- ================= MAIN ================= -->
+    <div class="container">
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+        <div class="profile-card">
+          <div class="cover"></div>
+          <div class="club-logo">
+            <img
+              src="https://i.pinimg.com/1200x/df/ab/a9/dfaba95d7913f6cabf5e6085621e3391.jpg"
+              alt="Club Logo"
+            />
+          </div>
+
+          <h3>Manchister United FC</h3>
+          <p>Official Club</p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>2.4K</strong>
+              Members
+            </div>
+            <div class="stat">
+              <strong>120</strong>
+              Events
+            </div>
+          </div>
+          <!-- ===== PROFILE CARD (ADD THIS INSIDE .profile-card, AT THE BOTTOM) ===== -->
+          <div class="club-actions">
+            <button class="club-btn" id="viewMembersBtn">
+              <i class="bi bi-people-fill"></i> View Members
+            </button>
+
+            <button class="club-btn">
+              <i class="bi bi-pencil-square"></i> Edit Club
+            </button>
+
+            <button class="club-btn">
+              <i class="bi bi-plus-square"></i> Add Post
+            </button>
+
+            <button class="club-btn primary" id="postEventBtn">
+              <i class="bi bi-calendar-plus"></i> Post Event
+            </button>
+
+            <a href="/explore.html" class="club-btn danger">
+              <i class="bi bi-box-arrow-right"></i> Logout
+            </a>
+          </div>
+        </div>
+      </aside>
+      <!-- FEED -->
+      <div class="feed">
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://i.pinimg.com/1200x/df/ab/a9/dfaba95d7913f6cabf5e6085621e3391.jpg"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>Manchister United</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Playing football with Cristiano Ronaldo is pure energy ⚽🔥 As
+              Messi, sharing the pitch with him means speed, passion, and
+              nonstop competition 💪⚡ Every pass, run, and goal feels intense,
+              pushing us to our limits 🚀🐐 It’s rivalry, respect, and football
+              magic all in one 💙❤️✨
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://c8.alamy.com/comp/2A2H4HB/cristiano-ronaldo-playing-for-juventus-soccer-team-in-italy-2A2H4HB.jpg"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://i.pinimg.com/1200x/df/ab/a9/dfaba95d7913f6cabf5e6085621e3391.jpg"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>Manchister United</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Playing football with Cristiano Ronaldo is pure energy ⚽🔥 As
+              Messi, sharing the pitch with him means speed, passion, and
+              nonstop competition 💪⚡ Every pass, run, and goal feels intense,
+              pushing us to our limits 🚀🐐 It’s rivalry, respect, and football
+              magic all in one 💙❤️✨
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://www.aljazeera.com/wp-content/uploads/2022/08/AP101019013321.jpg?fit=1170%2C748&quality=80"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://i.pinimg.com/1200x/df/ab/a9/dfaba95d7913f6cabf5e6085621e3391.jpg"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>Manchister United</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Playing football with Cristiano Ronaldo is pure energy ⚽🔥 As
+              Messi, sharing the pitch with him means speed, passion, and
+              nonstop competition 💪⚡ Every pass, run, and goal feels intense,
+              pushing us to our limits 🚀🐐 It’s rivalry, respect, and football
+              magic all in one 💙❤️✨
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://rukminim2.flixcart.com/image/480/480/kvr01ow0/wall-decoration/e/y/w/football-form-cristiano-ronaldo-player-wallpaper-poster-1-original-imag8kvtgzmmqrge.jpeg?q=90"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://i.pinimg.com/1200x/df/ab/a9/dfaba95d7913f6cabf5e6085621e3391.jpg"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>Manchister United</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Playing football with Cristiano Ronaldo is pure energy ⚽🔥 As
+              Messi, sharing the pitch with him means speed, passion, and
+              nonstop competition 💪⚡ Every pass, run, and goal feels intense,
+              pushing us to our limits 🚀🐐 It’s rivalry, respect, and football
+              magic all in one 💙❤️✨
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EISNVDHGHRJVXCH7ZHC7CDQ5FM.jpg"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://i.pinimg.com/1200x/df/ab/a9/dfaba95d7913f6cabf5e6085621e3391.jpg"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>Manchister United</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+          <div class="post-text">
+            <p>
+              Playing football with Cristiano Ronaldo is pure energy ⚽🔥 As
+              Messi, sharing the pitch with him means speed, passion, and
+              nonstop competition 💪⚡ Every pass, run, and goal feels intense,
+              pushing us to our limits 🚀🐐 It’s rivalry, respect, and football
+              magic all in one 💙❤️✨
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://www.dailybreeze.com/wp-content/uploads/migration/2014/201412/SPORTS_141219655_AR_0_FRXWMGQKLHXF.jpg?w=535"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="notification-dropdown">
+      <p>⚽ New match scheduled</p>
+      <p>📣 Club announcement posted</p>
+      <p>🏆 Event reminder</p>
+    </div>
+    <!-- ===== ADD POST & EVENT MODALS ===== -->
+    <div class="addpost-overlay" id="overlay"></div>
+
+    <!-- Overlay for Modals -->
+    <div class="addpost-overlay" id="overlay"></div>
+
+    <!-- ===== ADD POST MODAL ===== -->
+    <div class="addpost-modal" id="addPostModal">
+      <div class="addpost-header">
+        <h3>Create Post</h3>
+        <i class="bi bi-x-lg" id="closeAddPost"></i>
+      </div>
+      <form class="addpost-form">
+        <label>Add Image</label>
+        <input type="file" accept="image/*" />
+
+        <label>Description</label>
+        <textarea placeholder="Write something about your post..."></textarea>
+
+        <button type="submit"><i class="bi bi-send-fill"></i> Post</button>
+      </form>
+    </div>
+
+    <!-- ===== CREATE EVENT MODAL ===== -->
+    <div class="addpost-modal" id="eventModal">
+      <div class="addpost-header">
+        <h3>Create Event</h3>
+        <i class="bi bi-x-lg" id="closeEvent"></i>
+      </div>
+      <form class="addpost-form">
+        <label>Event Type</label>
+        <select>
+          <option value="">Select Type</option>
+          <option value="trial">Trial</option>
+          <option value="camp">Camp</option>
+        </select>
+
+        <label>Event Date</label>
+        <input type="date" />
+
+        <label>Requirements</label>
+        <input type="text" placeholder="Eg: Football kit, shoes" />
+
+        <label>Address</label>
+        <textarea placeholder="Event location"></textarea>
+
+        <label>Contact Number</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX" />
+
+        <button type="submit">
+          <i class="bi bi-send-fill"></i> Post Event
+        </button>
+      </form>
+    </div>
+
+    <!-- Members Modal -->
+    <div class="members-modal" id="membersModal">
+      <div class="members-box">
+        <div class="modal-header">
+          <h3><i class="bi bi-people-fill"></i> Club Members</h3>
+          <i class="bi bi-x-lg" id="closeMembers"></i>
+        </div>
+        <div class="members-list">
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=100" class="member-pic" />
+            <span>Cristiano Ronaldo</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=101" class="member-pic" />
+            <span>Lionel Messi</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=102" class="member-pic" />
+            <span>Neymar Jr</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=103" class="member-pic" />
+            <span>Kylian Mbappé</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=104" class="member-pic" />
+            <span>Kevin De Bruyne</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=105" class="member-pic" />
+            <span>Mohamed Salah</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=106" class="member-pic" />
+            <span>Sadio Mané</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=107" class="member-pic" />
+            <span>Erling Haaland</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=108" class="member-pic" />
+            <span>Robert Lewandowski</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=109" class="member-pic" />
+            <span>Karim Benzema</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=110" class="member-pic" />
+            <span>Paul Pogba</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=111" class="member-pic" />
+            <span>Marcus Rashford</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=112" class="member-pic" />
+            <span>Virgil van Dijk</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=113" class="member-pic" />
+            <span>Trent Alexander‑Arnold</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=114" class="member-pic" />
+            <span>Kevin De Bruyne</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=115" class="member-pic" />
+            <span>Raheem Sterling</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=116" class="member-pic" />
+            <span>Luka Modrić</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=117" class="member-pic" />
+            <span>Jude Bellingham</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=118" class="member-pic" />
+            <span>Harry Kane</span>
+          </div>
+          <div class="member-item">
+            <img src="https://i.pravatar.cc/150?img=119" class="member-pic" />
+            <span>Mohamed Salah</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div class="edit-modal" id="editModal">
+      <div class="edit-box">
+        <div class="modal-header">
+          <h3><i class="bi bi-pencil-square"></i> Edit Club Profile</h3>
+          <i class="bi bi-x-lg" id="closeEdit"></i>
+        </div>
+        <form class="edit-form">
+          <label>Club Name</label>
+          <input type="text" value="Manchister United FC" />
+          <label>Description</label>
+          <textarea>Official Club Dashboard</textarea>
+          <label>Change Logo</label>
+          <input type="file" />
+          <button type="submit" class="save-btn">Save Changes</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="../js/club-profile.js"></script>
+  </body>
+</html>

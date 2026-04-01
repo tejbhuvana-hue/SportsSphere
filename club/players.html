@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SportsSphere • Registered Players</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+h2 {
+  color: #38bdf8;
+  margin-bottom: 25px;
+}
+.player-card {
+  background: #020617;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.player-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: #e5e7eb;
+}
+.left img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 2px solid #38bdf8;
+  object-fit: cover;
+}
+.player-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.actions button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.accept { background: #22c55e; color: black; }
+.reject { background: #ef4444; color: white; margin-left: 8px; }
+.details-btn {
+  margin-top: 10px;
+  background: #1e293b;
+  border: none;
+  padding: 6px 12px;
+  color: #cbd5f5;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.dropdown {
+  display: none;
+  margin-top: 12px;
+  padding-left: 80px;
+}
+.dropdown p {
+  margin: 6px 0;
+  color: #cbd5f5;
+}
+</style>
+<script>
+function toggle(id) {
+  const box = document.getElementById(id);
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h2>Registered Players</h2>
+
+<!-- Player 1 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/89/Lionel_Messi_20180626.jpg">
+      <span class="player-name">Lionel Messi</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p1')">View Details</button>
+  <div class="dropdown" id="p1">
+    <p><b>Skills:</b> Dribbling, Playmaking</p>
+    <p><b>Achievements:</b> 7 Ballon d'Or</p>
+  </div>
+</div>
+
+<!-- Player 2 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg">
+      <span class="player-name">Cristiano Ronaldo</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p2')">View Details</button>
+  <div class="dropdown" id="p2">
+    <p><b>Skills:</b> Finishing, Heading</p>
+    <p><b>Achievements:</b> 5 Ballon d'Or</p>
+  </div>
+</div>
+
+<!-- Player 3 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Neymar_in_2018.jpg">
+      <span class="player-name">Neymar Jr</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p3')">View Details</button>
+  <div class="dropdown" id="p3">
+    <p><b>Skills:</b> Creativity, Dribbling</p>
+    <p><b>Achievements:</b> Champions League Winner</p>
+  </div>
+</div>
+
+<!-- Player 4 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Kylian_Mbapp%C3%A9_2019.jpg">
+      <span class="player-name">Kylian Mbappé</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p4')">View Details</button>
+  <div class="dropdown" id="p4">
+    <p><b>Skills:</b> Speed, Finishing</p>
+    <p><b>Achievements:</b> World Cup Winner</p>
+  </div>
+</div>
+
+<!-- Player 5 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Kevin_De_Bruyne_20180710.jpg">
+      <span class="player-name">Kevin De Bruyne</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p5')">View Details</button>
+  <div class="dropdown" id="p5">
+    <p><b>Skills:</b> Passing, Vision</p>
+    <p><b>Achievements:</b> Premier League Titles</p>
+  </div>
+</div>
+
+<!-- Player 6 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Robert_Lewandowski_2020.jpg">
+      <span class="player-name">Robert Lewandowski</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p6')">View Details</button>
+  <div class="dropdown" id="p6">
+    <p><b>Skills:</b> Positioning, Finishing</p>
+    <p><b>Achievements:</b> FIFA Best Player</p>
+  </div>
+</div>
+
+<!-- Player 7 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Mohamed_Salah_2018.jpg">
+      <span class="player-name">Mohamed Salah</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p7')">View Details</button>
+  <div class="dropdown" id="p7">
+    <p><b>Skills:</b> Speed, Shooting</p>
+    <p><b>Achievements:</b> Golden Boot Winner</p>
+  </div>
+</div>
+
+<!-- Player 8 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Luka_Modric_2018.jpg">
+      <span class="player-name">Luka Modrić</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p8')">View Details</button>
+  <div class="dropdown" id="p8">
+    <p><b>Skills:</b> Control, Passing</p>
+    <p><b>Achievements:</b> Ballon d'Or 2018</p>
+  </div>
+</div>
+
+<!-- Player 9 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Erling_Haaland_2020.jpg">
+      <span class="player-name">Erling Haaland</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p9')">View Details</button>
+  <div class="dropdown" id="p9">
+    <p><b>Skills:</b> Strength, Finishing</p>
+    <p><b>Achievements:</b> Golden Boy Award</p>
+  </div>
+</div>
+
+<!-- Player 10 -->
+<div class="player-card">
+  <div class="player-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Vinicius_Jr_Real_Madrid_2022.jpg">
+      <span class="player-name">Vinícius Jr</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('p10')">View Details</button>
+  <div class="dropdown" id="p10">
+    <p><b>Skills:</b> Pace, Dribbling</p>
+    <p><b>Achievements:</b> Champions League Winner</p>
+  </div>
+</div>
+
+</div>
+
+<script src="../js/player.js"></script>
+</body>
+</html>

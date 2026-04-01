@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SportsSphere • Schedule Match</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/coach-updates.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: #e5e7eb;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 650px;
+      background: #020617;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: #cbd5f5;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      background: #0f172a;
+      color: #e5e7eb;
+      font-size: 14px;
+    }
+
+    .row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .row .form-group {
+      flex: 1;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
+      background: #38bdf8;
+      color: #020617;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0ea5e9;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Schedule a Match</h2>
+
+    <!-- Sport Type -->
+    <div class="form-group">
+      <label>Sport Name</label>
+      <input type="text" placeholder="Football / Cricket / Basketball" required />
+    </div>
+
+    <!-- Teams -->
+    <div class="row">
+      <div class="form-group">
+        <label>Team A</label>
+        <input type="text" placeholder="Enter Team A" required />
+      </div>
+      <div class="form-group">
+        <label>Team B</label>
+        <input type="text" placeholder="Enter Team B" required />
+      </div>
+    </div>
+
+    <!-- Date and Time -->
+    <div class="row">
+      <div class="form-group">
+        <label>Match Date</label>
+        <input type="date" required />
+      </div>
+      <div class="form-group">
+        <label>Match Time</label>
+        <input type="time" required />
+      </div>
+    </div>
+
+    <!-- Venue -->
+    <div class="form-group">
+      <label>Venue / Ground</label>
+      <input type="text" placeholder="Stadium / Court Name" required />
+    </div>
+
+    <!-- Match Type -->
+    <div class="form-group">
+      <label>Match Type</label>
+      <select required>
+        <option value="">Select Type</option>
+        <option>League</option>
+        <option>Friendly</option>
+        <option>Knockout</option>
+        <option>Final</option>
+      </select>
+    </div>
+
+    <!-- Officials -->
+    <div class="form-group">
+      <label>Referee / Umpire Name</label>
+      <input type="text" placeholder="Enter Official Name" required />
+    </div>
+
+    <!-- Status -->
+    <div class="form-group">
+      <label>Match Status</label>
+      <select required>
+        <option>Scheduled</option>
+        <option>Postponed</option>
+      </select>
+    </div>
+
+    <button>Save Schedule</button>
+
+  </div>
+
+  <script src="../js/coach-updates.js"></script>
+</body>
+</html>

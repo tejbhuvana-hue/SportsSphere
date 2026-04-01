@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SportsSphere • Registration</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="css/register-page1.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar">
+        <img
+          id="logo"
+          src="images/Beige And Dark Gray Illustrative Running Sport Logo.png"
+          alt="Logo"
+        />
+
+        <div class="nav" id="nav-links">
+          <a href="./explore.html"
+            ><i class="bi bi-compass-fill"></i> Explore</a
+          >
+          <a href="./login.html"
+            ><i class="bi bi-box-arrow-in-right"></i> Login</a
+          >
+        </div>
+
+        <div class="menu-icon" id="menu-icon">
+          <i class="bi bi-list"></i>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <h2>SportsSphere Registration</h2>
+
+      <form>
+        <!-- REGISTER TYPE -->
+        <div class="form-group">
+          <label>Register As</label>
+          <div class="man">
+            <label
+              ><input type="radio" name="member" id="playerRadio" value="player"/>
+              Player</label
+            >
+            <label
+              ><input type="radio" name="member" id="coachRadio" value="coach"/> Coach</label
+            >
+            <label
+              ><input type="radio" name="member" id="clubRadio" value="club"/> Club</label
+            >
+          </div>
+        </div>
+
+        <!-- ================= PLAYER ================= -->
+        <form action="/player-signup" class="player_register" method="POST">
+          <div id="playerForm" class="role-form">
+            <div class="form-group">
+              <label>Full Name</label><input type="text" name="name" />
+            </div>
+            <div class="form-group">
+              <label>Date of Birth</label><input type="date" name="DOB" />
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <select name="gender">
+                <option value="">Select</option>
+                <option value="Male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Primary Sport</label><input type="text" name="sport" />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label><input type="email" name="email" />
+            </div>
+            <div class="form-group">
+              <label>Playing Role / Position</label
+              ><input type="text" name="position" />
+            </div>
+            <div class="form-group">
+              <label>Skills</label><input type="text" name="skills" />
+            </div>
+            <div class="form-group">
+              <label>Acheivements</label
+              ><input type="text" name="acheivements" />
+            </div>
+            <div class="form-group">
+              <label>Mobile Number</label><input type="number" name="phone" />
+            </div>
+            <div class="form-group">
+              <label>City & State</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Profile Photo</label><input type="file" name="photo" />
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" name="password"/>
+            </div>
+          </div>
+        </form>
+
+        <!-- ================= COACH ================= -->
+        <form action="/coach_signup" class="coach_register">
+          <div id="coachForm" class="role-form">
+            <div class="form-group">
+              <label>Full Name</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Date of Birth</label><input type="date" />
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <select>
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Primary Sport Coached</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Coaching Role</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Years of Experience</label><input type="number" />
+            </div>
+            <div class="form-group">
+              <label>Email Address</label><input type="email" />
+            </div>
+            <div class="form-group">
+              <label>Mobile Number</label><input type="number" />
+            </div>
+            <div class="form-group">
+              <label>City & State</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Profile Photo</label><input type="file" />
+            </div>
+          </div>
+        </form>
+
+        <!-- ================= CLUB ================= -->
+        <form action="" class="club_signup">
+          <div id="clubForm" class="role-form">
+            <div class="form-group">
+              <label>Club Name</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Club Type</label>
+              <select>
+                <option value="">Select</option>
+                <option>Academy</option>
+                <option>Professional</option>
+                <option>School</option>
+                <option>College</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Primary Sport</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Official Email</label><input type="email" />
+            </div>
+            <div class="form-group">
+              <label>Contact Number</label><input type="number" />
+            </div>
+            <div class="form-group">
+              <label>City & State</label><input type="text" />
+            </div>
+            <div class="form-group">
+              <label>Club Logo</label><input type="file" />
+            </div>
+            <div class="form-group">
+              <label>Admin Name</label><input type="text" />
+            </div>
+          </div>
+        </form>
+        <!-- COMMON -->
+
+        <div class="form-group checkbox">
+          <label
+            ><input type="checkbox" /> I accept Terms & Conditions / Platform
+            Policies</label
+          >
+        </div>
+
+        <button type="submit">
+          <a href="Player/index.html" id="register-btn">Register</a>
+        </button>
+      </form>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="footer-box">
+          <h3>SportsSphere</h3>
+          <p>Your one-stop platform for sports news, events, and updates.</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+          <a href="./explore.html">Explore</a>
+          <a href="./about-us.html">About Us</a>
+          <a href="#">Contact</a>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-twitter-x"></i>
+            <i class="bi bi-youtube"></i>
+          </div>
+        </div>
+      </div>
+
+      <p class="footer-bottom">© 2026 SportsSphere. All Rights Reserved.</p>
+    </footer>
+
+    <script src="js/register-page1.js"></script>
+  </body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SportsSphere • Registered Clubs</title>
+<link rel="stylesheet" href="../css/organization.css" />
+<style>
+body {
+  margin: 0;
+  font-family: Inter, sans-serif;
+  background: #0f172a;
+  color: #e5e7eb;
+}
+.container {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+}
+h2 {
+  color: #22c55e;
+  margin-bottom: 25px;
+}
+.club-card {
+  background: #020617;
+  border-radius: 12px;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.club-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-decoration: none;
+  color: #e5e7eb;
+}
+.left img {
+  width: 65px;
+  height: 65px;
+  border-radius: 12px;
+  border: 2px solid #22c55e;
+  background: white;
+  padding: 5px;
+}
+.club-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+.actions button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+.accept { background: #22c55e; color: black; }
+.reject { background: #ef4444; color: white; margin-left: 8px; }
+.details-btn {
+  margin-top: 10px;
+  background: #1e293b;
+  border: none;
+  padding: 6px 12px;
+  color: #cbd5f5;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.dropdown {
+  display: none;
+  margin-top: 12px;
+  padding-left: 80px;
+}
+.dropdown p {
+  margin: 6px 0;
+  color: #cbd5f5;
+}
+</style>
+<script>
+function toggle(id) {
+  const box = document.getElementById(id);
+  box.style.display = box.style.display === "block" ? "none" : "block";
+}
+</script>
+</head>
+<body>
+<div class="container">
+<h2>Registered Clubs</h2>
+
+<!-- Club 1 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg">
+      <span class="club-name">FC Barcelona</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c1')">View Details</button>
+  <div class="dropdown" id="c1">
+    <p><b>Won Tournaments:</b> La Liga, Champions League</p>
+    <p><b>Best Players:</b> Messi, Xavi</p>
+  </div>
+</div>
+
+<!-- Club 2 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg">
+      <span class="club-name">Real Madrid</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c2')">View Details</button>
+  <div class="dropdown" id="c2">
+    <p><b>Won Tournaments:</b> La Liga, UCL</p>
+    <p><b>Best Players:</b> Ronaldo, Benzema</p>
+  </div>
+</div>
+
+<!-- Club 3 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_City_FC_badge.svg">
+      <span class="club-name">Manchester City</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c3')">View Details</button>
+  <div class="dropdown" id="c3">
+    <p><b>Won Tournaments:</b> Premier League</p>
+    <p><b>Best Players:</b> De Bruyne, Haaland</p>
+  </div>
+</div>
+
+<!-- Club 4 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg">
+      <span class="club-name">Liverpool</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c4')">View Details</button>
+  <div class="dropdown" id="c4">
+    <p><b>Won Tournaments:</b> Premier League, Champions League</p>
+    <p><b>Best Players:</b> Salah, Van Dijk</p>
+  </div>
+</div>
+
+<!-- Club 5 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/d/da/Juventus_FC_2017_logo.svg">
+      <span class="club-name">Juventus</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c5')">View Details</button>
+  <div class="dropdown" id="c5">
+    <p><b>Won Tournaments:</b> Serie A</p>
+    <p><b>Best Players:</b> Ronaldo, Buffon</p>
+  </div>
+</div>
+
+<!-- Club 6 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Bayern_Munich_FC_Logo.svg">
+      <span class="club-name">Bayern Munich</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c6')">View Details</button>
+  <div class="dropdown" id="c6">
+    <p><b>Won Tournaments:</b> Bundesliga, UCL</p>
+    <p><b>Best Players:</b> Lewandowski, Neuer</p>
+  </div>
+</div>
+
+<!-- Club 7 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg">
+      <span class="club-name">Paris Saint-Germain</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c7')">View Details</button>
+  <div class="dropdown" id="c7">
+    <p><b>Won Tournaments:</b> Ligue 1</p>
+    <p><b>Best Players:</b> Neymar, Mbappé</p>
+  </div>
+</div>
+
+<!-- Club 8 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/c3/AC_Milan_Logo.svg">
+      <span class="club-name">AC Milan</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c8')">View Details</button>
+  <div class="dropdown" id="c8">
+    <p><b>Won Tournaments:</b> Serie A, Champions League</p>
+    <p><b>Best Players:</b> Maldini, Ibrahimović</p>
+  </div>
+</div>
+
+<!-- Club 9 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/03/Chelsea_FC.svg">
+      <span class="club-name">Chelsea</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c9')">View Details</button>
+  <div class="dropdown" id="c9">
+    <p><b>Won Tournaments:</b> Premier League, UCL</p>
+    <p><b>Best Players:</b> Mount, Kanté</p>
+  </div>
+</div>
+
+<!-- Club 10 -->
+<div class="club-card">
+  <div class="club-header">
+    <a href="" class="left">
+      <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Atl%C3%A9tico_Madrid_logo.svg">
+      <span class="club-name">Atlético Madrid</span>
+    </a>
+    <div class="actions">
+      <button class="accept">Accept</button>
+      <button class="reject">Reject</button>
+    </div>
+  </div>
+  <button class="details-btn" onclick="toggle('c10')">View Details</button>
+  <div class="dropdown" id="c10">
+    <p><b>Won Tournaments:</b> La Liga</p>
+    <p><b>Best Players:</b> Griezmann, Oblak</p>
+  </div>
+</div>
+
+</div>
+
+<script src="../js/organization.js"></script>
+</body>
+</html>

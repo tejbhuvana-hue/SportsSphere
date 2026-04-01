@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SportsSphere • Completed Event</title>
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #38bdf8;
+      margin-bottom: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* EVENT SUMMARY */
+    .event-summary {
+      background: #020617;
+      padding: 25px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .winner {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .winner img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 3px solid #22c55e;
+      background: white;
+    }
+
+    .trophy {
+      font-size: 40px;
+      color: #facc15;
+    }
+
+    /* MATCH RESULT CARD */
+    .match-card {
+      background: #020617;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .team {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 35%;
+    }
+
+    .team img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid #38bdf8;
+      background: white;
+    }
+
+    .team-name {
+      font-weight: 600;
+    }
+
+    .vs {
+      background: #1e293b;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 14px;
+      color: #38bdf8;
+    }
+
+    .score {
+      font-size: 18px;
+      font-weight: bold;
+      color: #22c55e;
+    }
+
+    /* BEST PLAYER */
+    .best-player {
+      background: #020617;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .best-player img {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      border: 3px solid #facc15;
+      background: white;
+    }
+
+    .badge {
+      background: #facc15;
+      color: #020617;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      margin-left: 10px;
+      font-weight: 600;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- EVENT SUMMARY -->
+  <div class="event-summary">
+    <div>
+      <h2>Football Championship 2026</h2>
+      <p><b>Total Matches:</b> 13</p>
+      <p><b>Status:</b> Completed</p>
+      <p><b>Final Date:</b> 22 Jan 2026</p>
+    </div>
+
+    <div class="winner">
+      <span class="trophy">🏆</span>
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" />
+      <div>
+        <h3>Event Winner</h3>
+        <p><b>FC Barcelona</b></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ALL MATCH RESULTS -->
+  <h2>All Match Results</h2>
+
+  <div class="match-card">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/47/FC_Barcelona_%28crest%29.svg" />
+      <span class="team-name">FC Barcelona</span>
+    </div>
+    <span class="vs">VS</span>
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/56/Real_Madrid_CF.svg" />
+      <span class="team-name">Real Madrid</span>
+    </div>
+    <span class="score">2 - 1</span>
+  </div>
+
+  <div class="match-card">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg" />
+      <span class="team-name">Manchester City</span>
+    </div>
+    <span class="vs">VS</span>
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/0/0c/Liverpool_FC.svg" />
+      <span class="team-name">Liverpool</span>
+    </div>
+    <span class="score">3 - 2</span>
+  </div>
+
+  <div class="match-card">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/1/1f/FC_Bayern_München_logo_%282017%29.svg" />
+      <span class="team-name">Bayern Munich</span>
+    </div>
+    <span class="vs">VS</span>
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/a/a7/Paris_Saint-Germain_F.C..svg" />
+      <span class="team-name">PSG</span>
+    </div>
+    <span class="score">1 - 1</span>
+  </div>
+
+  <div class="match-card">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/Chelsea_FC.svg" />
+      <span class="team-name">Chelsea</span>
+    </div>
+    <span class="vs">VS</span>
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/5/53/Arsenal_FC.svg" />
+      <span class="team-name">Arsenal</span>
+    </div>
+    <span class="score">0 - 2</span>
+  </div>
+
+  <div class="match-card">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Juventus_FC_2017_logo.svg" />
+      <span class="team-name">Juventus</span>
+    </div>
+    <span class="vs">VS</span>
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Logo_of_AC_Milan.svg" />
+      <span class="team-name">AC Milan</span>
+    </div>
+    <span class="score">2 - 2</span>
+  </div>
+
+  <div class="match-card">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/FC_Internazionale_Milano_2021.svg" />
+      <span class="team-name">Inter Milan</span>
+    </div>
+    <span class="vs">VS</span>
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f4/Atletico_Madrid_2017_logo.svg" />
+      <span class="team-name">Atletico Madrid</span>
+    </div>
+    <span class="score">1 - 0</span>
+  </div>
+
+  <!-- BEST PLAYER OF EVENT -->
+  <h2>Best Player of the Event</h2>
+
+  <div class="best-player">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Lionel_Messi_20180626.jpg" />
+    <div>
+      <h3>Lionel Messi <span class="badge">Player of the Tournament</span></h3>
+      <p><b>Team:</b> FC Barcelona</p>
+      <p><b>Total Goals:</b> 9</p>
+      <p><b>Total Assists:</b> 5</p>
+      <p><b>Final Rating:</b> 9.6 / 10</p>
+    </div>
+  </div>
+
+</div>
+
+<script src="../js/full-details.js"></script>
+</body>
+</html>
