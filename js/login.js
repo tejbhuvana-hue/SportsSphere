@@ -11,16 +11,16 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
     // Example credentials
     if(username === "player" && password === "123") {
-        window.location.href = "player/player.html";
+        window.location.href = "Player/player.html";
     }
     else if(username === "coach" && password === "123") {
-        window.location.href = "coach/coach.html";
+        window.location.href = "Coach/coach.html";
     }
     else if(username === "club" && password === "123") {
-        window.location.href = "club/club.html";
+        window.location.href = "Club/club.html";
     }
     else if(username === "admin" && password === "123") {
-        window.location.href = "admin/admin.html";
+        window.location.href = "Admin/admin.html";
     }
     else {
         alert("Invalid credentials");
