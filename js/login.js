@@ -12,7 +12,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
     // Example credentials
     if(username === "player" && password === "123") {
-        window.location.href = "Player/player.html";
+        window.location.href = "Player/index.html";
     }
     else if(username === "coach" && password === "123") {
         window.location.href = "Coach/coach.html";
