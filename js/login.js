@@ -9,7 +9,6 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    // Example credentials
     if(username === "player" && password === "123") {
         window.location.href = "Player/player.html";
     }
