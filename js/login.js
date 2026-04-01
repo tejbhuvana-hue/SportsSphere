@@ -5,7 +5,6 @@ menuIcon.addEventListener("click", function() {
   navLinks.classList.toggle("active");
 });
 document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop page reload
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
