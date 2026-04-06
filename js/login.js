@@ -5,23 +5,22 @@ menuIcon.addEventListener("click", function() {
   navLinks.classList.toggle("active");
 });
 document.getElementById("loginForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // stop page reload
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
     // Example credentials
     if(username === "player" && password === "123") {
-        window.location.href = "Player/player.html";
+        window.location.href = "player/player.html";
     }
     else if(username === "coach" && password === "123") {
-        window.location.href = "Coach/coach.html";
+        window.location.href = "coach/coach.html";
     }
     else if(username === "club" && password === "123") {
-        window.location.href = "Club/club.html";
+        window.location.href = "club/club.html";
     }
     else if(username === "admin" && password === "123") {
-        window.location.href = "Admin/admin.html";
+        window.location.href = "admin/admin.html";
     }
     else {
         alert("Invalid credentials");
