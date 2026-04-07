@@ -20,6 +20,9 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     else if(username === "club" && password === "123") {
         window.location.href = "club/club.html";
     }
+    else if(username === "organization" && password === "123") {
+        window.location.href = "organization/organization.html";
+    }
     else if(username === "admin" && password === "123") {
         window.location.href = "admin/admin.html";
     }
