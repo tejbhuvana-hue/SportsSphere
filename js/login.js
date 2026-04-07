@@ -5,6 +5,7 @@ menuIcon.addEventListener("click", function() {
   navLinks.classList.toggle("active");
 });
 document.getElementById("loginForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent form submission
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -17,6 +18,9 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
     }
     else if(username === "club" && password === "123") {
         window.location.href = "Club/club.html";
+    }
+    else if(username === "organization" && password === "123") {
+        window.location.href = "organization/organization.html";
     }
     else if(username === "admin" && password === "123") {
         window.location.href = "Admin/admin.html";
