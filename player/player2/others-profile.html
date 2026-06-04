@@ -1,0 +1,313 @@
+  <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SportsSphere</title>
+    <link rel="stylesheet" href="../../css/others-profile.css" />
+    <link rel="stylesheet" href="../../css/follow-system.css" />
+    <link rel="stylesheet" href="../../css/dashboard-tabs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="menu-toggle">
+        <i class="bi bi-list"></i>
+      </div>
+      <div class="mobile-menu">
+        <a href="./player.html"
+          ><i class="bi bi-house-fill jelly-home"></i> Home</a
+        >
+        <a href="./messeges.html"><i class="bi bi-send-fill"></i> Messages</a>
+        <a href="./events.html"><i class="bi bi-trophy-fill"></i> Events</a>
+        <a href="./profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+      </div>
+
+      <div class="nav-left">
+        <h2 id="Logotext">SportsSphere</h2>
+        <div class="search-box">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <a href="./player.html">
+          <i class="bi bi-house-fill jelly-home"></i>Home</a
+        >
+        <a href="./messeges.html"> <i class="bi bi-send-fill"></i> Messages</a>
+        <a href="./events.html"> <i class="bi bi-trophy-fill"></i> Events</a>
+        <div class="profile-dropdown">
+          <a href="./profile.html" class="profile-dropbtn">
+            <i class="bi bi-person-circle"></i> Profile</a
+          >
+          <div class="profile-dropdown-content">
+            <a href="./profile.html"><i class="bi bi-person"></i> Profile</a>
+            <a href="https://tejbhuvana-hue.github.io/SportsSphere/"
+              ><i class="bi bi-box-arrow-right"></i> Logout</a
+            >
+          </div>
+        </div>
+        <a href="#" class="notify-only">
+          <i class="bi bi-bell-fill"></i> Notifications
+        </a>
+      </div>
+    </nav>
+    <div class="main-content">
+      <div class="player-card">
+        <h3>Player Card</h3>
+        <img
+          id="profile-pic"
+          src="https://ui-avatars.com/api/?name=Member&background=38bdf8&color=020617&size=200"
+          alt=""
+        />
+        <p id="player-name">SportsSphere Member</p>
+        <p id="sport-name">Sport</p>
+        <hr />
+        <p>Skills:-</p>
+        <p id="skills">N/A</p>
+        <hr />
+        <p>Achievements:-</p>
+        <p id="achievements">N/A</p>
+        <div class="follow-summary">
+          <div class="follow-summary-item profile-summary">
+            <strong id="profileFollowersCount">0</strong>
+            <span>Followers</span>
+          </div>
+          <div class="follow-summary-item profile-summary">
+            <strong id="profileFollowingCount">0</strong>
+            <span>Following</span>
+          </div>
+        </div>
+        <hr />
+
+        <div class="player-actions">
+          <button class="btn-follow" data-profile-id="">
+            <i class="bi bi-person-plus-fill"></i> Follow
+          </button>
+
+          <button class="btn-message">
+            <i class="bi bi-chat-dots-fill"></i> Message
+          </button>
+        </div>
+      </div>
+      <div class="feed">
+        <!-- Dashboard Tabs -->
+        <div class="feed-tabs">
+          <button class="feed-tab-btn active" data-tab="feed-content">
+            <i class="bi bi-justify-left"></i> Feed
+          </button>
+          <button class="feed-tab-btn" data-tab="achievements-content">
+            <i class="bi bi-award-fill"></i> Achievements
+          </button>
+          <button class="feed-tab-btn" data-tab="gallery-content">
+            <i class="bi bi-images"></i> Gallery
+          </button>
+        </div>
+
+        <!-- Feed Content Wrapper -->
+        <div id="feed-content" class="tab-content active-content">
+          <div class="post">
+          <div class="post-header">
+            <img
+              src="https://ui-avatars.com/api/?name=Member&background=38bdf8&color=020617&size=200"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>SportsSphere Member</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Stretching limits and getting ready for the upcoming games! ⚽💪 Proud to connect with the team. Ready to give 100% on the field!
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://www.football-espana.net/wp-content/uploads/2021/08/1002614356.jpg"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://ui-avatars.com/api/?name=Member&background=38bdf8&color=020617&size=200"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>SportsSphere Member</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Stretching limits and getting ready for the upcoming games! ⚽💪 Proud to connect with the team. Ready to give 100% on the field!
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://www.football-espana.net/wp-content/uploads/2021/08/1002614356.jpg"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://ui-avatars.com/api/?name=Member&background=38bdf8&color=020617&size=200"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>SportsSphere Member</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Stretching limits and getting ready for the upcoming games! ⚽💪 Proud to connect with the team. Ready to give 100% on the field!
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://www.football-espana.net/wp-content/uploads/2021/08/1002614356.jpg"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://ui-avatars.com/api/?name=Member&background=38bdf8&color=020617&size=200"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>SportsSphere Member</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Stretching limits and getting ready for the upcoming games! ⚽💪 Proud to connect with the team. Ready to give 100% on the field!
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://www.football-espana.net/wp-content/uploads/2021/08/1002614356.jpg"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        <div class="post">
+          <div class="post-header">
+            <img
+              src="https://ui-avatars.com/api/?name=Member&background=38bdf8&color=020617&size=200"
+              alt="profile"
+              class="profile-pic"
+            />
+            <div>
+              <h4>SportsSphere Member</h4>
+              <p>Foot Ball • 1h</p>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p>
+              Stretching limits and getting ready for the upcoming games! ⚽💪 Proud to connect with the team. Ready to give 100% on the field!
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              src="https://www.football-espana.net/wp-content/uploads/2021/08/1002614356.jpg"
+              alt="post image"
+            />
+          </div>
+          <div class="post-actions">
+            <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+            <button><i class="bi bi-chat-fill"></i> Comment</button>
+            <button><i class="bi bi-repeat"></i> Repost</button>
+            <button><i class="bi bi-share-fill"></i> Share</button>
+          </div>
+        </div>
+        
+        </div> <!-- End Feed Content Wrapper -->
+
+        <!-- Achievements Tab Wrapper -->
+        <div id="achievements-content" class="tab-content">
+          <div class="achievements-header">
+            <h3 class="achievements-section-title">Achievements</h3>
+          </div>
+          <div class="achievements-grid" id="achievements-list"></div>
+        </div>
+
+        <!-- Gallery Tab Wrapper -->
+        <div id="gallery-content" class="tab-content">
+          <div class="gallery-grid" id="gallery-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="notification-dropdown" id="notificationDropdown">
+      <div class="arrow"></div>
+      <h4>Notifications</h4>
+    </div>
+
+    <!-- Immersive Certificate & Post Lightbox Viewer -->
+    <div class="lightbox" id="galleryLightbox">
+      <span class="lightbox-close" id="closeLightbox">&times;</span>
+      <img class="lightbox-content" id="lightboxImage" src="" alt="Viewer Preview" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <script src="../../js/event-flow.js"></script>
+    <script src="../../js/others-profile.js"></script>
+    <script src="../../js/follow-system.js"></script>
+    <script src="../../js/dashboard-tabs.js"></script>
+  </body>
+</html>

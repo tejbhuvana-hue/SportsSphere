@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Events • SportsSphere</title>
+
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+
+
+    <link rel="stylesheet" href="../../css/club-events.css" />
+  </head>
+
+  <body>
+
+    <nav class="navbar">
+      <div class="nav-left">
+        <i class="bi bi-list menu-toggle"></i>
+        <div class="logo">SportsSphere</div>
+        <div class="search-bar">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search clubs, events, players..." />
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <div class="nav-item desktop-only">
+          <i class="bi bi-house"></i><span><a href="./club.html">Home</a></span>
+        </div>
+        <div class="profile-dropdown">
+          <a href="./club-profile.html" class="profile-dropbtn"
+            ><i class="bi bi-person-circle"></i><span>Profile</span></a
+          >
+          <div class="profile-dropdown-content">
+            <a href="./club-profile.html"
+              ><i class="bi bi-person"></i> Profile</a
+            >
+            <a href="https://tejbhuvana-hue.github.io/SportsSphere/"
+              ><i class="bi bi-box-arrow-right"></i> Logout</a
+            >
+          </div>
+        </div>
+        <div class="nav-item desktop-only">
+          <i class="bi bi-send-fill"></i
+          ><span><a href="./club-messeges.html">Messages</a></span>
+        </div>
+        <div class="nav-item desktop-only">
+          <i class="bi bi-calendar-event"></i
+          ><span><a href="#">Events</a></span>
+        </div>
+        <div class="nav-item notify-btn">
+          <i class="bi bi-bell"></i><span>Messages</span>
+        </div>
+      </div>
+    </nav>
+
+
+    <div class="mobile-menu">
+      <a href="./club.html"><i class="bi bi-house"></i> Home</a>
+      <a href="./club-profile.html"
+        ><i class="bi bi-person-circle"></i> Profile</a
+      >
+      <a href="./club-messeges.html"
+        ><i class="bi bi-send-fill"></i> Messages</a
+      >
+      <a href="#"><i class="bi bi-calendar-event"></i> Events</a>
+    </div>
+
+
+    <main class="admin-container">
+      <h2 class="page-title">Football Programs</h2>
+
+      <div class="top-actions" style="display: flex; justify-content: space-between; align-items: center; width: 100%; flex-wrap: wrap; gap: 15px;">
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+          <a class="tab-btn active" data-tab="tournaments">Apply for Football Tournament</a>
+          <a class="tab-btn" data-tab="trials">Football Trials</a>
+          <a class="tab-btn" data-tab="camps">Football Camps</a>
+          <a class="tab-btn" data-tab="eventHistory">Event History</a>
+        </div>
+        <button id="addEventBtn" class="tab-btn" style="background: linear-gradient(135deg, #0ea5e9, #38bdf8); color: #020617; border: none;">Add Event</button>
+      </div>
+
+
+      <div class="tab-content active" id="tournaments">
+        <div class="event-grid">
+        </div>
+      </div>
+
+
+      <div class="tab-content" id="trials">
+        <div class="event-grid">
+
+        </div>
+      </div>
+
+
+      <div class="tab-content" id="camps">
+        <div class="event-grid">
+        </div>
+      </div>
+
+      <div class="tab-content" id="eventHistory">
+        <div class="history-controls">
+          <div class="history-search">
+            <i class="bi bi-search"></i>
+            <input type="text" id="historySearchInput" placeholder="Search previous events..." />
+          </div>
+          <div class="history-filters">
+            <select id="historySportFilter">
+              <option value="all">All Categories</option>
+              <option value="Tournament">Tournament</option>
+              <option value="Trial">Trial</option>
+              <option value="Camp">Camp</option>
+            </select>
+            <select id="historySortOrder">
+              <option value="latest">Latest First</option>
+              <option value="oldest">Oldest First</option>
+            </select>
+          </div>
+        </div>
+        <div class="event-grid" id="historyCardsContainer">
+        </div>
+      </div>
+    </main>
+
+
+    <div class="applications-modal" id="applyModal">
+      <div class="modal-content">
+        <i class="bi bi-x-lg modal-close" id="closeApply"></i>
+        <h3 class="modal-title">Tournament Application</h3>
+        <form class="apply-form">
+          <input type="text" placeholder="Club Name" required />
+          <input type="text" placeholder="Manager Name" required />
+          <input type="email" placeholder="Email" required />
+          <input type="tel" placeholder="Contact Number" required />
+          <input type="number" placeholder="Number of Players" required />
+          <input type="text" placeholder="Age Category" required />
+          <textarea placeholder="Additional Notes" rows="3" required></textarea>
+          <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+      </div>
+    </div>
+
+
+    <div class="applications-modal" id="addEventModal" style="display: none;">
+      <div class="modal-content">
+        <i class="bi bi-x-lg modal-close" id="closeAddEvent"></i>
+        <h3 class="modal-title">Add New Event</h3>
+        <form class="apply-form" id="addEventForm">
+          <input type="text" placeholder="Event Title" id="eventTitle" required />
+          <select id="eventType" required style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #1e293b; background: #020617; color: #e5e7eb;">
+            <option value="">Select Event Type</option>
+            <option value="tournament">Tournament</option>
+            <option value="trial">Trial</option>
+            <option value="camp">Camp</option>
+          </select>
+          <input type="text" placeholder="Location/Venue" id="eventLocation" required />
+          <input type="text" placeholder="Date (e.g. 10 Jun - 25 Jun 2026)" id="eventDate" required />
+          <input type="text" placeholder="Category/Sport (e.g. Football)" id="eventCategory" required />
+          <div style="display: flex; flex-direction: column; gap: 5px; margin-bottom: 5px;">
+            <label for="eventPoster" style="font-size: 13px; color: #94a3b8; font-weight: 500; text-align: left;">Event Poster (Image)</label>
+            <input type="file" id="eventPoster" accept="image/*" style="width: 100%;" />
+          </div>
+          <textarea placeholder="Event Description" id="eventDescription" rows="3" required></textarea>
+          <button type="submit" class="submit-btn">Create Event</button>
+        </form>
+      </div>
+    </div>
+
+
+    <script src="../../js/event-flow.js"></script>
+    <script src="../../js/club-events.js"></script>
+    <script src="../../js/club-history.js"></script>
+  </body>
+</html>

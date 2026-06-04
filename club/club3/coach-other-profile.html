@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SportsSphere • Coach Profile</title>
+    <link rel="stylesheet" href="../../css/others-profile.css" />
+    <link rel="stylesheet" href="../../css/follow-system.css" />
+    <link rel="stylesheet" href="../../css/dashboard-tabs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar" style="background: #020617; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b;">
+      <h2 style="color: #38bdf8; margin: 0; font-size: 24px; font-weight: 800;">SportsSphere</h2>
+      <a href="javascript:window.close();" style="color: #38bdf8; text-decoration: none; font-weight: 600; font-size: 14px; padding: 8px 16px; border: 1px solid #38bdf8; border-radius: 8px; transition: 0.3s;"><i class="bi bi-x-lg"></i> Close Profile</a>
+    </nav>
+
+    <div class="main-content" style="max-width: 1200px; margin: 40px auto; padding: 0 20px; display: grid; grid-template-columns: 350px 1fr; gap: 30px; align-items: start;">
+      <!-- Profile Card -->
+      <div class="player-card" style="background: #020617; border-radius: 12px; padding: 25px; border: 1px solid #1e293b; text-align: center; color: #cbd5f5;">
+        <h3 style="color: #38bdf8; margin-top: 0; margin-bottom: 20px;">Coach Card</h3>
+        <img
+          id="profile-pic"
+          src=""
+          alt="Profile Pic"
+          style="width: 150px; height: 150px; border-radius: 50%; border: 4px solid #38bdf8; object-fit: cover; margin-bottom: 15px;"
+        />
+        <p id="coach-name" style="font-size: 22px; font-weight: 700; color: #fff; margin: 5px 0;"></p>
+        <p id="sport-name" style="font-size: 14px; color: #94a3b8; margin: 5px 0 15px;"></p>
+        <hr style="border: 0; border-top: 1px solid #1e293b; margin: 15px 0;" />
+        <p style="text-align: left; font-weight: 600; color: #38bdf8; margin: 5px 0;">Skills:-</p>
+        <p id="skills" style="text-align: left; font-size: 14px; margin: 5px 0 15px;"></p>
+        <hr style="border: 0; border-top: 1px solid #1e293b; margin: 15px 0;" />
+        <p style="text-align: left; font-weight: 600; color: #38bdf8; margin: 5px 0;">Experience:-</p>
+        <p id="experience" style="text-align: left; font-size: 14px; margin: 5px 0;"></p>
+        <hr style="border: 0; border-top: 1px solid #1e293b; margin: 15px 0;" />
+        
+        <div class="follow-summary" style="display: flex; justify-content: space-around; margin-top: 15px;">
+          <div class="follow-summary-item">
+            <strong style="color: #fff; display: block; font-size: 18px;">64</strong>
+            <span>Followers</span>
+          </div>
+          <div class="follow-summary-item">
+            <strong style="color: #fff; display: block; font-size: 18px;">32</strong>
+            <span>Following</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed / Posts -->
+      <div class="feed">
+        <!-- Tabs -->
+        <div class="feed-tabs" style="display: flex; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #1e293b; padding-bottom: 10px;">
+          <button class="feed-tab-btn active" style="background: none; border: none; color: #38bdf8; font-weight: 600; cursor: pointer; padding: 5px 10px; border-bottom: 2px solid #38bdf8;"><i class="bi bi-justify-left"></i> Posts</button>
+        </div>
+
+        <div id="posts-container">
+          <!-- Posts dynamically loaded -->
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/event-flow.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (!window.EventFlow) return;
+        EventFlow.loadState();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const coachId = urlParams.get("coachId");
+
+        const coach = EventFlow.getCoaches().find(c => c.id === coachId);
+        if (!coach) {
+          document.querySelector(".main-content").innerHTML = `<div style="grid-column: 1/-1; text-align: center; padding: 50px;"><h3 style="color:#cbd5f5;">Coach not found</h3></div>`;
+          return;
+        }
+
+        // Fill Profile Card
+        document.getElementById("profile-pic").src = `https://ui-avatars.com/api/?name=${encodeURIComponent(coach.name)}&background=38bdf8&color=020617&size=200`;
+        document.getElementById("coach-name").textContent = coach.name;
+        document.getElementById("sport-name").textContent = `${coach.sport || 'Football'} - Coach`;
+        document.getElementById("skills").textContent = "Tactics, Match Strategy, Team Management, Player Development";
+        document.getElementById("experience").textContent = `${coach.experience || '8'} Years of professional coaching experience.`;
+
+        // Render mock posts for the coach
+        const postsContainer = document.getElementById("posts-container");
+        postsContainer.innerHTML = `
+          <div class="post" style="background: #020617; border-radius: 12px; padding: 20px; border: 1px solid #1e293b; margin-bottom: 20px;">
+            <div class="post-header" style="display: flex; align-items: center; margin-bottom: 15px;">
+              <img src="https://ui-avatars.com/api/?name=${encodeURIComponent(coach.name)}&background=38bdf8&color=020617" style="width: 45px; height: 45px; border-radius: 50%; margin-right: 12px;" />
+              <div>
+                <h4 style="margin: 0; color: #fff; font-size: 16px;">${coach.name}</h4>
+                <p style="margin: 0; font-size: 12px; color: #94a3b8;">${coach.sport || 'Football'} Coach • 1 day ago</p>
+              </div>
+            </div>
+            <div class="post-text" style="color: #cbd5f5; font-size: 14px; line-height: 1.5; margin-bottom: 15px;">
+              <p>Great session today focusing on defensive positioning and rapid counter-attacks. Discipline and structure are key to success! ⚽🧠📊</p>
+            </div>
+            <div class="post-actions" style="display: flex; gap: 15px; border-top: 1px solid #1e293b; padding-top: 10px;">
+              <button style="background: none; border: none; color: #94a3b8; font-weight: 600; cursor: pointer; font-size: 13px;"><i class="bi bi-hand-thumbs-up"></i> Like</button>
+              <button style="background: none; border: none; color: #94a3b8; font-weight: 600; cursor: pointer; font-size: 13px;"><i class="bi bi-chat"></i> Comment</button>
+            </div>
+          </div>
+        `;
+      });
+    </script>
+  </body>
+</html>

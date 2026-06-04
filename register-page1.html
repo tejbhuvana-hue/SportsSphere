@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SportsSphere • Registration</title>
+
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+
+    <link rel="stylesheet" href="css/register-page1.css" />
+  </head>
+
+  <body>
+
+    <header>
+      <div class="navbar">
+        <img
+          id="logo"
+          src="images/Beige And Dark Gray Illustrative Running Sport Logo.png"
+          alt="SportsSphere Logo"
+        />
+
+        <div class="nav" id="nav-links">
+          <a href="./explore.html">
+            <i class="bi bi-compass-fill"></i> Explore
+          </a>
+          <a href="./galley.html"><i class="bi bi-images"></i> Gallery</a>
+
+          <a href="./login.html">
+            <i class="bi bi-box-arrow-in-right"></i> Login
+          </a>
+        </div>
+
+        <div class="menu-icon" id="menu-icon">
+          <i class="bi bi-list"></i>
+        </div>
+      </div>
+    </header>
+
+    
+    <div class="container">
+
+      <h2>SportsSphere Registration</h2>
+
+
+      <div class="form-group">
+        <label>Register As</label>
+
+        <div class="man">
+          <label>
+            <input
+              type="radio"
+              name="member"
+              id="playerRadio"
+              value="player"
+            />
+            Player
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="member"
+              id="coachRadio"
+              value="coach"
+            />
+            Coach
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="member"
+              id="clubRadio"
+              value="club"
+            />
+            Club
+          </label>
+
+          <label>
+            <input
+              type="radio"
+              name="member"
+              id="orgRadio"
+              value="organization"
+            />
+            Association
+          </label>
+        </div>
+      </div>
+
+      
+      <form
+        action="/player-signup"
+        method="POST"
+        class="player_register role-form"
+        id="playerForm"
+      >
+
+        <div class="form-group">
+          <label for="playerName">Full Name</label>
+          <input type="text" id="playerName" name="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerDob">Date of Birth</label>
+          <input type="date" id="playerDob" name="dob" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerGender">Gender</label>
+
+          <select id="playerGender" name="gender">
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="playerSport">Primary Sport</label>
+          <input type="text" id="playerSport" name="sport" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerEmail">Email Address</label>
+          <input type="email" id="playerEmail" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerPosition">Playing Role / Position</label>
+          <input type="text" id="playerPosition" name="position" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerSkills">Skills</label>
+          <input type="text" id="playerSkills" name="skills" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerAchievements">Achievements</label>
+          <input
+            type="text"
+            id="playerAchievements"
+            name="achievements"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="playerPhone">Mobile Number</label>
+          <input type="number" id="playerPhone" name="phone" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerLocation">City & State</label>
+          <input type="text" id="playerLocation" name="location" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerPhoto">Profile Photo</label>
+          <input type="file" id="playerPhoto" name="photo" />
+        </div>
+
+        <div class="form-group">
+          <label for="playerPassword">Password</label>
+          <input
+            type="password"
+            id="playerPassword"
+            name="password"
+          />
+        </div>
+
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" name="terms" />
+            I accept Terms & Conditions / Platform Policies
+          </label>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+
+
+      <form
+        action="/coach-signup"
+        method="POST"
+        class="coach_register role-form"
+        id="coachForm"
+      >
+
+        <div class="form-group">
+          <label for="coachName">Full Name</label>
+          <input type="text" id="coachName" name="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="coachDob">Date of Birth</label>
+          <input type="date" id="coachDob" name="dob" />
+        </div>
+
+        <div class="form-group">
+          <label for="coachGender">Gender</label>
+
+          <select id="coachGender" name="gender">
+            <option value="">Select</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="coachSport">Primary Sport Coached</label>
+          <input type="text" id="coachSport" name="sport" />
+        </div>
+
+        <div class="form-group">
+          <label for="coachRole">Coaching Role</label>
+          <input type="text" id="coachRole" name="role" />
+        </div>
+
+        <div class="form-group">
+          <label for="coachExperience">Years of Experience</label>
+          <input
+            type="number"
+            id="coachExperience"
+            name="experience"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="coachEmail">Email Address</label>
+          <input type="email" id="coachEmail" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="coachPhone">Mobile Number</label>
+          <input type="number" id="coachPhone" name="phone" />
+        </div>
+
+        <div class="form-group">
+          <label for="coachLocation">City & State</label>
+          <input type="text" id="coachLocation" name="location" />
+        </div>
+
+        <div class="form-group">
+          <label for="coachCertificate">
+            Qualifying Certificate
+          </label>
+
+          <input
+            type="file"
+            id="coachCertificate"
+            name="certificate"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="coachPhoto">Profile Photo</label>
+          <input type="file" id="coachPhoto" name="photo" />
+        </div>
+        <div class="form-group">
+          <label for="coachPassword">Password</label>
+          <input
+            type="password"
+            id="coachPassword"
+            name="password"
+          />
+        </div>
+
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" name="terms" />
+            I accept Terms & Conditions / Platform Policies
+          </label>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+
+
+      <form
+        action="/club-signup"
+        method="POST"
+        class="club_signup role-form"
+        id="clubForm"
+      >
+
+        <div class="form-group">
+          <label for="clubName">Club Name</label>
+          <input type="text" id="clubName" name="club_name" />
+        </div>
+
+        <div class="form-group">
+          <label for="clubType">Club Type</label>
+
+          <select id="clubType" name="club_type">
+            <option value="">Select</option>
+            <option value="academy">Academy</option>
+            <option value="professional">Professional</option>
+            <option value="school">School</option>
+            <option value="college">College</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="clubSport">Primary Sport</label>
+          <input type="text" id="clubSport" name="sport" />
+        </div>
+
+        <div class="form-group">
+          <label for="clubEmail">Official Email</label>
+          <input type="email" id="clubEmail" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="clubPhone">Contact Number</label>
+          <input type="number" id="clubPhone" name="phone" />
+        </div>
+
+        <div class="form-group">
+          <label for="clubLocation">City & State</label>
+          <input type="text" id="clubLocation" name="location" />
+        </div>
+
+        <div class="form-group">
+          <label for="clubCertificate">Upload Certificate</label>
+          <input
+            type="file"
+            id="clubCertificate"
+            name="certificate"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="clubLogo">Club Logo</label>
+          <input type="file" id="clubLogo" name="logo" />
+        </div>
+
+        <div class="form-group">
+          <label for="clubAdmin">Admin Name</label>
+          <input type="text" id="clubAdmin" name="admin_name" />
+        </div>
+        <div class="form-group">
+          <label for="clubPassword">Password</label>
+          <input
+            type="password"
+            id="clubPassword"
+            name="password"
+          />
+        </div>
+
+
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" name="terms" />
+            I accept Terms & Conditions / Platform Policies
+          </label>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+
+
+      <form
+        action="/organization-signup"
+        method="POST"
+        class="org_signup role-form"
+        id="orgForm"
+      >
+
+        <div class="form-group">
+          <label for="orgName">Association Name</label>
+          <input type="text" id="orgName" name="organization_name" />
+        </div>
+
+        <div class="form-group">
+          <label for="orgType">Association Type</label>
+
+          <select id="orgType" name="organization_type">
+            <option value="">Select</option>
+            <option value="academy">Academy</option>
+            <option value="professional">Professional</option>
+            <option value="school">School</option>
+            <option value="college">College</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="orgSport">Primary Sport</label>
+          <input type="text" id="orgSport" name="sport" />
+        </div>
+
+        <div class="form-group">
+          <label for="orgEmail">Official Email</label>
+          <input type="email" id="orgEmail" name="email" />
+        </div>
+
+        <div class="form-group">
+          <label for="orgPhone">Contact Number</label>
+          <input type="number" id="orgPhone" name="phone" />
+        </div>
+
+        <div class="form-group">
+          <label for="orgLocation">City & State</label>
+          <input type="text" id="orgLocation" name="location" />
+        </div>
+
+        <div class="form-group">
+          <label for="orgCertificate">Upload Certificate</label>
+          <input
+            type="file"
+            id="orgCertificate"
+            name="certificate"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="orgLogo">Association Logo</label>
+          <input type="file" id="orgLogo" name="logo" />
+        </div>
+
+        <div class="form-group">
+          <label for="orgAdmin">Admin Name</label>
+          <input type="text" id="orgAdmin" name="admin_name" />
+        </div>
+        <div class="form-group">
+          <label for="orgPassword">Password</label>
+          <input
+            type="password"
+            id="orgPassword"
+            name="password"
+          />
+
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" name="terms" />
+            I accept Terms & Conditions / Platform Policies
+          </label>
+        </div>
+
+        <button type="submit">Register</button>
+      </form>
+    </div>
+
+
+    <footer>
+
+      <div class="footer-container">
+
+        <div class="footer-box">
+          <h3>SportsSphere</h3>
+
+          <p>
+            Your one-stop platform for sports news, events,
+            and updates.
+          </p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Quick Links</h3>
+
+          <a href="./explore.html">Explore</a>
+          <a href="./login.html">Login</a>
+          <a href="./register-page1.html">Sign Up</a>
+        </div>
+
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+
+          <div class="social-icons">
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-twitter-x"></i>
+            <i class="bi bi-youtube"></i>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="footer-bottom">
+        © 2026 SportsSphere. All Rights Reserved.
+      </p>
+
+    </footer>
+
+
+    <script src="js/event-flow.js"></script>
+    <script src="js/register-page1.js"></script>
+  </body>
+</html>

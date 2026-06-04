@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SportsSphere</title>
+    <link rel="stylesheet" href="../../css/coach.css" />
+    <link rel="stylesheet" href="../../css/follow-system.css" />
+    <link rel="stylesheet" href="../../css/dashboard-tabs.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="menu-toggle">
+        <i class="bi bi-list"></i>
+      </div>
+      <div class="mobile-menu">
+        <a href="#"><i class="bi bi-house-fill jelly-home"></i> Home</a>
+        <a href="./coach-messeges.html"><i class="bi bi-send-fill"></i> Messages</a>
+        <a href="./coach-events.html"><i class="bi bi-trophy-fill"></i> Events</a>
+        <a href="./coach-profile.html"><i class="bi bi-person-circle"></i> Profile</a>
+      </div>
+
+      <div class="nav-left">
+       <h2 id="Logotext">SportsSphere </h2>
+        <div class="search-box">
+          <i class="bi bi-search"></i>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <a href="#"> <i class="bi bi-house-fill jelly-home"></i>Home</a>
+        <a href="./coach-messeges.html"> <i class="bi bi-send-fill"></i> Messages</a>
+        <a href="./coach-events.html"> <i class="bi bi-trophy-fill"></i> Events</a>
+        <div class="profile-dropdown">
+          <a href="./coach-profile.html" class="profile-dropbtn"><i class="bi bi-person-circle"></i><span>Profile</span></a>
+          <div class="profile-dropdown-content">
+            <a href="./coach-profile.html"><i class="bi bi-person"></i> Profile</a>
+            <a href="https://tejbhuvana-hue.github.io/SportsSphere/"><i class="bi bi-box-arrow-right"></i> Logout</a>
+          </div>
+        </div>
+        <a href="#" class="notify-only">
+          <i class="bi bi-bell-fill"></i> Notifications
+        </a>
+      </div>
+    </nav>
+    <div class="main-content">
+      <div class="player-card">
+        <h3>Coach Card</h3>
+        <img
+          id="profile-pic"
+          src="../../images/profile_pics/dinesh.webp"
+          alt=""
+        />
+        <p id="player-name">Michel</p>
+        <p id="sport-name">Foot Ball - Coach</p>
+        <hr />
+        <div class="follow-summary">
+          <div class="follow-summary-item" data-open-follow="followers">
+            <strong id="followersCount">0</strong>
+            <span>Followers</span>
+          </div>
+          <div class="follow-summary-item" data-open-follow="following">
+            <strong id="followingCount">0</strong>
+            <span>Following</span>
+          </div>
+        </div>
+        <hr>
+        <p>Skills:-</p>
+        <p id="skills">Dribbiling, Shooting, Attacking, Accuracy</p>
+        <hr>
+        <p>Experience:-</p>
+        <p id="achievements">15 Years</p>
+        <hr>
+        <p>Club:-</p>
+        <p id="achievements">Manchester United</p>
+      </div>
+      <div class="feed">
+        <!-- Dashboard Tabs -->
+        <div class="feed-tabs">
+          <button class="feed-tab-btn active" data-tab="feed-content">
+            <i class="bi bi-justify-left"></i> Feed
+          </button>
+          <button class="feed-tab-btn" data-tab="achievements-content">
+            <i class="bi bi-award-fill"></i> Achievements
+          </button>
+          <button class="feed-tab-btn" data-tab="gallery-content">
+            <i class="bi bi-images"></i> Gallery
+          </button>
+        </div>
+
+        <!-- Feed Content Wrapper -->
+        <div id="feed-content" class="tab-content active-content">
+
+  <div class="post">
+    <div class="post-header">
+      <a href="./coach-other-profile.html" class="others-profile">
+        <img
+          src="../../images/profile_pics/dinesh.webp"
+          alt="profile"
+          class="profile-pic"
+        />
+        <div>
+          <h4>Coach Rahul Sharma</h4>
+      </a>
+          <p>Football Coach • 1h</p>
+        </div>
+    </div>
+
+    <div class="post-text">
+      <p>
+        Morning training session focused on ball control, passing accuracy,
+        and team coordination ⚽💪 Consistent practice and discipline are the
+        foundation of great performance. Proud to see the players pushing
+        their limits and improving every day 🔥👏
+      </p>
+    </div>
+
+    <div class="post-image">
+      <img
+        src="https://media.istockphoto.com/id/1164736873/photo/silhouette-action-sport-outdoors-of-a-group-of-kids-having-fun-playing-soccer-football-for.jpg?s=612x612&w=0&k=20&c=nTeHF_1btt_PCZ6M5EvcD0vb_thUF6AaMDqNleWo-e4="
+        alt="post image"
+      />
+    </div>
+
+    <div class="post-actions">
+      <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+      <button><i class="bi bi-chat-fill"></i> Comment</button>
+      <button><i class="bi bi-repeat"></i> Repost</button>
+      <button><i class="bi bi-share-fill"></i> Share</button>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <a href="./others-profile.html" class="others-profile">
+        <img
+          src="https://images.unsplash.com/photo-1517649763962-0c623066013b"
+          alt="profile"
+          class="profile-pic"
+        />
+        <div>
+          <h4>Coach Rahul Sharma</h4>
+      </a>
+          <p>Football Coach • 3h</p>
+        </div>
+    </div>
+
+    <div class="post-text">
+      <p>
+        Pre-match discussion and strategy planning 🧠⚽ Understanding player
+        roles and maintaining focus makes the real difference on the field.
+        Trust, teamwork, and communication lead to strong performances 💙🔥
+      </p>
+    </div>
+
+    <div class="post-image">
+      <img
+        src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6"
+        alt="post image"
+      />
+    </div>
+
+    <div class="post-actions">
+      <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+      <button><i class="bi bi-chat-fill"></i> Comment</button>
+      <button><i class="bi bi-repeat"></i> Repost</button>
+      <button><i class="bi bi-share-fill"></i> Share</button>
+    </div>
+  </div>
+
+  <div class="post">
+    <div class="post-header">
+      <a href="./others-profile.html" class="others-profile">
+        <img
+          src="https://images.unsplash.com/photo-1551958219-acbc608c6377"
+          alt="profile"
+          class="profile-pic"
+        />
+        <div>
+          <h4>Coach Rahul Sharma</h4>
+      </a>
+          <p>Football Coach • 6h</p>
+        </div>
+    </div>
+
+    <div class="post-text">
+      <p>
+        Football is not just about winning 🏆⚽ It’s about growth, discipline,
+        and passion. Every session is an opportunity to learn, improve, and
+        build character both on and off the pitch 💪✨
+      </p>
+    </div>
+
+    <div class="post-image">
+      <img
+        src="../../images/profile_pics/dinesh.webp"
+        alt="post image"
+      />
+    </div>
+
+    <div class="post-actions">
+      <button><i class="bi bi-hand-thumbs-up-fill"></i> Like</button>
+      <button><i class="bi bi-chat-fill"></i> Comment</button>
+      <button><i class="bi bi-repeat"></i> Repost</button>
+      <button><i class="bi bi-share-fill"></i> Share</button>
+    </div>
+  </div>
+  
+  </div> <!-- End Feed Content Wrapper -->
+
+  <!-- Achievements Tab Wrapper -->
+  <div id="achievements-content" class="tab-content">
+    <div class="achievements-header">
+      <h3 class="achievements-section-title">My Achievements</h3>
+      <button class="add-achievement-btn" id="openAchModalBtn">
+        <i class="bi bi-plus-square-fill"></i> Add Achievement
+      </button>
+    </div>
+    <div class="achievements-grid" id="achievements-list"></div>
+  </div>
+
+  <!-- Gallery Tab Wrapper -->
+  <div id="gallery-content" class="tab-content">
+    <div class="gallery-grid" id="gallery-list"></div>
+  </div>
+
+</div>
+      <div class="suggestions">
+        <div class="suggestion-header">
+          <span>Suggestions For You</span>
+          <a href="#" id="seeAll">See All</a>
+        </div>
+
+        <div class="suggestion-user">
+          <img
+            src="https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/646b303cf35a46001de65634.jpg"
+            alt="profile"
+          />
+          <div class="user-info">
+            <strong>MBappe</strong>
+            <small>Followed by C.Ronaldo</small>
+          </div>
+          <button>Follow</button>
+        </div>
+
+        <div class="suggestion-user">
+          <img
+            src="https://i.pinimg.com/236x/7d/40/c7/7d40c7a8d871d6079f2f2808475514b0.jpg"
+            alt="profile"
+          />
+          <div class="user-info">
+            <strong>Neymar.Jr</strong>
+            <small>New to SportsSphere</small>
+          </div>
+          <button>Follow</button>
+        </div>
+
+        <div class="suggestion-user">
+          <img
+            src="../../images/profile_pics/manchester united.png"
+            alt="profile"
+          />
+          <div class="user-info">
+            <strong>Manchister United</strong>
+            <small>Suggested for you</small>
+          </div>
+          <button>Follow</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="notification-dropdown" id="notificationDropdown">
+      <div class="arrow"></div>
+      <h4>Notifications</h4>
+    </div>
+
+
+    <!-- ================= SEE ALL SUGGESTIONS MODAL ================= -->
+<div class="suggestions-modal" id="suggestionsModal">
+  <div class="suggestions-box">
+    <div class="suggestions-box-header">
+      <h3>Suggested For You</h3>
+      <i class="bi bi-x-lg" id="closeSuggestions"></i>
+    </div>
+
+    <div class="suggestions-list">
+      <!-- Suggestion Item -->
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=1" />
+        <div class="user-info">
+          <strong>Kevin De Bruyne</strong>
+          <small>Football • Midfielder</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <!-- Duplicate 10 times -->
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=2" />
+        <div class="user-info">
+          <strong>Erling Haaland</strong>
+          <small>Football • Forward</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=3" />
+        <div class="user-info">
+          <strong>Luka Modric</strong>
+          <small>Football • Midfielder</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=4" />
+        <div class="user-info">
+          <strong>Virat Kohli</strong>
+          <small>Cricket • Batsman</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=5" />
+        <div class="user-info">
+          <strong>MS Dhoni</strong>
+          <small>Cricket • Wicket Keeper</small>
+        </div>
+        <button>Follow</button>
+      </div>
+      
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=6" />
+        <div class="user-info">
+          <strong>Novak Djokovic</strong>
+          <small>Tennis • Player</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=7" />
+        <div class="user-info">
+          <strong>Rafael Nadal</strong>
+          <small>Tennis • Player</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=8" />
+        <div class="user-info">
+          <strong>Usain Bolt</strong>
+          <small>Athletics • Sprinter</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=9" />
+        <div class="user-info">
+          <strong>LeBron James</strong>
+          <small>Basketball • Forward</small>
+        </div>
+        <button>Follow</button>
+      </div>
+
+      <div class="suggestion-user">
+        <img src="https://i.pravatar.cc/100?img=10" />
+        <div class="user-info">
+          <strong>Stephen Curry</strong>
+          <small>Basketball • Guard</small>
+        </div>
+        <button>Follow</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <!-- ADD ACHIEVEMENT MODAL -->
+    <div class="achievement-overlay" id="achModalOverlay"></div>
+    <div class="achievement-modal" id="achModal">
+      <div class="achievement-modal-header">
+        <h3>Add Achievement</h3>
+        <i class="bi bi-x-lg" id="closeAchModal"></i>
+      </div>
+      <form class="achievement-form" id="achForm">
+        <label for="achCertFile">Upload Certificate Image</label>
+        <input type="file" id="achCertFile" accept="image/*" required />
+
+        <label for="achTitle">Achievement Title</label>
+        <input type="text" id="achTitle" placeholder="e.g. Winner - District Football Tournament" required />
+
+        <label for="achOrg">Organization/Event Name</label>
+        <input type="text" id="achOrg" placeholder="e.g. Andhra Sports Association" required />
+
+        <label for="achDate">Date</label>
+        <input type="text" id="achDate" placeholder="e.g. March 2026" required />
+
+        <label for="achDesc">Small Description</label>
+        <textarea id="achDesc" placeholder="e.g. Secured first place in district-level football tournament." required></textarea>
+
+        <button type="submit"><i class="bi bi-check-circle-fill"></i> Save Achievement</button>
+      </form>
+    </div>
+
+    <!-- Immersive Certificate & Post Lightbox Viewer -->
+    <div class="lightbox" id="galleryLightbox">
+      <span class="lightbox-close" id="closeLightbox">&times;</span>
+      <img class="lightbox-content" id="lightboxImage" src="" alt="Viewer Preview" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- Follow Modal -->
+    <div class="follow-modal" id="followModal">
+      <div class="follow-modal-card">
+        <div class="follow-modal-header">
+          <h3 id="followModalTitle">Followers</h3>
+          <button class="follow-modal-close" id="closeFollowModal">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+        <div class="follow-modal-list" id="followModalList"></div>
+      </div>
+    </div>
+
+    <script src="../../js/event-flow.js"></script>
+    <script src="../../js/coach.js"></script>
+    <script src="../../js/follow-system.js"></script>
+    <script src="../../js/dashboard-tabs.js"></script>
+  </body>
+</html>

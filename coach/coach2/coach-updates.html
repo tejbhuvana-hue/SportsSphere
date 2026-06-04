@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Coach Match Report</title>
+    <link rel="stylesheet" href="../../css/coach-updates.css" />
+  </head>
+  <body>
+    
+    <div class="container">
+      <h1>Coach Match Report</h1>
+      <p class="subtitle">Enter complete match details below</p>
+      
+      <form class="report-form">
+        <div class="section">
+          <h2>Match Information</h2>
+
+          <div class="field">
+            <label>Match / Tournament Name</label>
+            <input type="text" placeholder="Enter tournament name" />
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Date</label>
+              <input type="date" />
+            </div>
+
+            <div class="field">
+              <label>Venue</label>
+              <input type="text" placeholder="Enter venue" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label>Team A</label>
+              <input type="text" placeholder="Enter Team A name" />
+            </div>
+
+            <div class="field">
+              <label>Team B</label>
+              <input type="text" placeholder="Enter Team B name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Match Type</label>
+            <select id="matchType">
+              <option>League</option>
+              <option>Final</option>
+              <option>Knockout</option>
+              <option>Friendly</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label>Mark Associated Event as Completed?</label>
+            <select id="markEventCompleted">
+              <option value="no">No, keep event active</option>
+              <option value="yes">Yes, complete event & move to history</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Score Details</h2>
+
+          <div class="row">
+            <div class="field">
+              <label>Team A Score</label>
+              <input type="text" placeholder="Example: 180/6 (20 overs)" />
+            </div>
+
+            <div class="field">
+              <label>Team B Score</label>
+              <input type="text" placeholder="Example: 150/9 (20 overs)" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Result</label>
+            <input type="text" placeholder="Example: Team A won by 30 runs" />
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Key Performances</h2>
+
+          <div class="row">
+            <div class="field">
+              <label>Best Player / Man of the Match</label>
+              <input type="text" placeholder="Enter player name" />
+            </div>
+
+            <div class="field">
+              <label>Best Bowler / Defender</label>
+              <input type="text" placeholder="Enter player name" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Top Scorer / Goal Scorer</label>
+            <input type="text" placeholder="Enter player name and score" />
+          </div>
+        </div>
+
+        <div class="section coach-analysis">
+          <h2>Coach Analysis</h2>
+
+          <div class="field">
+            <label>Team Strengths</label>
+            <textarea placeholder="Write team strengths..."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Weaknesses / Mistakes</label>
+            <textarea placeholder="Write team weaknesses..."></textarea>
+          </div>
+
+          <div class="field">
+            <label>Future Improvements</label>
+            <textarea placeholder="Write improvement plan..."></textarea>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Save Match Report</button>
+        </div>
+      </form>
+      <div class="completed-section">
+        <h2>Completed Matches</h2>
+
+        <div class="matches-list">
+        </div>
+      </div>
+    </div>
+
+    <script src="../../js/event-flow.js"></script>
+    <script src="../../js/coach-updates.js"></script>
+  </body>
+</html>

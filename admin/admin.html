@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | SportsSphere</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-text">SportsSphere</span>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <div class="nav-label">Main Menu</div>
+                <a href="index.html" class="nav-item active">
+                    <i class="bi bi-grid-1x2-fill"></i>
+                    <span>Dashboard</span>
+                </a>
+                
+                <div class="nav-label">Management</div>
+                <a href="players.html" class="nav-item">
+                    <i class="bi bi-people-fill"></i>
+                    <span>Players</span>
+                </a>
+                <a href="coaches.html" class="nav-item">
+                    <i class="bi bi-person-badge-fill"></i>
+                    <span>Coaches</span>
+                </a>
+                <a href="clubs.html" class="nav-item">
+                    <i class="bi bi-shield-shaded"></i>
+                    <span>Clubs</span>
+                </a>
+                <a href="organizations.html" class="nav-item">
+                    <i class="bi bi-building-fill"></i>
+                    <span>Organizations</span>
+                </a>
+                
+                <div class="nav-label">Operations</div>
+                <a href="events.html" class="nav-item">
+                    <i class="bi bi-calendar-event-fill"></i>
+                    <span>Events</span>
+                </a>
+                <a href="verifications.html" class="nav-item">
+                    <i class="bi bi-patch-check-fill"></i>
+                    <span>Verifications</span>
+                    <span class="badge-count" style="position: relative; top: 0; right: -5px; padding: 2px 6px;">5</span>
+                </a>
+                
+                <div class="nav-label">System</div>
+                <a href="#" class="nav-item" id="reports-link">
+                    <i class="bi bi-graph-up-arrow"></i>
+                    <span>Reports</span>
+                </a>
+                <a href="#" class="nav-item" id="settings-link">
+                    <i class="bi bi-gear-fill"></i>
+                    <span>Settings</span>
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <a href="https://tejbhuvana-hue.github.io/SportsSphere/" class="nav-item" style="color: var(--danger);">
+                    <i class="bi bi-box-arrow-left"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="search-bar">
+                    <i class="bi bi-search"></i>
+                    <input type="text" placeholder="Search anything...">
+                </div>
+                
+                <div class="user-actions">
+                    <div class="icon-btn">
+                        <i class="bi bi-bell-fill"></i>
+                        <span class="badge-count">3</span>
+                    </div>
+                    <div class="icon-btn">
+                        <i class="bi bi-chat-left-dots-fill"></i>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin&background=06b6d4&color=fff" alt="Admin">
+                        <span class="admin-name">Super Admin</span>
+                        <i class="bi bi-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <section id="dashboard-overview">
+                <h1 style="margin-bottom: 30px;">Dashboard Overview</h1>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon icon-blue"><i class="bi bi-people"></i></div>
+                        <div class="stat-value" id="total-players">0</div>
+                        <div class="stat-label">Total Players</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-cyan"><i class="bi bi-person-badge"></i></div>
+                        <div class="stat-value" id="total-coaches">0</div>
+                        <div class="stat-label">Total Coaches</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-indigo"><i class="bi bi-shield-check"></i></div>
+                        <div class="stat-value" id="total-clubs">0</div>
+                        <div class="stat-label">Total Clubs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon icon-success"><i class="bi bi-calendar-check"></i></div>
+                        <div class="stat-value" id="active-events">0</div>
+                        <div class="stat-label">Active Events</div>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+                    <div class="table-card">
+                        <div class="table-header">
+                            <h2 class="table-title">Recent Registrations</h2>
+                            <button class="icon-btn" style="width: auto; padding: 0 15px; font-size: 0.8rem;">View All</button>
+                        </div>
+                        <table id="recent-registrations">
+                            <thead>
+                                <tr>
+                                    <th>User</th>
+                                    <th>Role</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-card">
+                        <div class="table-header">
+                            <h2 class="table-title">System Logs</h2>
+                        </div>
+                        <div id="activity-logs" style="display: flex; flex-direction: column; gap: 15px;">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="../js/dashboard.js"></script>
+    <script src="../js/admin-main.js"></script>
+</body>
+</html>

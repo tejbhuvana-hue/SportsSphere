@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Navbar</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="css/gallery.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="logo">
+          <img
+            id="logo"
+            class="logo-img"
+            src="images/Beige And Dark Gray Illustrative Running Sport Logo.png"
+            alt="Logo"
+          />
+        </div>
+
+        <div class="nav nav-links" id="nav-links">
+          <a href="./index.html"><i class="bi bi-compass-fill"></i> Explore</a>
+          <a href="#"><i class="bi bi-images"></i> Gallery</a>
+          <a href="./login.html"
+            ><i class="bi bi-box-arrow-in-right"></i> Login</a
+          >
+        </div>
+
+        <div class="menu-icon menu-btn" id="menu-icon">
+          <i class="bi bi-list"></i>
+        </div>
+      </div>
+    </header>
+
+    <main class="compact-main">
+      <section class="gallery-section" id="gallery">
+        <div class="section-header">
+          <h2>Gallery</h2>
+          <p>
+            Browse our curated sports collection showcasing thrilling action and
+            unforgettable moments.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-card">
+            <img
+              src="https://world-beach-games.asset.viewlift.com/images/2026/04/09/AthleticsLandscape-1775719133157.jpg?impolicy=resize&w=1920&h=1080"
+              alt="Soccer striker scoring"
+              loading="lazy"
+            />
+            <div class="gallery-info"></div>
+          </div>
+          <div class="gallery-card">
+            <img
+              src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=800&q=80"
+              alt="Basketball player dunking"
+              loading="lazy"
+            />
+            <div class="gallery-info"></div>
+          </div>
+          <div class="gallery-card">
+            <img
+              src="https://static.toiimg.com/thumb/msid-104238227,width-400,resizemode-4/104238227.jpg"
+              alt="Athlete running on track"
+              loading="lazy"
+            />
+            <div class="gallery-info">
+              
+            
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img
+              src="https://cloudfront-us-east-2.images.arcpublishing.com/reuters/LO5IGRGWTNILXMS3U7OFITIRCY.jpg"
+              alt="Football player kicking ball"
+              loading="lazy"
+            />
+            <div class="gallery-info">
+              
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img
+              src="https://images.openai.com/static-rsc-4/gRmtqHCA9mNrrENvLXmz5fD1p8oQ9CnT01gJcTKsMs6udevSVuQIZ5F4OKJ4YVN7uwu2pSumNft5Ws5ZLq5UDPVfc092Enm_Z0cu2XGxl3K5doQYjGQglr_SOMSh5KNLYe3OTkUJIDxWpco2WGl5YvXyJJOYCVsKpIyBAwv6mJb7KS5P4H0mxitJ0lpsQQpo?purpose=inline"
+              alt="Tennis player serving"
+              loading="lazy"
+            />
+            <div class="gallery-info">
+              
+            </div>
+          </div>
+          <div class="gallery-card">
+            <img
+              src="https://images.openai.com/static-rsc-4/IngvtaD-Cm-BJ12lo_0G8Gs0yxH-yV0nWy7y6YDnLpiXr7kxKGJUXiWoJmpLSri9HxIMJgcK_dY4q2WxUjjVgW38SqZDf1dQOWW0H4f2ztxEeCm_L9VUY9x3M8zTbKnvW6x_tO9hwq8IVXIL5LC-shceTAAZ2yBmWOaQVdBm2fRW_-NHBhRPyPwq2cPu_7Mr?purpose=fullsize"
+              alt="Competitive swimming"
+              loading="lazy"
+            />
+            <div class="gallery-info">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      const menuBtn = document.getElementById("menu-icon");
+      const navLinks = document.getElementById("nav-links");
+      const icon = menuBtn.querySelector("i");
+
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+
+        if (navLinks.classList.contains("active")) {
+          icon.classList.remove("bi-list");
+          icon.classList.add("bi-x-lg");
+        } else {
+          icon.classList.remove("bi-x-lg");
+          icon.classList.add("bi-list");
+        }
+      });
+    </script>
+  </body>
+</html>

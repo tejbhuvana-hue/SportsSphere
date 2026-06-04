@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification Hub | SportsSphere Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin-style.css">
+</head>
+<body>
+    <div class="admin-wrapper">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="logo-text">SportsSphere</span>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-label">Main Menu</div>
+                <a href="admin.html" class="nav-item"><i class="bi bi-grid-1x2-fill"></i><span>Dashboard</span></a>
+                <div class="nav-label">Management</div>
+                <a href="players.html" class="nav-item"><i class="bi bi-people-fill"></i><span>Players</span></a>
+                <a href="coaches.html" class="nav-item"><i class="bi bi-person-badge-fill"></i><span>Coaches</span></a>
+                <a href="clubs.html" class="nav-item"><i class="bi bi-shield-shaded"></i><span>Clubs</span></a>
+                <a href="organizations.html" class="nav-item"><i class="bi bi-building-fill"></i><span>Organizations</span></a>
+                <div class="nav-label">Operations</div>
+                <a href="events.html" class="nav-item"><i class="bi bi-calendar-event-fill"></i><span>Events</span></a>
+                <a href="verifications.html" class="nav-item active"><i class="bi bi-patch-check-fill"></i><span>Verifications</span></a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="https://tejbhuvana-hue.github.io/SportsSphere/" class="nav-item" style="color: var(--danger);"><i class="bi bi-box-arrow-left"></i><span>Logout</span></a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-navbar">
+                <div class="search-bar">
+                    <i class="bi bi-search"></i>
+                    <input type="text" id="search-input" placeholder="Search pending requests...">
+                </div>
+                <div class="user-actions">
+                    <div class="admin-profile">
+                        <img src="https://ui-avatars.com/api/?name=Admin" alt="Admin">
+                        <span class="admin-name">Super Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <section id="verification-hub">
+                <h1 style="margin-bottom: 30px;">Verification Hub</h1>
+                
+                <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="stat-card">
+                        <div class="stat-value" id="pending-coaches">0</div>
+                        <div class="stat-label">Pending Coaches</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="pending-clubs">0</div>
+                        <div class="stat-label">Pending Clubs</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="pending-orgs">0</div>
+                        <div class="stat-label">Pending Organizations</div>
+                    </div>
+                </div>
+
+                <div class="table-card">
+                    <div class="table-header">
+                        <h2 class="table-title">Pending Requests</h2>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="icon-btn active" id="btn-all">All</button>
+                            <button class="icon-btn" id="btn-coach">Coaches</button>
+                            <button class="icon-btn" id="btn-club">Clubs</button>
+                            <button class="icon-btn" id="btn-org">Organizations</button>
+                        </div>
+                    </div>
+
+                    <table id="verifications-table">
+                        <thead>
+                            <tr>
+                                <th>Entity</th>
+                                <th>Type</th>
+                                <th>Documents</th>
+                                <th>Date Submitted</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="../js/verifications.js"></script>
+    <script src="../js/admin-main.js"></script>
+</body>
+</html>
