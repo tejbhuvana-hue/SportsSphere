@@ -389,79 +389,10 @@ a {
 }
 
 /* ── RESPONSIVE: LAPTOP (≤1200px) ── */
-@media (max-width: 1200px) {
-  .rightbar {
-    width: 220px;
-  }
-
-  .sidebar {
-    width: 240px;
-  }
-}
 
 /* ── RESPONSIVE: TABLET (≤991px) ── */
-@media (max-width: 991px) {
-  .sidebar,
-  .rightbar,
-  .desktop-only {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .search-bar {
-    width: 180px;
-  }
-
-  .container {
-    padding: 15px;
-    height: auto;
-    margin-top: 90px;
-  }
-
-  .feed {
-    max-width: 100%;
-  }
-}
 
 /* ── RESPONSIVE: MOBILE (≤767px) ── */
-@media (max-width: 767px) {
-  .container {
-    padding: 12px;
-    gap: 0;
-  }
-
-  .post-actions {
-    font-size: 12px;
-  }
-
-  .search-bar {
-    width: 150px;
-  }
-
-  .nav-actions {
-    gap: 15px;
-  }
-}
 
 /* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0 12px;
-  }
 
-  .search-bar {
-    width: 30%;
-    padding: 7px 10px;
-  }
-
-  .nav-actions {
-    gap: 10px;
-  }
-
-  .post {
-    padding: 12px;
-  }
-}

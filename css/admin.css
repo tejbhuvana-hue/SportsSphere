@@ -13,7 +13,6 @@ body {
   overflow-x: hidden;
 }
 
-
 .navbar {
   height: 80px;
   background: linear-gradient(90deg, #020617, #1e293b);
@@ -78,14 +77,12 @@ body {
   border: 2px solid #38bdf8;
 }
 
-
 .main-content {
   display: flex;
   gap: 30px;
   padding: 110px 30px;
   height: calc(100vh - 110px);
 }
-
 
 .player-card {
   width: 280px;
@@ -132,7 +129,6 @@ body {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
 }
-
 
 .feed {
   flex: 1;
@@ -191,7 +187,6 @@ body {
   margin-left: 5px;
 }
 
-
 .tab-buttons {
   display: flex;
   gap: 15px;
@@ -220,7 +215,6 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
 }
-
 
 .user-list {
   display: flex;
@@ -340,7 +334,6 @@ body {
   display: block;
 }
 
-
 .notification-dropdown {
   position: absolute;
   top: 70px;
@@ -372,7 +365,6 @@ body {
   background: #38bdf8;
   color: #0f172a;
 }
-
 
 .bar-graph {
   display: flex;
@@ -423,68 +415,3 @@ body {
   border-radius: 18px;
 }
 
-@media (max-width: 991px) {
-  .main-content {
-    flex-direction: column;
-    padding: 100px 20px 20px 20px;
-    height: auto;
-  }
-  .player-card,
-  .suggestions {
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .feed {
-    width: 100%;
-  }
-}
-
-
-@media (max-width: 767px) {
-  .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 15px;
-  }
-  .nav-left {
-    width: 100%;
-    justify-content: space-between;
-  }
-  .search-box {
-    width: 100%;
-    margin-top: 10px;
-  }
-  .nav-right {
-    margin-top: 10px;
-    width: 100%;
-    justify-content: space-between;
-  }
-  .profile-card {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  .profile-card img {
-    margin-right: 0;
-  }
-  .profile-actions {
-    width: 100%;
-    justify-content: flex-start;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .tab-buttons {
-    flex-direction: column;
-  }
-  .tab-btn {
-    width: 100%;
-  }
-  .search-box {
-    padding: 6px 10px;
-  }
-  #logo {
-    font-size: 20px;
-  }
-}

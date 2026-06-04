@@ -416,42 +416,6 @@
 }
 
 /* 8. Mobile Responsiveness Adjustments */
-@media (max-width: 991px) {
-  .feed-tabs {
-    padding: 8px 0 15px 0;
-    margin-bottom: 18px;
-  }
-  
-  .feed-tab-btn {
-    padding: 8px 16px;
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 767px) {
-  .feed-tabs {
-    gap: 8px;
-  }
-
-  .feed-tab-btn {
-    padding: 8px 12px;
-    font-size: 12px;
-    border-radius: 10px;
-  }
-
-  .feed-tab-btn i {
-    font-size: 14px;
-  }
-  
-  .achievement-footer {
-    flex-direction: column;
-    gap: 6px;
-  }
-  
-  .achievement-btn {
-    width: 100%;
-  }
-}
 
 /* 9. Dynamic Add Achievement Header & Button */
 .achievements-header {
@@ -643,9 +607,4 @@
 }
 
 /* Modal responsive mobile styling */
-@media (max-width: 767px) {
-  .achievement-modal {
-    width: 92%;
-    padding: 18px;
-  }
-}
+

@@ -36,7 +36,6 @@ body {
     min-height: 100vh;
 }
 
-
 .sidebar {
     width: var(--sidebar-width);
     background: var(--bg-secondary);
@@ -110,7 +109,6 @@ body {
     padding: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
-
 
 .main-content {
     flex: 1;
@@ -203,7 +201,6 @@ body {
     font-weight: 600;
 }
 
-
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -265,7 +262,6 @@ body {
     font-weight: 500;
 }
 
-
 .table-card {
     background: var(--bg-card);
     border-radius: 20px;
@@ -320,7 +316,6 @@ tr:last-child td {
 .status-approved { background: rgba(16, 185, 129, 0.1); color: var(--success); }
 .status-pending { background: rgba(245, 158, 11, 0.1); color: var(--warning); }
 .status-rejected { background: rgba(239, 68, 68, 0.1); color: var(--danger); }
-
 
 .modal-overlay {
     position: fixed;
@@ -395,7 +390,6 @@ tr:last-child td {
     gap: 15px;
 }
 
-
 .toast-container {
     position: fixed;
     bottom: 30px;
@@ -428,7 +422,6 @@ tr:last-child td {
 .toast.success { border-left-color: var(--success); }
 .toast.error { border-left-color: var(--danger); }
 .toast.warning { border-left-color: var(--warning); }
-
 
 .preview-grid {
     display: grid;
@@ -495,14 +488,3 @@ tr:last-child td {
     border-color: var(--accent-cyan);
 }
 
-@media (max-width: 991px) {
-    .sidebar { width: 80px; }
-    .sidebar .logo-text, .sidebar .nav-label, .sidebar .nav-item span { display: none; }
-    .main-content { margin-left: 80px; }
-}
-
-@media (max-width: 767px) {
-    .sidebar { transform: translateX(-100%); }
-    .main-content { margin-left: 0; }
-    .sidebar.active { transform: translateX(0); }
-}

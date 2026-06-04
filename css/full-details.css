@@ -24,8 +24,6 @@ body {
   margin-bottom: 30px;
 }
 
-
-
 .matches-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -71,8 +69,6 @@ body {
   background: #0ea5e9;
 }
 
-
-
 .overlay {
   position: fixed;
   top: 0;
@@ -111,8 +107,6 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
-
-
 
 .score-card {
   display: flex;
@@ -169,8 +163,6 @@ body {
   border: 2px solid #334155;
 }
 
-
-
 .detail-section {
   margin-bottom: 25px;
 }
@@ -189,8 +181,6 @@ body {
   border: 1px solid #1e293b;
   margin-bottom: 10px;
 }
-
-
 
 .progress-area {
   margin: 20px 0;
@@ -215,7 +205,6 @@ body {
   margin-top: 6px;
 }
 
-
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
@@ -238,41 +227,3 @@ body {
   background: #020617;
 }
 
-@media (max-width: 767px) {
-  body {
-    padding: 20px 15px;
-  }
-
-  .score-card {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px;
-  }
-
-  .team-box {
-    width: 100%;
-  }
-
-  .detail-row {
-    flex-direction: column;
-    gap: 4px;
-    align-items: flex-start;
-  }
-
-  .overlay {
-    padding: 20px 10px;
-  }
-
-  .overlay-box {
-    padding: 20px 15px;
-    width: 95%;
-  }
-}
-
-@media (max-width: 480px) {
-  .schedule-table th,
-  .schedule-table td {
-    padding: 6px;
-    font-size: 13px;
-  }
-}

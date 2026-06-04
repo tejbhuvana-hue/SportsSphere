@@ -17,8 +17,6 @@ body {
   color: #e5e7eb;
 }
 
-
-
 .navbar {
   height: 80px;
   background: linear-gradient(90deg, #020617, #1e293b);
@@ -38,8 +36,6 @@ body {
   font-weight: 700;
   color: #38bdf8;
 }
-
-
 
 .nav-left {
   display: flex;
@@ -68,8 +64,6 @@ body {
   color: #38bdf8;
 }
 
-
-
 .nav-right {
   display: flex;
   gap: 25px;
@@ -93,7 +87,6 @@ body {
   color: #38bdf8;
   text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
 }
-
 
 .profile-dropdown {
   position: relative;
@@ -140,8 +133,6 @@ body {
   border-left: 3px solid #38bdf8;
 }
 
-
-
 .menu-toggle {
   display: none;
   font-size: 28px;
@@ -179,8 +170,6 @@ body {
   background: rgba(56, 189, 248, 0.15);
   color: #38bdf8;
 }
-
-
 
 .overlay {
   position: fixed;
@@ -229,14 +218,10 @@ body {
   color: #94a3b8;
 }
 
-
-
 .container {
   margin-top: 110px;
   padding: 20px;
 }
-
-
 
 .event-tabs {
   display: flex;
@@ -266,8 +251,6 @@ body {
   box-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
 }
 
-
-
 .events-section {
   display: none;
 }
@@ -276,14 +259,11 @@ body {
   display: block;
 }
 
-
-
 .clubs {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
-
 
 .club-card {
   background: linear-gradient(145deg, #020617, #111827);
@@ -310,8 +290,6 @@ body {
   color: #cbd5f5;
 }
 
-
-
 .play-btn {
   position: absolute;
   right: 14px;
@@ -328,8 +306,6 @@ body {
 .play-btn:hover {
   transform: scale(1.05);
 }
-
-
 
 .apply-overlay {
   position: fixed;
@@ -438,45 +414,6 @@ body {
 .apply-submit:hover {
   transform: scale(1.05);
 }
-
-
-
-@media (max-width: 991px) {
-  .menu-toggle {
-    display: block;
-  }
-
-.nav-right a:not(.notify-only) {
-  display: none;
-}
-
-.notify-only {
-  display: flex;
-}
-
-  .search-box {
-    display: none;
-  }
-}
-
-@media (max-width: 767px) {
-  .clubs {
-    grid-template-columns: 1fr;
-  }
-
-  .event-tabs {
-    flex-direction: column;
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .apply-modal {
-    width: 90%;
-  }
-}
-
-
 
 .history-controls {
   display: flex;
@@ -710,20 +647,3 @@ body {
   text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
 }
 
-@media (max-width: 991px) {
-  .history-info {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 767px) {
-  .history-controls {
-    flex-direction: column;
-    align-items: stretch;
-    padding: 20px;
-  }
-
-  .history-filters {
-    flex-direction: column;
-  }
-}

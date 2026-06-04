@@ -231,44 +231,4 @@ footer {
 }
 
 /* Media Queries */
-@media (max-width: 991px) {
-  .nav {
-    display: none;
-  }
-  .menu-icon {
-    display: block;
-  }
-  .nav.active {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 80px;
-    right: 30px;
-    background: #111827;
-    padding: 20px;
-    border-radius: 8px;
-    gap: 20px;
-    z-index: 1001;
-  }
-  .main-login {
-    flex-direction: column;
-    gap: 50px;
-    margin-top: 120px;
-  }
-  .main-login .image img {
-    width: 300px;
-  }
-}
 
-@media (max-width: 767px) {
-  #logo {
-    width: 120px;
-  }
-  .login-container {
-    width: 90%;
-    padding: 20px;
-  }
-  .main-login .image img {
-    width: 250px;
-  }
-}

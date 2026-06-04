@@ -12,7 +12,6 @@ body {
   padding-bottom: 60px;
 }
 
-
 .container {
   background: #020617;
   padding: 30px;
@@ -101,7 +100,6 @@ button:hover {
   box-shadow: 0 6px 15px rgba(37, 99, 235, 0.5);
 }
 
-
 .completed-section {
   width: 95%;
   margin: 40px auto 0;
@@ -119,8 +117,6 @@ button:hover {
   flex-direction: column;
   gap: 20px;
 }
-
-
 
 .match-card {
   width: 100%;
@@ -140,15 +136,11 @@ button:hover {
   box-shadow: 0 0 35px rgba(56, 189, 248, 0.3);
 }
 
-
-
 .team {
   display: flex;
   align-items: center;
   gap: 15px;
 }
-
-
 
 .team.left {
   color: #f87171;
@@ -158,8 +150,6 @@ button:hover {
   color: #f87171;
   font-weight: bold;
 }
-
-
 
 .team.right {
   color: #4ade80;
@@ -184,7 +174,6 @@ button:hover {
   border: 2px solid #334155;
 }
 
-
 .center-result {
   text-align: center;
   min-width: 200px;
@@ -201,7 +190,6 @@ button:hover {
   font-size: 14px;
   color: #94a3b8;
 }
-
 
 .section.coach-analysis {
    background: #0f172a; 
@@ -258,28 +246,3 @@ button:hover {
   transform: translateY(-2px);
 }
 
-
-
-@media (max-width: 767px) {
-  .container {
-    width: 92%;
-    margin: 90px auto 30px;
-    padding: 20px 15px;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .match-card {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-    padding: 20px 15px;
-  }
-
-  .team {
-    justify-content: center;
-  }
-}

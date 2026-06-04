@@ -479,86 +479,8 @@ hr {
 }
 
 /* ── RESPONSIVE: TABLET (≤991px) ── */
-@media (max-width: 991px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-right a:not(.notify-only) {
-    display: none;
-  }
-
-  .notify-only {
-    display: flex;
-  }
-
-  .search-box {
-    display: none;
-  }
-
-  .player-card,
-  .suggestions {
-    display: none;
-  }
-
-  .notification-dropdown {
-    right: 20px;
-    width: 280px;
-  }
-
-  .main-content {
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .feed {
-    width: 100%;
-    max-width: 750px;
-  }
-}
 
 /* ── RESPONSIVE: MOBILE (≤767px) ── */
-@media (max-width: 767px) {
-  body {
-    overflow-y: auto;
-  }
-
-  .main-content {
-    height: auto;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 15px;
-    margin-top: 80px;
-  }
-
-  .feed {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .post-actions {
-    font-size: 12px;
-  }
-}
 
 /* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
-@media (max-width: 480px) {
-  .navbar {
-    padding: 0 15px;
-  }
 
-  #logo {
-    width: 95px;
-  }
-
-  .post {
-    padding: 10px;
-  }
-
-  .notification-dropdown {
-    right: 10px;
-    width: 260px;
-  }
-}
