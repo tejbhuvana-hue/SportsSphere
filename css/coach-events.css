@@ -513,6 +513,7 @@ body {
 
 
 
+/* ── RESPONSIVE: TABLET (≤991px) ── */
 @media (max-width: 991px) {
   .menu-toggle {
     display: block;
@@ -522,23 +523,39 @@ body {
     display: none;
   }
 
+  .notify-only {
+    display: flex;
+  }
+
   .search-box {
     display: none;
   }
-}
 
-@media (max-width: 767px) {
   .clubs {
     grid-template-columns: 1fr;
   }
+}
 
-  .event-tabs {
+/* ── RESPONSIVE: MOBILE (≤767px) ── */
+@media (max-width: 767px) {
+  .event-tabs,
+  .match-tabs {
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .container {
+    padding: 15px;
   }
 }
 
+/* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
 @media (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
   .apply-modal {
     width: 90%;
   }

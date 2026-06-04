@@ -428,7 +428,7 @@
   }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 767px) {
   .feed-tabs {
     gap: 8px;
   }
@@ -643,7 +643,7 @@
 }
 
 /* Modal responsive mobile styling */
-@media (max-width: 576px) {
+@media (max-width: 767px) {
   .achievement-modal {
     width: 92%;
     padding: 18px;

@@ -187,7 +187,7 @@ main {
   font-size: 0.97rem;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 991px) {
   .site-header {
     flex-direction: column;
     gap: 14px;
@@ -201,7 +201,7 @@ main {
   }
 }
 
-@media (max-width: 680px) {
+@media (max-width: 767px) {
   .hero {
     min-height: 420px;
   }
@@ -214,61 +214,6 @@ main {
   main {
     padding: 28px 22px 48px;
   }
-}
-
-
-header {
-  width: 100%;
-  height: 80px;
-  background: #020617;
-  display: flex;
-  align-items: center;
-  padding: 0 30px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-}
-
-.navbar {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo h2 {
-  color: #38bdf8;
-  font-size: 28px;
-}
-
-.logo-img {
-  height: 50px;
-  object-fit: contain;
-}
-
-.nav-links {
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-  font-size: 16px;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #38bdf8;
-}
-
-.menu-btn {
-  display: none;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
 }
 
 body {
@@ -331,9 +276,7 @@ header {
   cursor: pointer;
 }
 
-
-
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .menu-btn {
     display: block;
   }

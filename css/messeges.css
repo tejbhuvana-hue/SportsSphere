@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
-
 * {
   box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 html,
@@ -17,7 +18,7 @@ body {
   color: #e5e7eb;
 }
 
-
+/* ── NAVBAR ── */
 .navbar {
   height: 80px;
   background: linear-gradient(90deg, #020617, #1e293b);
@@ -35,6 +36,12 @@ body {
 
 #logo {
   width: 126px;
+}
+
+#Logotext {
+  font-size: 22px;
+  font-weight: 700;
+  color: #38bdf8;
 }
 
 .nav-left {
@@ -85,7 +92,6 @@ body {
   color: #38bdf8;
   text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
 }
-
 
 .profile-dropdown {
   position: relative;
@@ -142,15 +148,16 @@ body {
 .mobile-menu {
   display: none;
 }
+
 .mobile-menu.show {
   display: block;
 }
 
+/* ── MESSAGING APP LAYOUT ── */
 .app {
   display: flex;
+  margin-top: 80px;
   height: calc(100vh - 80px);
-  margin: 80px;
-  height: 80%;
 }
 
 .sidebar {
@@ -159,6 +166,7 @@ body {
   display: flex;
   flex-direction: column;
   border: 3px solid #1e293b;
+  flex-shrink: 0;
 }
 
 .sidebar-header {
@@ -209,6 +217,7 @@ body {
   border-radius: 50%;
 }
 
+/* ── CHAT AREA ── */
 .chat-area {
   flex: 1;
   display: flex;
@@ -320,8 +329,7 @@ body {
   background: #0ea5e9;
 }
 
-
-
+/* ── NOTIFICATIONS ── */
 .notification-dropdown {
   position: fixed;
   top: 90px;
@@ -351,13 +359,6 @@ body {
   color: #94a3b8;
   font-size: 11px;
 }
-#Logotext {
-  font-size: 22px;
-  font-weight: 700;
-  color: #38bdf8;
-}
-
-
 
 .overlay {
   position: fixed;
@@ -370,19 +371,30 @@ body {
   z-index: 1500;
 }
 
+/* ── RESPONSIVE: TABLET (≤991px) ── */
 @media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-  .back-btn {
-    display: inline-block;
-  }
   .menu-toggle {
     display: block;
   }
 
   .nav-right a:not(.notify-only) {
-    display: none; 
+    display: none;
+  }
+
+  .notify-only {
+    display: flex;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .back-btn {
+    display: inline-block;
   }
 
   .mobile-menu {
@@ -394,10 +406,14 @@ body {
     border-radius: 14px;
     padding: 15px;
     box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
-    z-index: 1000;
+    z-index: 1100;
     display: none;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .mobile-menu.show {
+    display: flex;
   }
 
   .mobile-menu a {
@@ -416,5 +432,54 @@ body {
     color: #38bdf8;
     background: #020617;
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+  }
+}
+
+/* ── RESPONSIVE: MOBILE (≤767px) ── */
+@media (max-width: 767px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .app {
+    height: calc(100vh - 80px);
+    flex-direction: column;
+  }
+
+  .chat-area {
+    height: calc(100vh - 80px);
+  }
+
+  .message {
+    max-width: 85%;
+  }
+
+  .notification-dropdown {
+    right: 15px;
+    width: 280px;
+  }
+}
+
+/* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  #logo {
+    width: 95px;
+  }
+
+  .chat-footer {
+    padding: 10px 12px;
+  }
+
+  .sidebar-header {
+    padding: 15px;
+  }
+
+  .notification-dropdown {
+    right: 10px;
+    width: 260px;
   }
 }

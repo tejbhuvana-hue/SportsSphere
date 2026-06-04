@@ -423,7 +423,7 @@ body {
   border-radius: 18px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
   .main-content {
     flex-direction: column;
     padding: 100px 20px 20px 20px;
@@ -440,7 +440,7 @@ body {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .navbar {
     flex-direction: column;
     height: auto;

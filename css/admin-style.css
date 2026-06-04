@@ -495,13 +495,13 @@ tr:last-child td {
     border-color: var(--accent-cyan);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 991px) {
     .sidebar { width: 80px; }
     .sidebar .logo-text, .sidebar .nav-label, .sidebar .nav-item span { display: none; }
     .main-content { margin-left: 80px; }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .sidebar { transform: translateX(-100%); }
     .main-content { margin-left: 0; }
     .sidebar.active { transform: translateX(0); }

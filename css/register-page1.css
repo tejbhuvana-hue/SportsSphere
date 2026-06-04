@@ -166,14 +166,23 @@ footer {
   padding-top: 15px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 991px) {
   .nav {
     display: none;
   }
   .menu-icon {
     display: block;
   }
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 92%;
+    padding: 25px 20px;
+    margin: 110px auto 40px;
+  }
   .man {
     flex-direction: column;
+    gap: 10px;
   }
 }

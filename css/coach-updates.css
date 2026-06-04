@@ -260,11 +260,23 @@ button:hover {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .container {
+    width: 92%;
+    margin: 90px auto 30px;
+    padding: 20px 15px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 0;
+  }
+
   .match-card {
     flex-direction: column;
     gap: 15px;
     text-align: center;
+    padding: 20px 15px;
   }
 
   .team {

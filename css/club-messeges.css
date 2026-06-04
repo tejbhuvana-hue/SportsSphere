@@ -171,9 +171,8 @@ body {
 
 .app {
   display: flex;
+  margin-top: 80px;
   height: calc(100vh - 80px);
-  margin: 80px;
-  height: 80%;
 }
 
 .sidebar {
@@ -394,19 +393,30 @@ body {
 }
 
 
+/* ── RESPONSIVE: TABLET (≤991px) ── */
 @media (max-width: 991px) {
-  .sidebar {
-    display: none;
-  }
-  .back-btn {
-    display: inline-block;
-  }
   .menu-toggle {
     display: block;
   }
 
   .nav-right a:not(.notify-only) {
-    display: none; 
+    display: none;
+  }
+
+  .notify-only {
+    display: flex;
+  }
+
+  .search-box {
+    display: none;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .back-btn {
+    display: inline-block;
   }
 
   .mobile-menu {
@@ -418,10 +428,14 @@ body {
     border-radius: 14px;
     padding: 15px;
     box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
-    z-index: 1000;
+    z-index: 1100;
     display: none;
     flex-direction: column;
     gap: 10px;
+  }
+
+  .mobile-menu.show {
+    display: flex;
   }
 
   .mobile-menu a {
@@ -440,5 +454,40 @@ body {
     color: #38bdf8;
     background: #020617;
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.35);
+  }
+}
+
+/* ── RESPONSIVE: MOBILE (≤767px) ── */
+@media (max-width: 767px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .app {
+    height: calc(100vh - 80px);
+    flex-direction: column;
+  }
+
+  .chat-area {
+    height: calc(100vh - 80px);
+  }
+
+  .message {
+    max-width: 85%;
+  }
+}
+
+/* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0 15px;
+  }
+
+  #logo {
+    width: 95px;
+  }
+
+  .chat-footer {
+    padding: 10px 12px;
   }
 }
