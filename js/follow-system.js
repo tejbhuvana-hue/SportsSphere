@@ -286,8 +286,12 @@ function renderFollowList(type) {
     const user = getUserDataById(id);
     const item = document.createElement("div");
     item.className = "follow-modal-item";
+
+    const liveAvatar = (window.EventFlow && window.EventFlow.getAuthorImage) ? window.EventFlow.getAuthorImage(id, user.avatar) : user.avatar;
+    const resolvedSrc = (window.EventFlow && window.EventFlow.getImagePath) ? window.EventFlow.getImagePath(liveAvatar) : liveAvatar;
+
     item.innerHTML = `
-      <img src="${user.avatar}" alt="${user.name}" />
+      <img src="${resolvedSrc}" alt="${user.name}" />
       <div>
         <strong>${user.name}</strong>
         <small>${user.title || "Player"}</small>

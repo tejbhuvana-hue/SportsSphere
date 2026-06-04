@@ -166,12 +166,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    // Get events player is approved/selected in
-    const selectedEvents = events.filter((e) =>
-      e.applicants?.some(
-        (a) => a.playerId === playerId && a.status === "Approved",
-      ),
-    );
+    // Display all active (non-completed) events as current events
+    const selectedEvents = events.filter((e) => e.status !== "Completed");
     const selectedEventIds = selectedEvents.map((e) => e.id);
 
     // 3. Current/Ongoing Events Tab (with Next Upcoming Match)
@@ -179,11 +175,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentContainer) {
       currentContainer.innerHTML = "";
 
-      // Calculate Next Upcoming Match (nearest upcoming match in the player's selected events)
+      // Calculate Next Upcoming Match (nearest upcoming match in all events)
       const upcomingMatches = matches.filter(
-        (m) =>
-          selectedEventIds.includes(m.eventId) &&
-          (m.status === "Upcoming" || m.status === "Live"),
+        (m) => m.status === "Upcoming" || m.status === "Live",
       );
       upcomingMatches.sort(
         (a, b) =>
@@ -267,11 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scheduleContainer) {
       scheduleContainer.innerHTML = "";
       const playerMatches = matches.filter(
-        (m) =>
-          (selectedEventIds.includes(m.eventId) ||
-            (playerClub &&
-              (m.teamA === playerClub || m.teamB === playerClub))) &&
-          m.status !== "Completed",
+        (m) => m.status !== "Completed",
       );
       if (playerMatches.length === 0) {
         scheduleContainer.innerHTML = `<div class="club-card"><h2>No Match Schedule</h2><div class="club-info">No upcoming matches scheduled.</div></div>`;
@@ -298,11 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pastContainer) {
       pastContainer.innerHTML = "";
       const playerPastMatches = matches.filter(
-        (m) =>
-          (selectedEventIds.includes(m.eventId) ||
-            (playerClub &&
-              (m.teamA === playerClub || m.teamB === playerClub))) &&
-          m.status === "Completed",
+        (m) => m.status === "Completed",
       );
       if (playerPastMatches.length === 0) {
         pastContainer.innerHTML = `<div class="club-card"><h2>No Past Matches</h2><div class="club-info">No completed match results found.</div></div>`;

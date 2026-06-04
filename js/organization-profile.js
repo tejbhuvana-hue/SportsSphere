@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
             description: requirements || (eventType === "camp" ? "Association sports event." : "Association tournament event."),
             contact,
             applicants: [],
-            poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
+            poster: "images/championship_poster.png",
             visibleTo: ["player", "coach", "club"]
           });
 

@@ -276,7 +276,7 @@ document.addEventListener("DOMContentLoaded", () => {
             description: description || (eventType === "camp" ? "Club training camp event." : "Club trial event."),
             contact,
             applicants: [],
-            poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
+            poster: "images/championship_poster.png",
             visibleTo: ["player", "coach"]
           });
 

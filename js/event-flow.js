@@ -445,7 +445,7 @@
       category: "Football",
       description: "Recruitment trial for the club's under-19 division.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1526232761682-d26e4f9c635a?w=800",
+      poster: "images/event_posters/youth football trial.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -461,7 +461,7 @@
       category: "Football",
       description: "Intensive 5-day camp to learn football fundamentals under club coaches.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
+      poster: "images/event_posters/summer football camp.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -477,7 +477,7 @@
       category: "Football",
       description: "Manchester United internal member club tournament.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800",
+      poster: "images/event_posters/club championship.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -493,7 +493,7 @@
       category: "Football",
       description: "A fun-filled day of friendly matches and community interaction.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
+      poster: "images/event_posters/community football festival.png",
       visibleTo: ["player", "coach"]
     },
 
@@ -511,7 +511,7 @@
       category: "Cricket",
       description: "National level scouting trials for RCB development squad.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800",
+      poster: "images/event_posters/cricket talent hunt.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -527,7 +527,7 @@
       category: "Cricket",
       description: "Tactical and physical camp preparing for local T20 tournaments.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
+      poster: "images/event_posters/t20 league camp.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -543,7 +543,7 @@
       category: "Cricket",
       description: "Under-16 junior championship hosted by RCB.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
+      poster: "images/event_posters/junior cricket tournament.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -559,7 +559,7 @@
       category: "Cricket",
       description: "Exclusive meet and greet session with RCB team members.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
+      poster: "images/event_posters/fan meet event.png",
       visibleTo: ["player", "coach"]
     },
 
@@ -577,7 +577,7 @@
       category: "Badminton",
       description: "Scouting for elite players to join the Hunters academy.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
+      poster: "images/event_posters/badminton talent scout.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -593,7 +593,7 @@
       category: "Badminton",
       description: "A conditioning and skill camp during the monsoon break.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1578269174936-2709b5a8c0e6?w=800",
+      poster: "images/event_posters/minsoon badminton camp.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -609,7 +609,7 @@
       category: "Badminton",
       description: "Annual club league for members and academy trainees.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
+      poster: "images/event_posters/hunters cup legue.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -625,7 +625,7 @@
       category: "Badminton",
       description: "A public event showing badminton exhibition matches and free coaching.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
+      poster: "images/event_posters/commumity badminton.png",
       visibleTo: ["player", "coach"]
     },
 
@@ -643,7 +643,7 @@
       category: "Football",
       description: "Premier inter-club football championship of India.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800",
+      poster: "images/event_posters/national football championship.png",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -659,7 +659,7 @@
       category: "Football",
       description: "National junior tournament for registered club teams.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
+      poster: "images/event_posters/u19 football league.png",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -675,7 +675,7 @@
       category: "Football",
       description: "National camp for coaching license credentials and trials.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1526232761682-d26e4f9c635a?w=800",
+      poster: "images/event_posters/coaching selection camp.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -691,7 +691,7 @@
       category: "Football",
       description: "Free training and scouting camp for local schools.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
+      poster: "images/event_posters/grassroots development camp.png",
       visibleTo: ["player", "coach"]
     },
 
@@ -709,7 +709,7 @@
       category: "Cricket",
       description: "The premier domestic cricket tournament in the country.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
+      poster: "images/event_posters/national cricket championship 2026.png",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -725,7 +725,7 @@
       category: "Cricket",
       description: "Under-19 selection cup for the national squad.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800",
+      poster: "images/event_posters/u19 tournament.png",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -741,7 +741,7 @@
       category: "Cricket",
       description: "Championship for top domestic women's clubs.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
+      poster: "images/event_posters/womens cricket league.png",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -757,7 +757,7 @@
       category: "Cricket",
       description: "Specialized training camp for high-potential domestic players.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
+      poster: "images/event_posters/talent development camp.png",
       visibleTo: ["player", "coach"]
     },
 
@@ -775,7 +775,7 @@
       category: "Badminton",
       description: "The annual national championship for singles and doubles.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
+      poster: "images/event_posters/national badminton championship.png",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -791,7 +791,7 @@
       category: "Badminton",
       description: "Inter-club junior national tournament.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1578269174936-2709b5a8c0e6?w=800",
+      poster: "images/event_posters/junior badminton league.png",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -807,7 +807,7 @@
       category: "Badminton",
       description: "Official trials to select the national representatives.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
+      poster: "images/event_posters/olympic selection trials.png",
       visibleTo: ["player", "coach"]
     },
     {
@@ -823,13 +823,154 @@
       category: "Badminton",
       description: "Advanced technical workshop for national level coaches.",
       applicants: [],
-      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
+      poster: "images/event_posters/bai coaching clinic.png",
       visibleTo: ["player", "coach"]
     }
   ];
 
-  const DEFAULT_MATCHES = [];
-  const DEFAULT_HISTORY = [];
+  const DEFAULT_MATCHES = [
+    {
+      id: "match-1",
+      eventId: "event-mu-trial",
+      eventTitle: "Youth Football Trial",
+      teamA: "GK Academy",
+      teamB: "Manchester United Youth",
+      status: "Upcoming",
+      score: "0 - 0",
+      venue: "Old Trafford Training Ground",
+      date: "2026-06-22",
+      time: "10:00",
+      assignedCoach: "Mick Ross"
+    },
+    {
+      id: "match-2",
+      eventId: "event-rcb-hunt",
+      eventTitle: "Cricket Talent Hunt",
+      teamA: "RCB Academy",
+      teamB: "Karnataka XI",
+      status: "Upcoming",
+      score: "0 - 0",
+      venue: "Chinnaswamy Stadium, Bengaluru",
+      date: "2026-06-20",
+      time: "09:00",
+      assignedCoach: "Dinesh Karthik"
+    },
+    {
+      id: "match-3",
+      eventId: "event-hunters-scout",
+      eventTitle: "Badminton Talent Scout",
+      teamA: "Hyderabad Hunters",
+      teamB: "Gopichand Academy XI",
+      status: "Upcoming",
+      score: "0 - 0",
+      venue: "Gachibowli Indoor Stadium, Hyderabad",
+      date: "2026-06-26",
+      time: "14:00",
+      assignedCoach: "Pullela Gopichand"
+    },
+    {
+      id: "match-past-1",
+      eventId: "event-mu-trial",
+      eventTitle: "Youth Football Trial",
+      teamA: "GK Academy",
+      teamB: "Manchester United Youth",
+      status: "Completed",
+      score: "1 - 3",
+      winner: "Manchester United Youth",
+      stats: "Possession: 45%-55%, Shots: 8-14",
+      venue: "Old Trafford Training Ground",
+      date: "2026-05-15",
+      completionDate: "2026-05-15",
+      assignedCoach: "Mick Ross"
+    },
+    {
+      id: "match-past-2",
+      eventId: "event-rcb-camp",
+      eventTitle: "T20 League Camp",
+      teamA: "RCB Academy",
+      teamB: "Bengaluru Club Ground Team",
+      status: "Completed",
+      score: "182/4 - 180/7",
+      winner: "RCB Academy",
+      stats: "RCB won by 6 wickets",
+      venue: "RCB Academy Ground",
+      date: "2026-05-10",
+      completionDate: "2026-05-10",
+      assignedCoach: "Dinesh Karthik"
+    }
+  ];
+  const DEFAULT_HISTORY = [
+    {
+      id: "hist-past-1-p001",
+      role: "player",
+      playerId: "P001",
+      name: "National Football Championship",
+      sport: "Football",
+      date: "05 Jul - 20 Jul 2025",
+      location: "Salt Lake Stadium, Kolkata",
+      status: "Completed",
+      statusClass: "status-completed",
+      image: "images/championship_poster.png",
+      description: "Secured first runner-up in the national division tournament.",
+      badges: ["Participant", "Forward"]
+    },
+    {
+      id: "hist-past-2-p001",
+      role: "player",
+      playerId: "P001",
+      name: "Youth Football Selection Trial",
+      sport: "Football",
+      date: "10 Jun 2025",
+      location: "Old Trafford Stadium",
+      status: "Completed",
+      statusClass: "status-completed",
+      image: "images/championship_poster.png",
+      description: "Successfully cleared club selection trial requirements.",
+      badges: ["Trial Pass", "Forward"]
+    },
+    {
+      id: "hist-past-1-p002",
+      role: "player",
+      playerId: "P002",
+      name: "National Cricket Championship 2025",
+      sport: "Cricket",
+      date: "12 Jul - 30 Jul 2025",
+      location: "Wankhede Stadium, Mumbai",
+      status: "Completed",
+      statusClass: "status-completed",
+      image: "images/championship_poster.png",
+      description: "Awarded Best Batsman of the Tournament with 450 runs.",
+      badges: ["Participant", "Batsman"]
+    },
+    {
+      id: "hist-past-2-p002",
+      role: "player",
+      playerId: "P002",
+      name: "T20 Selection Trial",
+      sport: "Cricket",
+      date: "05 Aug 2025",
+      location: "NCA Ground, Bengaluru",
+      status: "Completed",
+      statusClass: "status-completed",
+      image: "images/championship_poster.png",
+      description: "Selected in national T20 squad development pool.",
+      badges: ["Trial Pass", "Batsman"]
+    },
+    {
+      id: "hist-past-1-p003",
+      role: "player",
+      playerId: "P003",
+      name: "National Badminton Championship",
+      sport: "Badminton",
+      date: "15 Jul - 22 Jul 2025",
+      location: "IGI Stadium, Delhi",
+      status: "Completed",
+      statusClass: "status-completed",
+      image: "images/championship_poster.png",
+      description: "Won Gold Medal in the Singles category division.",
+      badges: ["Gold Medalist", "Singles"]
+    }
+  ];
 
   const DEFAULT_POSTS = [
     {
@@ -1635,7 +1776,7 @@
   }
 
   function initSportsState() {
-    const resetKey = "sports_reset_v15";
+    const resetKey = "sports_reset_v18";
     const hasReset = localStorage.getItem(resetKey);
 
     if (!hasReset) {
@@ -1746,7 +1887,12 @@
     const events = getCollection("sports_events");
     const trials = getCollection("sports_trials");
     const tournaments = getCollection("sports_tournaments");
-    return [...events, ...trials, ...tournaments];
+    return [...events, ...trials, ...tournaments].map(e => {
+      if (e.poster) {
+        e.poster = getImagePath(e.poster);
+      }
+      return e;
+    });
   }
 
   function saveEvents(allEvents) {
@@ -1755,6 +1901,11 @@
     const tournaments = [];
 
     allEvents.forEach((e) => {
+      if (e.poster) {
+        while (e.poster.startsWith("../")) {
+          e.poster = e.poster.substring(3);
+        }
+      }
       const type = e.type || e.eventType;
       if (type === "trial" || type === "club_trial") {
         e.type = "club_trial";
@@ -2665,7 +2816,7 @@
       status: "Completed",
       statusClass: "status-completed",
       image:
-        "https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "images/championship_poster.png",
       description: event.description || "Event completed successfully.",
       badges: ["Head Coach", "Completed"],
     };
@@ -2688,7 +2839,7 @@
       status: "Completed",
       statusClass: "status-completed",
       image:
-        "https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+        "images/championship_poster.png",
       description: event.description || "Event completed successfully.",
       badges: ["Organizer", isClub ? "Club" : "Association"],
     };
@@ -2712,7 +2863,7 @@
         status: "Completed",
         statusClass: "status-completed",
         image:
-          "https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
+          "images/championship_poster.png",
         description: event.description || "Participated in the event.",
         badges: ["Participant", app.position || "Player"],
       };
@@ -3095,9 +3246,11 @@
     const btnClass = isFollowing ? "following" : "";
     const btnText = isFollowing ? "Following" : "Follow";
 
+    const liveImg = getAuthorImage(p.id, p.image);
+
     userEl.innerHTML = `
       <a href="${profileLink}" style="display: flex; gap: 10px; text-decoration: none; color: inherit; align-items: center; flex: 1;">
-        <img src="${p.image}" alt="${p.name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
+        <img src="${getImagePath(liveImg)}" alt="${p.name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
         <div class="user-info">
           <strong>${p.name}</strong>
           <small>${p.subtitle || 'Suggested'}</small>
