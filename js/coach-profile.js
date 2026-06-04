@@ -133,11 +133,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .editprofile-form button:hover {
         box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
       }
-      @media (max-width: 576px) {
-        .editprofile-modal {
-          width: 90%;
-        }
-      }
     `;
     document.head.appendChild(style);
 

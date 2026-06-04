@@ -18,6 +18,9 @@ body {
   background: radial-gradient(circle at top, rgba(47, 168, 255, 0.12), transparent 38%), #020613;
   color: var(--text);
   min-height: 100vh;
+
+  min-width: 1200px;
+  overflow-x: auto;
 }
 
 .site-header {
@@ -190,6 +193,9 @@ body {
   background: #0f172a;
   min-height: 100vh;
   font-family: Arial, sans-serif;
+
+  min-width: 1200px;
+  overflow-x: auto;
 }
 
 header {

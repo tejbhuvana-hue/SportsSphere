@@ -10,6 +10,9 @@ body {
   color: #e5e7eb;
   min-height: 100vh;
   padding: 40px;
+
+  min-width: 1200px;
+  overflow-x: auto;
 }
 
 .page-title {
@@ -26,7 +29,7 @@ body {
 
 .matches-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 

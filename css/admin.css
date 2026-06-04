@@ -10,7 +10,10 @@
 body {
   background: #0f172a;
   color: #e5e7eb;
-  overflow-x: hidden;
+  overflow-x: auto;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 .navbar {

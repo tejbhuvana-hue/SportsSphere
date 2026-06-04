@@ -1,3 +1,8 @@
+html, body {
+  min-width: 1600px;
+  overflow-x: auto;
+}
+
 .follow-summary {
   display: flex;
   justify-content: space-between;

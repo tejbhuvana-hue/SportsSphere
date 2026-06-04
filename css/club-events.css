@@ -10,6 +10,9 @@
 body {
   background: #0f172a;
   color: #e5e7eb;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 .navbar {
@@ -253,7 +256,7 @@ a:hover {
 
 .event-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -417,12 +420,6 @@ a.view-btn:hover {
 .apply-form textarea::placeholder {
   color: #94a3b8;
 }
-
-/* ── RESPONSIVE: TABLET (≤991px) ── */
-
-/* ── RESPONSIVE: MOBILE (≤767px) ── */
-
-/* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
 
 .history-controls {
   display: flex;

@@ -87,7 +87,7 @@
 /* 4. Achievements Section Layout */
 .achievements-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-bottom: 25px;
 }
@@ -136,6 +136,9 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 .achievement-title {
@@ -226,7 +229,7 @@
 /* 5. Gallery Section Layout */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-bottom: 25px;
 }

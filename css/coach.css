@@ -10,12 +10,18 @@
 html,
 body {
   height: 100%;
-  overflow: hidden;
+  overflow-x: auto; overflow-y: hidden;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 body {
   background-color: #0f172a;
   color: #e5e7eb;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 /* ── NAVBAR ── */
@@ -490,10 +496,4 @@ hr {
   background: #38bdf8;
   border-radius: 10px;
 }
-
-/* ── RESPONSIVE: TABLET (≤991px) ── */
-
-/* ── RESPONSIVE: MOBILE (≤767px) ── */
-
-/* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
 

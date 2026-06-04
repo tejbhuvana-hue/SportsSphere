@@ -28,7 +28,10 @@
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
-    overflow-x: hidden;
+    overflow-x: auto;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 .admin-wrapper {
@@ -203,7 +206,7 @@ body {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     margin-bottom: 40px;
 }
@@ -382,6 +385,9 @@ tr:last-child td {
 
 .modal-body {
     margin-bottom: 30px;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 .modal-footer {

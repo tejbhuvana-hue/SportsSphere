@@ -12,7 +12,10 @@ body {
   min-height: 100%;
   background: radial-gradient(circle at top, #020617, #0f172a 60%, #020617);
   color: #e5e7eb;
-  overflow-x: hidden;
+  overflow-x: auto;
+
+  min-width: 1200px;
+  overflow-x: auto;
 }
 
 /* ── HEADER / NAVBAR ── */
@@ -115,7 +118,7 @@ header {
 .features-grid {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 
@@ -208,7 +211,7 @@ header {
 /* ── IMAGES GRID ── */
 .images {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 35px;
 }
@@ -281,12 +284,4 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.25);
   padding-top: 15px;
 }
-
-/* ── RESPONSIVE: LAPTOP (≤1200px) ── */
-
-/* ── RESPONSIVE: TABLET (≤991px) ── */
-
-/* ── RESPONSIVE: MOBILE (≤767px) ── */
-
-/* ── RESPONSIVE: SMALL MOBILE (≤480px) ── */
 

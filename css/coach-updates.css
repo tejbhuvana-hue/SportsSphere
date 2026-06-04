@@ -10,6 +10,9 @@ body {
   min-height: 100vh;
   color: #e5e7eb;
   padding-bottom: 60px;
+
+  min-width: 1600px;
+  overflow-x: auto;
 }
 
 .container {
