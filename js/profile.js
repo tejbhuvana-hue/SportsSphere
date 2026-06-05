@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Render Feed/Posts
-    const feedContainer = document.getElementById("feed-content") || document.querySelector(".feed");
+    const feedContainer = document.querySelector(".feed");
     if (feedContainer) {
       const existingPosts = feedContainer.querySelectorAll(".post");
       existingPosts.forEach(p => p.remove());

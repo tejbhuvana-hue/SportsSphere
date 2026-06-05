@@ -133,6 +133,11 @@ document.addEventListener("DOMContentLoaded", () => {
       .editprofile-form button:hover {
         box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
       }
+      @media (max-width: 576px) {
+        .editprofile-modal {
+          width: 90%;
+        }
+      }
     `;
     document.head.appendChild(style);
 
@@ -206,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (clubEl) clubEl.textContent = coach.connectTarget || "None";
 
     // Render Feed/Posts
-    const feedContainer = document.getElementById("feed-content") || document.querySelector(".feed");
+    const feedContainer = document.querySelector(".feed");
     if (feedContainer) {
       const existingPosts = feedContainer.querySelectorAll(".post");
       existingPosts.forEach(p => p.remove());

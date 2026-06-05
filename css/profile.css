@@ -10,21 +10,15 @@
 html,
 body {
   height: 100%;
-
-  min-width: 1600px;
-  overflow-x: auto;
 }
 
 body {
   background-color: #0f172a;
   color: #e5e7eb;
-  overflow-x: auto; overflow-y: hidden;
-
-  min-width: 1600px;
-  overflow-x: auto;
+  overflow: hidden;
 }
 
-/* ── NAVBAR ── */
+
 .navbar {
   height: 80px;
   background: linear-gradient(90deg, #020617, #1e293b);
@@ -42,12 +36,6 @@ body {
 
 #logo {
   width: 126px;
-}
-
-#Logotext {
-  font-size: 22px;
-  font-weight: 700;
-  color: #38bdf8;
 }
 
 .nav-left {
@@ -149,31 +137,25 @@ body {
   font-size: 28px;
   color: #38bdf8;
   cursor: pointer;
-  position: relative;
-  z-index: 1600;
+  position: relative; 
+  z-index: 1600; 
 }
-
 .mobile-menu {
   display: none;
   position: absolute;
-  top: 100%;
-  right: 0;
+  top: 100%; 
+  right: 0; 
   width: 200px;
   background: linear-gradient(145deg, #020617, #111827);
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
   flex-direction: column;
   padding: 15px 0;
-  z-index: 1650;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+  z-index: 1650; 
 }
 
 .mobile-menu.show {
   display: flex;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .mobile-menu a {
@@ -193,7 +175,8 @@ body {
   border-left: 3px solid #38bdf8;
 }
 
-/* ── MAIN LAYOUT ── */
+
+
 .main-content {
   display: flex;
   justify-content: space-evenly;
@@ -203,7 +186,7 @@ body {
   height: calc(100vh - 80px);
 }
 
-/* ── PLAYER CARD ── */
+
 .player-card {
   width: 350px;
   background: linear-gradient(145deg, #020617, #111827);
@@ -230,7 +213,6 @@ body {
   margin: auto;
   border-radius: 10px;
 }
-
 #club-name {
   background-color: #38bdf8;
   color: #020617;
@@ -245,6 +227,7 @@ hr {
   height: 1px;
   background: #1e293b;
 }
+
 
 .player-actions {
   margin-top: 12px;
@@ -281,7 +264,8 @@ hr {
   padding: 5px;
 }
 
-/* ── FEED LINKS (TAB NAV) ── */
+
+
 .feed-links {
   background: linear-gradient(180deg, #020617, transparent);
   padding: 10px 0;
@@ -289,9 +273,8 @@ hr {
 
 #feed-links {
   display: flex;
-  justify-content: space-evenly;
-  gap: 30px;
-  margin: 20px;
+  justify-content: center;
+  gap: 60px;
 }
 
 #feed-links li a {
@@ -321,8 +304,7 @@ hr {
   transition: width 0.35s ease;
 }
 
-#feed-links li a:hover::after,
-#feed-links li a.active::after {
+#feed-links li a:hover::after {
   width: 100%;
 }
 
@@ -331,7 +313,19 @@ hr {
   text-shadow: 0 0 15px rgba(56, 189, 248, 1);
 }
 
-/* ── FEED ── */
+#feed-links li a.active::after {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  #feed-links {
+    gap: 25px;
+  }
+  #feed-links li a {
+    font-size: 14px;
+  }
+}
+
 .feed {
   width: 1200px;
   overflow-y: auto;
@@ -347,7 +341,13 @@ hr {
   border-radius: 10px;
 }
 
-/* ── POSTS ── */
+#feed-links {
+  display: flex;
+  gap: 30px;
+  margin: 20px;
+  justify-content: space-evenly;
+}
+
 .post {
   background: #020617;
   border-radius: 14px;
@@ -396,7 +396,7 @@ hr {
   color: #94a3b8;
 }
 
-/* ── ADD POST MODAL ── */
+
 .addpost-overlay {
   position: fixed;
   inset: 0;
@@ -412,7 +412,6 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
   width: 420px;
-  max-width: 92%;
   background: linear-gradient(145deg, #020617, #111827);
   border-radius: 18px;
   padding: 20px;
@@ -467,7 +466,6 @@ hr {
   border-radius: 10px;
   color: #e5e7eb;
   outline: none;
-  width: 100%;
 }
 
 .addpost-form textarea {
@@ -495,12 +493,191 @@ hr {
   justify-content: center;
   gap: 8px;
 }
+#Logotext {
+  font-size: 22px;
+  font-weight: 700;
+  color: #38bdf8;
+}
 
 .addpost-form button:hover {
   box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
 }
 
-/* ── EDIT PROFILE MODAL ── */
+@media (max-width: 576px) {
+  .addpost-modal {
+    width: 90%;
+  }
+}
+
+
+
+@media (max-width: 991px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .player-card {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .feed {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-right a:not(.notify-only) {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .main-content {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .player-card {
+    padding: 20px;
+  }
+
+  .feed {
+    width: 100%;
+  }
+
+  .post-actions {
+    font-size: 12px;
+  }
+}
+
+
+.notification-dropdown {
+  position: fixed;
+  top: 90px;
+  right: 30px;
+  width: 300px;
+  background: #020617;
+  border-radius: 14px;
+  padding: 15px;
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+  display: none;
+  z-index: 2000;
+}
+
+.notification-dropdown h4 {
+  margin-bottom: 10px;
+  color: #38bdf8;
+}
+
+.notification-item {
+  padding: 10px;
+  border-bottom: 1px solid #1e293b;
+  font-size: 14px;
+}
+
+.notification-item small {
+  display: block;
+  color: #94a3b8;
+  font-size: 11px;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1500;
+}
+
+.menu-toggle {
+  
+  position: relative; 
+  font-size: 28px;
+  color: #38bdf8;
+  cursor: pointer;
+  z-index: 3000; 
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  background: linear-gradient(145deg, #020617, #111827);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+  flex-direction: column;
+  padding: 15px 0;
+  min-width: 180px;
+  z-index: 3000; 
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-menu a {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #cbd5f5;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border-left: 3px solid #38bdf8;
+}
+
+
+.mobile-menu {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
 .editprofile-overlay {
   position: fixed;
   inset: 0;
@@ -516,7 +693,6 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%) scale(0.9);
   width: 450px;
-  max-width: 92%;
   background: linear-gradient(145deg, #020617, #111827);
   border-radius: 18px;
   padding: 22px;
@@ -571,7 +747,6 @@ hr {
   border-radius: 10px;
   color: #e5e7eb;
   outline: none;
-  width: 100%;
 }
 
 .editprofile-form textarea {
@@ -604,45 +779,8 @@ hr {
   box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
 }
 
-/* ── NOTIFICATIONS ── */
-.notification-dropdown {
-  position: fixed;
-  top: 90px;
-  right: 30px;
-  width: 300px;
-  background: #020617;
-  border-radius: 14px;
-  padding: 15px;
-  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
-  display: none;
-  z-index: 2000;
+@media (max-width: 576px) {
+  .editprofile-modal {
+    width: 90%;
+  }
 }
-
-.notification-dropdown h4 {
-  margin-bottom: 10px;
-  color: #38bdf8;
-}
-
-.notification-item {
-  padding: 10px;
-  border-bottom: 1px solid #1e293b;
-  font-size: 14px;
-}
-
-.notification-item small {
-  display: block;
-  color: #94a3b8;
-  font-size: 11px;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  z-index: 1500;
-}
-

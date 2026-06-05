@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (descEl) descEl.textContent = org.description || `${org.sport} • Official Organization`;
 
     // Render Feed/Posts
-    const feedContainer = document.getElementById("feed-content") || document.querySelector(".feed");
+    const feedContainer = document.querySelector(".feed");
     if (feedContainer) {
       const existingPosts = feedContainer.querySelectorAll(".post");
       existingPosts.forEach(p => p.remove());
@@ -266,7 +266,7 @@ document.addEventListener("DOMContentLoaded", () => {
             description: requirements || (eventType === "camp" ? "Association sports event." : "Association tournament event."),
             contact,
             applicants: [],
-            poster: "images/championship_poster.png",
+            poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
             visibleTo: ["player", "coach", "club"]
           });
 

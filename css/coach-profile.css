@@ -10,19 +10,15 @@
 html,
 body {
   height: 100%;
-
-  min-width: 1600px;
-  overflow-x: auto;
 }
 
 body {
   background-color: #0f172a;
   color: #e5e7eb;
-  overflow-x: auto; overflow-y: hidden;
-
-  min-width: 1600px;
-  overflow-x: auto;
+  overflow: hidden;
 }
+
+
 
 .navbar {
   height: 80px;
@@ -91,6 +87,7 @@ body {
   color: #38bdf8;
   text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
 }
+
 
 .profile-dropdown {
   position: relative;
@@ -163,31 +160,27 @@ body {
   font-size: 28px;
   color: #38bdf8;
   cursor: pointer;
-  position: relative;
-  z-index: 1600;
+  position: relative; 
+  z-index: 1600; 
 }
+
 
 .mobile-menu {
   display: none;
   position: absolute;
   top: 100%;
-  right: 0;
+  right: 0; 
   width: 200px;
   background: linear-gradient(145deg, #020617, #111827);
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
   flex-direction: column;
   padding: 15px 0;
-  z-index: 1650;
-  opacity: 0;
-  transform: translateY(-10px);
-  transition: all 0.3s ease;
+  z-index: 1650; 
 }
 
 .mobile-menu.show {
   display: flex;
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .mobile-menu a {
@@ -207,6 +200,8 @@ body {
   border-left: 3px solid #38bdf8;
 }
 
+
+
 .main-content {
   display: flex;
   justify-content: space-evenly;
@@ -215,6 +210,8 @@ body {
   margin-top: 90px;
   height: calc(100vh - 80px);
 }
+
+
 
 .player-card {
   width: 350px;
@@ -285,6 +282,7 @@ hr {
   padding: 5px;
 }
 
+
 .feed-links {
   background: linear-gradient(180deg, #020617, transparent);
   padding: 10px 0;
@@ -334,6 +332,15 @@ hr {
 
 #feed-links li a.active::after {
   width: 100%;
+}
+
+@media (max-width: 576px) {
+  #feed-links {
+    gap: 25px;
+  }
+  #feed-links li a {
+    font-size: 14px;
+  }
 }
 
 .feed {
@@ -405,6 +412,7 @@ hr {
   cursor: pointer;
   color: #94a3b8;
 }
+
 
 .addpost-overlay {
   position: fixed;
@@ -512,7 +520,70 @@ hr {
   box-shadow: 0 0 18px rgba(56, 189, 248, 0.8);
 }
 
-/* ── NOTIFICATIONS ── */
+@media (max-width: 576px) {
+  .addpost-modal {
+    width: 90%;
+  }
+}
+
+
+@media (max-width: 991px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .player-card {
+    position: relative;
+    top: 0;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .feed {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-right a:not(.notify-only) {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    overflow-y: auto;
+  }
+
+  .main-content {
+    padding: 15px;
+    gap: 20px;
+  }
+
+  .player-card {
+    padding: 20px;
+  }
+
+  .feed {
+    width: 100%;
+  }
+
+  .post-actions {
+    font-size: 12px;
+  }
+}
+
+
 .notification-dropdown {
   position: fixed;
   top: 90px;
@@ -543,6 +614,7 @@ hr {
   font-size: 11px;
 }
 
+
 .overlay {
   position: fixed;
   top: 0;
@@ -554,3 +626,69 @@ hr {
   z-index: 1500;
 }
 
+.menu-toggle {
+  
+  position: relative; 
+  font-size: 28px;
+  color: #38bdf8;
+  cursor: pointer;
+  z-index: 3000; 
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute; 
+  top: 100%; 
+  left: 0; 
+  background: linear-gradient(145deg, #020617, #111827);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(56, 189, 248, 0.4);
+  flex-direction: column;
+  padding: 15px 0;
+  min-width: 180px;
+  z-index: 3000; 
+}
+
+.mobile-menu.show {
+  display: flex;
+}
+
+.mobile-menu a {
+  padding: 10px 20px;
+  font-size: 14px;
+  color: #cbd5f5;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.1);
+  border-left: 3px solid #38bdf8;
+}
+
+
+.mobile-menu {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

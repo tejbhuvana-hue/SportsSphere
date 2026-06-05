@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
+
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +12,9 @@ html,
 body {
   background-color: #0f172a;
   color: #e5e7eb;
-
-  min-width: 1600px;
-  overflow-x: auto;
 }
 
-/* ── NAVBAR ── */
+
 .navbar {
   height: 80px;
   background: linear-gradient(90deg, #020617, #1e293b);
@@ -31,6 +29,7 @@ body {
   box-shadow: 0 8px 25px rgba(56, 189, 248, 0.25);
 }
 
+
 .nav-left {
   display: flex;
   align-items: center;
@@ -43,12 +42,14 @@ body {
   color: #38bdf8;
 }
 
+
 .menu-toggle {
   display: none;
   font-size: 28px;
   cursor: pointer;
   color: #e5e7eb;
 }
+
 
 .search-bar {
   display: flex;
@@ -77,6 +78,7 @@ body {
   color: #94a3b8;
 }
 
+/* NAV ACTIONS */
 .nav-actions {
   display: flex;
   gap: 24px;
@@ -101,6 +103,7 @@ body {
   transform: translateY(-2px);
   text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
 }
+
 
 .profile-dropdown {
   position: relative;
@@ -170,6 +173,7 @@ body {
   text-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
 }
 
+
 .mobile-menu {
   position: fixed;
   top: 85px;
@@ -180,11 +184,6 @@ body {
   padding: 10px;
   display: none;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-  z-index: 1100;
-}
-
-.mobile-menu.show {
-  display: block;
 }
 
 .mobile-menu a {
@@ -203,7 +202,6 @@ body {
   color: #38bdf8;
 }
 
-/* ── NOTIFICATION DROPDOWN ── */
 .notification-dropdown {
   position: fixed;
   top: 85px;
@@ -214,7 +212,6 @@ body {
   padding: 12px;
   display: none;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
-  z-index: 1100;
 }
 
 .notification-dropdown p {
@@ -228,7 +225,7 @@ body {
   background: #1e293b;
 }
 
-/* ── MAIN CONTAINER ── */
+
 .container {
   display: flex;
   gap: 30px;
@@ -237,12 +234,11 @@ body {
   height: calc(100vh - 90px);
 }
 
-/* ── SIDEBAR ── */
+
 .sidebar {
   width: 280px;
   position: sticky;
   top: 100px;
-  flex-shrink: 0;
 }
 
 .profile-card {
@@ -279,7 +275,7 @@ body {
   color: #94a3b8;
 }
 
-/* ── FEED ── */
+
 .feed {
   flex: 1;
   max-width: 850px;
@@ -296,7 +292,7 @@ body {
   border-radius: 10px;
 }
 
-/* ── POSTS ── */
+
 .post {
   background: #020617;
   border-radius: 16px;
@@ -371,12 +367,11 @@ a {
   color: white;
 }
 
-/* ── RIGHTBAR ── */
+
 .rightbar {
   width: 260px;
   position: sticky;
   top: 100px;
-  flex-shrink: 0;
 }
 
 .card {
@@ -391,3 +386,34 @@ a {
   margin-bottom: 10px;
 }
 
+
+@media (max-width: 991px) {
+  .sidebar,
+  .rightbar,
+  .desktop-only {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .search-bar {
+    width: 180px;
+  }
+
+  .container {
+    padding: 15px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .search-bar {
+    width: 30%;
+  }
+
+  .nav-actions {
+    gap: 15px;
+  }
+}

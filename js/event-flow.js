@@ -1,255 +1,5 @@
 (function () {
   // ==========================================
-  // PATH & PROTOTYPE SETTER RESOLVERS
-  // ==========================================
-
-  function getImagePath(src) {
-    if (!src || typeof src !== "string") return src || "";
-    if (
-      src.startsWith("http://") ||
-      src.startsWith("https://") ||
-      src.startsWith("data:") ||
-      src.startsWith("blob:")
-    ) {
-      return src;
-    }
-    let cleanSrc = src;
-    while (cleanSrc.startsWith("../")) {
-      cleanSrc = cleanSrc.substring(3);
-    }
-    if (cleanSrc.startsWith("/")) {
-      cleanSrc = cleanSrc.substring(1);
-    }
-    
-    const path = window.location.pathname.toLowerCase();
-    let prefix = "";
-    if (
-      path.includes("/player/") ||
-      path.includes("/coach/") ||
-      path.includes("/club/") ||
-      path.includes("/organization/") ||
-      path.includes("/admin/")
-    ) {
-      prefix = "../../";
-    }
-    
-    return prefix + cleanSrc;
-  }
-
-  function getAuthorImage(authorId, fallbackImage) {
-    if (!authorId) return fallbackImage;
-    try {
-      const players = getPlayers();
-      const player = players.find(x => x.id === authorId);
-      if (player && player.image) return player.image;
-    } catch(e) {}
-    try {
-      const coaches = getCoaches();
-      const coach = coaches.find(x => x.id === authorId);
-      if (coach && coach.image) return coach.image;
-    } catch(e) {}
-    try {
-      const clubs = getClubs();
-      const club = clubs.find(x => x.id === authorId);
-      if (club && club.image) return club.image;
-    } catch(e) {}
-    try {
-      const assocs = getAssociations();
-      const assoc = assocs.find(x => x.id === authorId);
-      if (assoc && assoc.image) return assoc.image;
-    } catch(e) {}
-    return fallbackImage;
-  }
-
-  function injectProfileTabs() {
-    const path = window.location.pathname.toLowerCase();
-    const isProfilePage = path.includes("profile") || path.includes("others-profile") || path.includes("other-profile");
-    
-    if (!isProfilePage) return;
-    if (document.querySelector(".feed-tabs")) return;
-    
-    const feedContainer = document.querySelector(".feed");
-    if (!feedContainer) return;
-    
-    const isOwnProfilePage = (
-      (path.includes("profile.html") || path.includes("coach-profile.html") || path.includes("club-profile.html") || path.includes("organization-profile.html")) &&
-      !path.includes("other-profile") && !path.includes("others-profile")
-    );
-    
-    // 1. Inject dashboard-tabs.css if missing
-    if (!document.querySelector('link[href*="dashboard-tabs.css"]')) {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      const prefix = (path.includes("/player/") || path.includes("/coach/") || path.includes("/club/") || path.includes("/organization/") || path.includes("/admin/")) ? "../../" : "";
-      link.href = prefix + 'css/dashboard-tabs.css';
-      document.head.appendChild(link);
-    }
-    
-    // 2. Extract existing posts to wrap them in feed-content
-    const posts = Array.from(feedContainer.querySelectorAll(".post, .no-posts-placeholder"));
-    
-    const wasFeedContent = feedContainer.id === "feed-content";
-    if (wasFeedContent) {
-      feedContainer.removeAttribute("id");
-    }
-    
-    // 3. Create the tabs bar
-    const tabsBar = document.createElement("div");
-    tabsBar.className = "feed-tabs";
-    tabsBar.innerHTML = `
-      <button class="feed-tab-btn active" data-tab="feed-content">
-        <i class="bi bi-justify-left"></i> Posts
-      </button>
-      <button class="feed-tab-btn" data-tab="achievements-content">
-        <i class="bi bi-award-fill"></i> Achievements
-      </button>
-      <button class="feed-tab-btn" data-tab="gallery-content">
-        <i class="bi bi-images"></i> Gallery
-      </button>
-    `;
-    
-    // 4. Create the Feed Content Wrapper
-    const feedContentWrapper = document.createElement("div");
-    feedContentWrapper.id = "feed-content";
-    feedContentWrapper.className = "tab-content active-content";
-    posts.forEach(post => feedContentWrapper.appendChild(post));
-    
-    // 5. Create Achievements Tab Wrapper
-    const achievementsWrapper = document.createElement("div");
-    achievementsWrapper.id = "achievements-content";
-    achievementsWrapper.className = "tab-content";
-    achievementsWrapper.innerHTML = `
-      <div class="achievements-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-        <h3 class="achievements-section-title">${isOwnProfilePage ? "My Achievements" : "Achievements"}</h3>
-        ${isOwnProfilePage ? `
-        <button class="add-achievement-btn" id="openAchModalBtn">
-          <i class="bi bi-plus-square-fill"></i> Add Achievement
-        </button>
-        ` : ""}
-      </div>
-      <div class="achievements-grid" id="achievements-list"></div>
-    `;
-    
-    // 6. Create Gallery Tab Wrapper
-    const galleryWrapper = document.createElement("div");
-    galleryWrapper.id = "gallery-content";
-    galleryWrapper.className = "tab-content";
-    galleryWrapper.innerHTML = `
-      <div class="gallery-grid" id="gallery-list"></div>
-    `;
-    
-    // Clear and rebuild feedContainer
-    feedContainer.innerHTML = "";
-    feedContainer.appendChild(tabsBar);
-    feedContainer.appendChild(feedContentWrapper);
-    feedContainer.appendChild(achievementsWrapper);
-    feedContainer.appendChild(galleryWrapper);
-    
-    // 7. Inject Achievements modal if missing and it is own profile page
-    if (isOwnProfilePage && !document.getElementById("achModal")) {
-      const modalContainer = document.createElement("div");
-      modalContainer.innerHTML = `
-        <!-- ADD ACHIEVEMENT MODAL -->
-        <div class="achievement-overlay" id="achModalOverlay"></div>
-        <div class="achievement-modal" id="achModal">
-          <div class="achievement-modal-header">
-            <h3>Add Achievement</h3>
-            <i class="bi bi-x-lg" id="closeAchModal"></i>
-          </div>
-          <form class="achievement-form" id="achForm">
-            <label for="achCertFile">Upload Certificate Image</label>
-            <input type="file" id="achCertFile" accept="image/*" required />
- 
-            <label for="achTitle">Achievement Title</label>
-            <input type="text" id="achTitle" placeholder="e.g. Winner - District Football Tournament" required />
- 
-            <label for="achOrg">Organization/Event Name</label>
-            <input type="text" id="achOrg" placeholder="e.g. Andhra Sports Association" required />
- 
-            <label for="achDate">Date</label>
-            <input type="text" id="achDate" placeholder="e.g. March 2026" required />
- 
-            <label for="achDesc">Small Description</label>
-            <textarea id="achDesc" placeholder="e.g. Secured first place in district-level football tournament." required></textarea>
- 
-            <button type="submit"><i class="bi bi-check-circle-fill"></i> Save Achievement</button>
-          </form>
-        </div>
-      `;
-      while (modalContainer.firstChild) {
-        document.body.appendChild(modalContainer.firstChild);
-      }
-    }
-    
-    // Inject Lightbox if missing
-    if (!document.getElementById("galleryLightbox")) {
-      const lightboxContainer = document.createElement("div");
-      lightboxContainer.innerHTML = `
-        <!-- Immersive Certificate & Post Lightbox Viewer -->
-        <div class="lightbox" id="galleryLightbox">
-          <span class="lightbox-close" id="closeLightbox">&times;</span>
-          <img class="lightbox-content" id="lightboxImage" src="" alt="Viewer Preview" />
-          <div class="lightbox-caption" id="lightboxCaption"></div>
-        </div>
-      `;
-      while (lightboxContainer.firstChild) {
-        document.body.appendChild(lightboxContainer.firstChild);
-      }
-    }
-    
-    // 8. Dynamically load dashboard-tabs.js if missing
-    if (!document.querySelector('script[src*="dashboard-tabs.js"]')) {
-      const script = document.createElement('script');
-      const prefix = (path.includes("/player/") || path.includes("/coach/") || path.includes("/club/") || path.includes("/organization/") || path.includes("/admin/")) ? "../../" : "";
-      script.src = prefix + 'js/dashboard-tabs.js';
-      document.body.appendChild(script);
-    }
-  }
-
-  // Early injection trigger
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", injectProfileTabs);
-  } else {
-    injectProfileTabs();
-  }
-
-
-  // Intercept HTMLImageElement.src properties programmatically assigned
-  (function () {
-    const originalSrcDescriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, "src");
-    if (originalSrcDescriptor && originalSrcDescriptor.set) {
-      Object.defineProperty(HTMLImageElement.prototype, "src", {
-        get: function () {
-          return originalSrcDescriptor.get.call(this);
-        },
-        set: function (val) {
-          if (typeof val === "string" && val.includes("images/") && !val.startsWith("http") && !val.startsWith("data:") && !val.startsWith("blob:")) {
-            val = getImagePath(val);
-          }
-          originalSrcDescriptor.set.call(this, val);
-        }
-      });
-    }
-
-    // Intercept setAttribute
-    const originalSetAttribute = Element.prototype.setAttribute;
-    Element.prototype.setAttribute = function (name, value) {
-      if (
-        this instanceof HTMLImageElement &&
-        name.toLowerCase() === "src" &&
-        typeof value === "string" &&
-        value.includes("images/") &&
-        !value.startsWith("http") &&
-        !value.startsWith("data:") &&
-        !value.startsWith("blob:")
-      ) {
-        value = getImagePath(value);
-      }
-      return originalSetAttribute.call(this, name, value);
-    };
-  })();
-
-  // ==========================================
   // DEFAULT INITIAL STATE SEEDS
   // ==========================================
 
@@ -264,7 +14,7 @@
       location: "Kolkata, India",
       status: "Approved",
       password: "123",
-      image: "images/profile_pics/IFA.png"
+      image: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Indian_Football_Association_logo.png"
     },
     {
       id: "organization2",
@@ -276,7 +26,7 @@
       location: "Mumbai, India",
       status: "Approved",
       password: "123",
-      image: "images/profile_pics/BCCI.png"
+      image: "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Board_of_Control_for_Cricket_in_India_Logo.svg/1200px-Board_of_Control_for_Cricket_in_India_Logo.svg.png"
     },
     {
       id: "organization3",
@@ -288,7 +38,7 @@
       location: "Delhi, India",
       status: "Approved",
       password: "123",
-      image: "images/profile_pics/BAI.jpg"
+      image: "https://upload.wikimedia.org/wikipedia/en/2/2a/Badminton_Association_of_India_logo.png"
     }
   ];
 
@@ -304,7 +54,7 @@
       status: "Approved",
       association: "Indian Football Association",
       password: "123",
-      image: "images/profile_pics/manchester united.png"
+      image: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1184px-Manchester_United_FC_crest.svg.png"
     },
     {
       id: "club2",
@@ -317,7 +67,7 @@
       status: "Approved",
       association: "BCCI",
       password: "123",
-      image: "images/profile_pics/rcb.jpg"
+      image: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Royal_Challengers_Bangalore_2020_Logo.svg/1200px-Royal_Challengers_Bangalore_2020_Logo.svg.png"
     },
     {
       id: "club3",
@@ -330,7 +80,7 @@
       status: "Approved",
       association: "Badminton Association of India",
       password: "123",
-      image: "images/profile_pics/Hyderabad_Hunters.png"
+      image: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Hyderabad_Hunters_logo.svg/800px-Hyderabad_Hunters_logo.svg.png"
     }
   ];
 
@@ -346,7 +96,7 @@
       connectType: "club",
       connectTarget: "Manchester United",
       password: "123",
-      image: "images/profile_pics/mickross.webp",
+      image: "https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=800&q=80",
       skills: "Dribbling, Tactical Strategy, Attacking"
     },
     {
@@ -360,7 +110,7 @@
       connectType: "club",
       connectTarget: "Royal Challengers Bengaluru (RCB)",
       password: "123",
-      image: "images/profile_pics/dinesh.webp",
+      image: "https://img.olympics.com/images/image/private/t_16x9_760/primary/c74a0tqjlyrm7l1l7woc",
       skills: "Batting Technique, Wicketkeeping, Finisher Mindset"
     },
     {
@@ -374,7 +124,7 @@
       connectType: "club",
       connectTarget: "Hyderabad Hunters",
       password: "123",
-      image: "images/profile_pics/gopichand.jpg",
+      image: "https://img.olympics.com/images/image/private/t_16x9_760/primary/w8i1m9s3h9kqqtphn3n0",
       skills: "Net Play, Tactical Defense, Physical Conditioning"
     }
   ];
@@ -394,7 +144,7 @@
       skills: "Dribbling, Shooting, Attacking, Accuracy",
       club: "Manchester United",
       password: "123",
-      image: "images/profile_pics/ronaldo.jpeg"
+      image: "https://i.pinimg.com/736x/68/76/99/6876993a25a8fc274cc09aee12171034.jpg"
     },
     {
       id: "P002",
@@ -410,7 +160,7 @@
       skills: "Cover Drive, Chase Master, Batting Technique",
       club: "Royal Challengers Bengaluru (RCB)",
       password: "123",
-      image: "images/profile_pics/kohli.jpg"
+      image: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/122300/122330.jpg"
     },
     {
       id: "P003",
@@ -426,7 +176,7 @@
       skills: "Smash, Net Play, Agility, Speed",
       club: "Hyderabad Hunters",
       password: "123",
-      image: "images/profile_pics/sindu.webp"
+      image: "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/omhtslafb2il7kazygef"
     }
   ];
 
@@ -445,7 +195,7 @@
       category: "Football",
       description: "Recruitment trial for the club's under-19 division.",
       applicants: [],
-      poster: "images/event_posters/youth football trial.png",
+      poster: "https://images.unsplash.com/photo-1526232761682-d26e4f9c635a?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -461,7 +211,7 @@
       category: "Football",
       description: "Intensive 5-day camp to learn football fundamentals under club coaches.",
       applicants: [],
-      poster: "images/event_posters/summer football camp.png",
+      poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -477,7 +227,7 @@
       category: "Football",
       description: "Manchester United internal member club tournament.",
       applicants: [],
-      poster: "images/event_posters/club championship.png",
+      poster: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -493,7 +243,7 @@
       category: "Football",
       description: "A fun-filled day of friendly matches and community interaction.",
       applicants: [],
-      poster: "images/event_posters/community football festival.png",
+      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
       visibleTo: ["player", "coach"]
     },
 
@@ -511,7 +261,7 @@
       category: "Cricket",
       description: "National level scouting trials for RCB development squad.",
       applicants: [],
-      poster: "images/event_posters/cricket talent hunt.png",
+      poster: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -527,7 +277,7 @@
       category: "Cricket",
       description: "Tactical and physical camp preparing for local T20 tournaments.",
       applicants: [],
-      poster: "images/event_posters/t20 league camp.png",
+      poster: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -543,7 +293,7 @@
       category: "Cricket",
       description: "Under-16 junior championship hosted by RCB.",
       applicants: [],
-      poster: "images/event_posters/junior cricket tournament.png",
+      poster: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -559,7 +309,7 @@
       category: "Cricket",
       description: "Exclusive meet and greet session with RCB team members.",
       applicants: [],
-      poster: "images/event_posters/fan meet event.png",
+      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
       visibleTo: ["player", "coach"]
     },
 
@@ -577,7 +327,7 @@
       category: "Badminton",
       description: "Scouting for elite players to join the Hunters academy.",
       applicants: [],
-      poster: "images/event_posters/badminton talent scout.png",
+      poster: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -593,7 +343,7 @@
       category: "Badminton",
       description: "A conditioning and skill camp during the monsoon break.",
       applicants: [],
-      poster: "images/event_posters/minsoon badminton camp.png",
+      poster: "https://images.unsplash.com/photo-1578269174936-2709b5a8c0e6?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -609,7 +359,7 @@
       category: "Badminton",
       description: "Annual club league for members and academy trainees.",
       applicants: [],
-      poster: "images/event_posters/hunters cup legue.png",
+      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -625,7 +375,7 @@
       category: "Badminton",
       description: "A public event showing badminton exhibition matches and free coaching.",
       applicants: [],
-      poster: "images/event_posters/commumity badminton.png",
+      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
       visibleTo: ["player", "coach"]
     },
 
@@ -643,7 +393,7 @@
       category: "Football",
       description: "Premier inter-club football championship of India.",
       applicants: [],
-      poster: "images/event_posters/national football championship.png",
+      poster: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -659,7 +409,7 @@
       category: "Football",
       description: "National junior tournament for registered club teams.",
       applicants: [],
-      poster: "images/event_posters/u19 football league.png",
+      poster: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -675,7 +425,7 @@
       category: "Football",
       description: "National camp for coaching license credentials and trials.",
       applicants: [],
-      poster: "images/event_posters/coaching selection camp.png",
+      poster: "https://images.unsplash.com/photo-1526232761682-d26e4f9c635a?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -691,7 +441,7 @@
       category: "Football",
       description: "Free training and scouting camp for local schools.",
       applicants: [],
-      poster: "images/event_posters/grassroots development camp.png",
+      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
       visibleTo: ["player", "coach"]
     },
 
@@ -709,7 +459,7 @@
       category: "Cricket",
       description: "The premier domestic cricket tournament in the country.",
       applicants: [],
-      poster: "images/event_posters/national cricket championship 2026.png",
+      poster: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -725,7 +475,7 @@
       category: "Cricket",
       description: "Under-19 selection cup for the national squad.",
       applicants: [],
-      poster: "images/event_posters/u19 tournament.png",
+      poster: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -741,7 +491,7 @@
       category: "Cricket",
       description: "Championship for top domestic women's clubs.",
       applicants: [],
-      poster: "images/event_posters/womens cricket league.png",
+      poster: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -757,7 +507,7 @@
       category: "Cricket",
       description: "Specialized training camp for high-potential domestic players.",
       applicants: [],
-      poster: "images/event_posters/talent development camp.png",
+      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
       visibleTo: ["player", "coach"]
     },
 
@@ -775,7 +525,7 @@
       category: "Badminton",
       description: "The annual national championship for singles and doubles.",
       applicants: [],
-      poster: "images/event_posters/national badminton championship.png",
+      poster: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -791,7 +541,7 @@
       category: "Badminton",
       description: "Inter-club junior national tournament.",
       applicants: [],
-      poster: "images/event_posters/junior badminton league.png",
+      poster: "https://images.unsplash.com/photo-1578269174936-2709b5a8c0e6?w=800",
       visibleTo: ["player", "coach", "club"]
     },
     {
@@ -807,7 +557,7 @@
       category: "Badminton",
       description: "Official trials to select the national representatives.",
       applicants: [],
-      poster: "images/event_posters/olympic selection trials.png",
+      poster: "https://images.unsplash.com/photo-1543351611-58f69d7c1781?w=800",
       visibleTo: ["player", "coach"]
     },
     {
@@ -823,154 +573,13 @@
       category: "Badminton",
       description: "Advanced technical workshop for national level coaches.",
       applicants: [],
-      poster: "images/event_posters/bai coaching clinic.png",
+      poster: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
       visibleTo: ["player", "coach"]
     }
   ];
 
-  const DEFAULT_MATCHES = [
-    {
-      id: "match-1",
-      eventId: "event-mu-trial",
-      eventTitle: "Youth Football Trial",
-      teamA: "GK Academy",
-      teamB: "Manchester United Youth",
-      status: "Upcoming",
-      score: "0 - 0",
-      venue: "Old Trafford Training Ground",
-      date: "2026-06-22",
-      time: "10:00",
-      assignedCoach: "Mick Ross"
-    },
-    {
-      id: "match-2",
-      eventId: "event-rcb-hunt",
-      eventTitle: "Cricket Talent Hunt",
-      teamA: "RCB Academy",
-      teamB: "Karnataka XI",
-      status: "Upcoming",
-      score: "0 - 0",
-      venue: "Chinnaswamy Stadium, Bengaluru",
-      date: "2026-06-20",
-      time: "09:00",
-      assignedCoach: "Dinesh Karthik"
-    },
-    {
-      id: "match-3",
-      eventId: "event-hunters-scout",
-      eventTitle: "Badminton Talent Scout",
-      teamA: "Hyderabad Hunters",
-      teamB: "Gopichand Academy XI",
-      status: "Upcoming",
-      score: "0 - 0",
-      venue: "Gachibowli Indoor Stadium, Hyderabad",
-      date: "2026-06-26",
-      time: "14:00",
-      assignedCoach: "Pullela Gopichand"
-    },
-    {
-      id: "match-past-1",
-      eventId: "event-mu-trial",
-      eventTitle: "Youth Football Trial",
-      teamA: "GK Academy",
-      teamB: "Manchester United Youth",
-      status: "Completed",
-      score: "1 - 3",
-      winner: "Manchester United Youth",
-      stats: "Possession: 45%-55%, Shots: 8-14",
-      venue: "Old Trafford Training Ground",
-      date: "2026-05-15",
-      completionDate: "2026-05-15",
-      assignedCoach: "Mick Ross"
-    },
-    {
-      id: "match-past-2",
-      eventId: "event-rcb-camp",
-      eventTitle: "T20 League Camp",
-      teamA: "RCB Academy",
-      teamB: "Bengaluru Club Ground Team",
-      status: "Completed",
-      score: "182/4 - 180/7",
-      winner: "RCB Academy",
-      stats: "RCB won by 6 wickets",
-      venue: "RCB Academy Ground",
-      date: "2026-05-10",
-      completionDate: "2026-05-10",
-      assignedCoach: "Dinesh Karthik"
-    }
-  ];
-  const DEFAULT_HISTORY = [
-    {
-      id: "hist-past-1-p001",
-      role: "player",
-      playerId: "P001",
-      name: "National Football Championship",
-      sport: "Football",
-      date: "05 Jul - 20 Jul 2025",
-      location: "Salt Lake Stadium, Kolkata",
-      status: "Completed",
-      statusClass: "status-completed",
-      image: "images/championship_poster.png",
-      description: "Secured first runner-up in the national division tournament.",
-      badges: ["Participant", "Forward"]
-    },
-    {
-      id: "hist-past-2-p001",
-      role: "player",
-      playerId: "P001",
-      name: "Youth Football Selection Trial",
-      sport: "Football",
-      date: "10 Jun 2025",
-      location: "Old Trafford Stadium",
-      status: "Completed",
-      statusClass: "status-completed",
-      image: "images/championship_poster.png",
-      description: "Successfully cleared club selection trial requirements.",
-      badges: ["Trial Pass", "Forward"]
-    },
-    {
-      id: "hist-past-1-p002",
-      role: "player",
-      playerId: "P002",
-      name: "National Cricket Championship 2025",
-      sport: "Cricket",
-      date: "12 Jul - 30 Jul 2025",
-      location: "Wankhede Stadium, Mumbai",
-      status: "Completed",
-      statusClass: "status-completed",
-      image: "images/championship_poster.png",
-      description: "Awarded Best Batsman of the Tournament with 450 runs.",
-      badges: ["Participant", "Batsman"]
-    },
-    {
-      id: "hist-past-2-p002",
-      role: "player",
-      playerId: "P002",
-      name: "T20 Selection Trial",
-      sport: "Cricket",
-      date: "05 Aug 2025",
-      location: "NCA Ground, Bengaluru",
-      status: "Completed",
-      statusClass: "status-completed",
-      image: "images/championship_poster.png",
-      description: "Selected in national T20 squad development pool.",
-      badges: ["Trial Pass", "Batsman"]
-    },
-    {
-      id: "hist-past-1-p003",
-      role: "player",
-      playerId: "P003",
-      name: "National Badminton Championship",
-      sport: "Badminton",
-      date: "15 Jul - 22 Jul 2025",
-      location: "IGI Stadium, Delhi",
-      status: "Completed",
-      statusClass: "status-completed",
-      image: "images/championship_poster.png",
-      description: "Won Gold Medal in the Singles category division.",
-      badges: ["Gold Medalist", "Singles"]
-    }
-  ];
+  const DEFAULT_MATCHES = [];
+  const DEFAULT_HISTORY = [];
 
   const DEFAULT_POSTS = [
     {
@@ -978,7 +587,7 @@
       authorId: "P001",
       authorName: "Cristiano Ronaldo",
       authorRole: "player",
-      authorImage: "images/profile_pics/ronaldo.jpeg",
+      authorImage: "https://i.pinimg.com/736x/68/76/99/6876993a25a8fc274cc09aee12171034.jpg",
       sport: "Football",
       caption: "Back on the pitch for an intense training session! No days off. ⚽🔥 #Focus #Grind #CR7",
       image: "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?w=800",
@@ -991,7 +600,7 @@
       authorId: "P001",
       authorName: "Cristiano Ronaldo",
       authorRole: "player",
-      authorImage: "images/profile_pics/ronaldo.jpeg",
+      authorImage: "https://i.pinimg.com/736x/68/76/99/6876993a25a8fc274cc09aee12171034.jpg",
       sport: "Football",
       caption: "Incredible team performance today! Proud of the win and the three points. Thank you to the fans for the amazing support! 🙌🏆 #Victory #RedDevils",
       image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800",
@@ -1004,7 +613,7 @@
       authorId: "P002",
       authorName: "Virat Kohli",
       authorRole: "player",
-      authorImage: "images/profile_pics/kohli.jpg",
+      authorImage: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/122300/122330.jpg",
       sport: "Cricket",
       caption: "Putting in the hard yards at the nets. Preparation is key to execution. 🏏🔥 #PracticeHard #CricketLife #VK",
       image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800",
@@ -1017,7 +626,7 @@
       authorId: "P002",
       authorName: "Virat Kohli",
       authorRole: "player",
-      authorImage: "images/profile_pics/kohli.jpg",
+      authorImage: "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/122300/122330.jpg",
       sport: "Cricket",
       caption: "A special day on the field! Grateful for the century and the team win. Let's keep this momentum going! 💯🙏 #Centurion #RCB",
       image: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
@@ -1030,7 +639,7 @@
       authorId: "P003",
       authorName: "PV Sindhu",
       authorRole: "player",
-      authorImage: "images/profile_pics/sindu.webp",
+      authorImage: "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/omhtslafb2il7kazygef",
       sport: "Badminton",
       caption: "Gearing up for the upcoming championship. Training hard, staying focused. Let's do this! 🏸💪 #Badminton #Fitness",
       image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
@@ -1043,7 +652,7 @@
       authorId: "P003",
       authorName: "PV Sindhu",
       authorRole: "player",
-      authorImage: "images/profile_pics/sindu.webp",
+      authorImage: "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/omhtslafb2il7kazygef",
       sport: "Badminton",
       caption: "Proud moment representing the nation! Hard work pays off. Medal secured at the world tour. 🇮🇳🥈 #IndiaProud #Medalist",
       image: "https://images.unsplash.com/photo-1578269174936-2709b5a8c0e6?w=800",
@@ -1056,7 +665,7 @@
       authorId: "coach-mike",
       authorName: "Mick Ross",
       authorRole: "coach",
-      authorImage: "images/profile_pics/mickross.webp",
+      authorImage: "https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=800&q=80",
       sport: "Football",
       caption: "Analyzing team formations and tactical adjustments for our next opponent. Precision in strategy leads to victory on the pitch. ⚽📝 #Tactics #FootballCoach",
       image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800",
@@ -1069,7 +678,7 @@
       authorId: "coach-mike",
       authorName: "Mick Ross",
       authorRole: "coach",
-      authorImage: "images/profile_pics/mickross.webp",
+      authorImage: "https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=800&q=80",
       sport: "Football",
       caption: "Incredible progress from our youth academy squad today. The future is extremely bright. Keep pushing boys! 🏃⚽ #NextGen #YouthDevelopment",
       image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
@@ -1082,7 +691,7 @@
       authorId: "coach2",
       authorName: "Dinesh Karthik",
       authorRole: "coach",
-      authorImage: "images/profile_pics/dinesh.webp",
+      authorImage: "https://img.olympics.com/images/image/private/t_16x9_760/primary/c74a0tqjlyrm7l1l7woc",
       sport: "Cricket",
       caption: "Working on speed and agility behind the stumps today. Gloves on, eyes on the ball! 🧤🏏 #Wicketkeeping #CoachLife",
       image: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=800",
@@ -1095,7 +704,7 @@
       authorId: "coach2",
       authorName: "Dinesh Karthik",
       authorRole: "coach",
-      authorImage: "images/profile_pics/dinesh.webp",
+      authorImage: "https://img.olympics.com/images/image/private/t_16x9_760/primary/c74a0tqjlyrm7l1l7woc",
       sport: "Cricket",
       caption: "Had a great session discussing finishing strategies with the young batters. It's all about staying calm under pressure. 🧠⚡ #Finisher #Mindset",
       image: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
@@ -1108,7 +717,7 @@
       authorId: "coach3",
       authorName: "Pullela Gopichand",
       authorRole: "coach",
-      authorImage: "images/profile_pics/gopichand.jpg",
+      authorImage: "https://img.olympics.com/images/image/private/t_16x9_760/primary/w8i1m9s3h9kqqtphn3n0",
       sport: "Badminton",
       caption: "Early morning training session at the academy. Building the champions of tomorrow with dedication and discipline. 🏸🌅 #GopichandAcademy #Badminton",
       image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
@@ -1121,7 +730,7 @@
       authorId: "coach3",
       authorName: "Pullela Gopichand",
       authorRole: "coach",
-      authorImage: "images/profile_pics/gopichand.jpg",
+      authorImage: "https://img.olympics.com/images/image/private/t_16x9_760/primary/w8i1m9s3h9kqqtphn3n0",
       sport: "Badminton",
       caption: "Reviewing player statistics and match video for the national qualifiers. The intensity in training has been outstanding. 🏸📈 #RoadToGold #Coaching",
       image: "https://images.unsplash.com/photo-1578269174936-2709b5a8c0e6?w=800",
@@ -1134,7 +743,7 @@
       authorId: "club-mu",
       authorName: "Manchester United",
       authorRole: "club",
-      authorImage: "images/profile_pics/manchester united.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1184px-Manchester_United_FC_crest.svg.png",
       sport: "Football",
       caption: "Registration is now open for our annual Youth Football Trials. Discover your path to the theater of dreams! ⚽🌟 #MUFC #YouthTrials",
       image: "https://images.unsplash.com/photo-1526232761682-d26e4f9c635a?w=800",
@@ -1147,7 +756,7 @@
       authorId: "club-mu",
       authorName: "Manchester United",
       authorRole: "club",
-      authorImage: "images/profile_pics/manchester united.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1184px-Manchester_United_FC_crest.svg.png",
       sport: "Football",
       caption: "What a fantastic week at our Summer Football Camp! Over 200 young players trained with our official club coaches. 🔴⚽ #RedDevils #SummerCamp",
       image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
@@ -1160,7 +769,7 @@
       authorId: "club2",
       authorName: "Royal Challengers Bengaluru (RCB)",
       authorRole: "club",
-      authorImage: "images/profile_pics/rcb.jpg",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Royal_Challengers_Bangalore_2020_Logo.svg/1200px-Royal_Challengers_Bangalore_2020_Logo.svg.png",
       sport: "Cricket",
       caption: "RCB Talent Hunt begins this weekend! We are scouting for the next big T20 stars across the country. Register now. 🏏🔥 #PlayBold #TalentScout",
       image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800",
@@ -1173,7 +782,7 @@
       authorId: "club2",
       authorName: "Royal Challengers Bengaluru (RCB)",
       authorRole: "club",
-      authorImage: "images/profile_pics/rcb.jpg",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Royal_Challengers_Bangalore_2020_Logo.svg/1200px-Royal_Challengers_Bangalore_2020_Logo.svg.png",
       sport: "Cricket",
       caption: "Thank you to the amazing 12th Man Army for coming out in thousands for our annual Fan Meet Event! Your energy is unmatched. ❤️ RCB! #RCB #12thMan",
       image: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
@@ -1186,7 +795,7 @@
       authorId: "club3",
       authorName: "Hyderabad Hunters",
       authorRole: "club",
-      authorImage: "images/profile_pics/Hyderabad_Hunters.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Hyderabad_Hunters_logo.svg/800px-Hyderabad_Hunters_logo.svg.png",
       sport: "Badminton",
       caption: "Hyderabad Hunters is organizing an exclusive Smash Clinic this Friday under national coaches. Limited slots, register today! 🏸💥 #SmashClinic #Hunters",
       image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
@@ -1199,7 +808,7 @@
       authorId: "club3",
       authorName: "Hyderabad Hunters",
       authorRole: "club",
-      authorImage: "images/profile_pics/Hyderabad_Hunters.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Hyderabad_Hunters_logo.svg/800px-Hyderabad_Hunters_logo.svg.png",
       sport: "Badminton",
       caption: "A great team bonding session over dinner before we head out for the Premier Badminton League. Let's hunt together! 🏸🍽️ #TeamHunters #PBL",
       image: "https://images.unsplash.com/photo-1508424757105-b6d5ad9329d0?w=800",
@@ -1212,7 +821,7 @@
       authorId: "assoc-sgfi",
       authorName: "Indian Football Association",
       authorRole: "organization",
-      authorImage: "images/profile_pics/IFA.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Indian_Football_Association_logo.png",
       sport: "Football",
       caption: "The historic IFA Shield is back! We are thrilled to announce the participating teams and schedule for the 2026 edition. ⚽🏆 #IFAShield #IndianFootball",
       image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800",
@@ -1225,7 +834,7 @@
       authorId: "assoc-sgfi",
       authorName: "Indian Football Association",
       authorRole: "organization",
-      authorImage: "images/profile_pics/IFA.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Indian_Football_Association_logo.png",
       sport: "Football",
       caption: "Empowering coaches at our Grassroots Coaching Clinic in Kolkata. Developing football from the ground up. ⚽🇮🇳 #Grassroots #IFA",
       image: "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800",
@@ -1238,7 +847,7 @@
       authorId: "organization2",
       authorName: "BCCI",
       authorRole: "organization",
-      authorImage: "images/profile_pics/BCCI.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Board_of_Control_for_Cricket_in_India_Logo.svg/1200px-Board_of_Control_for_Cricket_in_India_Logo.svg.png",
       sport: "Cricket",
       caption: "BCCI announces the schedule for the upcoming National Cricket Championship 2026. Top domestic talent competing for the ultimate prize! 🏏🏆 #BCCI #RanjiTrophy",
       image: "https://images.unsplash.com/photo-1540747737956-3787293a9fc4?w=800",
@@ -1251,7 +860,7 @@
       authorId: "organization2",
       authorName: "BCCI",
       authorRole: "organization",
-      authorImage: "images/profile_pics/BCCI.png",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Board_of_Control_for_Cricket_in_India_Logo.svg/1200px-Board_of_Control_for_Cricket_in_India_Logo.svg.png",
       sport: "Cricket",
       caption: "Unveiling the new development pathways and funding boost for the Women's Cricket League. The future of Indian cricket is female! 🇮🇳🏏 #WPL #BCCI",
       image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=800",
@@ -1264,7 +873,7 @@
       authorId: "organization3",
       authorName: "Badminton Association of India",
       authorRole: "organization",
-      authorImage: "images/profile_pics/BAI.jpg",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/2/2a/Badminton_Association_of_India_logo.png",
       sport: "Badminton",
       caption: "The latest Badminton Association of India national rankings are out. Congratulations to all players on their progress. 🏸📊 #BAIRankings #Badminton",
       image: "https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=800",
@@ -1277,7 +886,7 @@
       authorId: "organization3",
       authorName: "Badminton Association of India",
       authorRole: "organization",
-      authorImage: "images/profile_pics/BAI.jpg",
+      authorImage: "https://upload.wikimedia.org/wikipedia/en/2/2a/Badminton_Association_of_India_logo.png",
       sport: "Badminton",
       caption: "Day 1 of the BAI National Junior Talent Development Camp in Delhi. Training the next generation of badminton stars. 🏸🇮🇳 #JuniorCamp #BAI",
       image: "https://images.unsplash.com/photo-1578269174936-2709b5a8c0e6?w=800",
@@ -1776,7 +1385,7 @@
   }
 
   function initSportsState() {
-    const resetKey = "sports_reset_v18";
+    const resetKey = "sports_reset_v13";
     const hasReset = localStorage.getItem(resetKey);
 
     if (!hasReset) {
@@ -1887,12 +1496,7 @@
     const events = getCollection("sports_events");
     const trials = getCollection("sports_trials");
     const tournaments = getCollection("sports_tournaments");
-    return [...events, ...trials, ...tournaments].map(e => {
-      if (e.poster) {
-        e.poster = getImagePath(e.poster);
-      }
-      return e;
-    });
+    return [...events, ...trials, ...tournaments];
   }
 
   function saveEvents(allEvents) {
@@ -1901,11 +1505,6 @@
     const tournaments = [];
 
     allEvents.forEach((e) => {
-      if (e.poster) {
-        while (e.poster.startsWith("../")) {
-          e.poster = e.poster.substring(3);
-        }
-      }
       const type = e.type || e.eventType;
       if (type === "trial" || type === "club_trial") {
         e.type = "club_trial";
@@ -2501,39 +2100,35 @@
     const currentUserId = getCurrentUserId();
     const role = user ? user.role : null;
 
-    let imgPath = "";
     if (role === "player" || currentUserId.startsWith("P")) {
       const p = getPlayers().find(x => x.id === currentUserId);
-      if (p && p.image) imgPath = p.image;
+      if (p && p.image) return p.image;
     } else if (role === "coach" || currentUserId.startsWith("coach")) {
       const c = getCoaches().find(x => x.id === currentUserId);
-      if (c && c.image) imgPath = c.image;
+      if (c && c.image) return c.image;
     } else if (role === "club" || currentUserId.startsWith("club")) {
       const cl = getClubs().find(x => x.id === currentUserId);
-      if (cl && cl.image) imgPath = cl.image;
+      if (cl && cl.image) return cl.image;
     } else if (role === "organization" || currentUserId.startsWith("assoc") || currentUserId.startsWith("organization")) {
       const a = getAssociations().find(x => x.id === currentUserId);
-      if (a && a.image) imgPath = a.image;
+      if (a && a.image) return a.image;
     }
     
-    if (!imgPath) {
-      const path = window.location.pathname.toLowerCase();
-      if (path.includes("/player/player1/")) imgPath = "images/profile_pics/ronaldo.jpeg";
-      else if (path.includes("/player/player2/")) imgPath = "images/profile_pics/kohli.jpg";
-      else if (path.includes("/player/player3/")) imgPath = "images/profile_pics/sindu.webp";
-      else if (path.includes("/coach/coach1/")) imgPath = "images/profile_pics/mickross.webp";
-      else if (path.includes("/coach/coach2/")) imgPath = "images/profile_pics/dinesh.webp";
-      else if (path.includes("/coach/coach3/")) imgPath = "images/profile_pics/gopichand.jpg";
-      else if (path.includes("/club/club1/")) imgPath = "images/profile_pics/manchester united.png";
-      else if (path.includes("/club/club2/")) imgPath = "images/profile_pics/rcb.jpg";
-      else if (path.includes("/club/club3/")) imgPath = "images/profile_pics/Hyderabad_Hunters.png";
-      else if (path.includes("/organization/organization1/")) imgPath = "images/profile_pics/IFA.png";
-      else if (path.includes("/organization/organization2/")) imgPath = "images/profile_pics/BCCI.png";
-      else if (path.includes("/organization/organization3/")) imgPath = "images/profile_pics/BAI.jpg";
-      else imgPath = "images/profile_pics/ronaldo.jpeg"; // Default fallback
-    }
-
-    return getImagePath(imgPath);
+    const path = window.location.pathname.toLowerCase();
+    if (path.includes("/player/player1/")) return "https://i.pinimg.com/736x/68/76/99/6876993a25a8fc274cc09aee12171034.jpg";
+    if (path.includes("/player/player2/")) return "https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/122300/122330.jpg";
+    if (path.includes("/player/player3/")) return "https://img.olympics.com/images/image/private/t_s_pog_staticContent_hero_xl_2x/f_auto/primary/omhtslafb2il7kazygef";
+    if (path.includes("/coach/coach1/")) return "https://images.unsplash.com/photo-1518063319789-7217e6706b04?auto=format&fit=crop&w=800&q=80";
+    if (path.includes("/coach/coach2/")) return "https://img.olympics.com/images/image/private/t_16x9_760/primary/c74a0tqjlyrm7l1l7woc";
+    if (path.includes("/coach/coach3/")) return "https://img.olympics.com/images/image/private/t_16x9_760/primary/w8i1m9s3h9kqqtphn3n0";
+    if (path.includes("/club/club1/")) return "https://upload.wikimedia.org/wikipedia/en/thumb/7/7a/Manchester_United_FC_crest.svg/1184px-Manchester_United_FC_crest.svg.png";
+    if (path.includes("/club/club2/")) return "https://upload.wikimedia.org/wikipedia/en/thumb/2/2b/Royal_Challengers_Bangalore_2020_Logo.svg/1200px-Royal_Challengers_Bangalore_2020_Logo.svg.png";
+    if (path.includes("/club/club3/")) return "https://upload.wikimedia.org/wikipedia/en/thumb/2/2f/Hyderabad_Hunters_logo.svg/800px-Hyderabad_Hunters_logo.svg.png";
+    if (path.includes("/organization/organization1/")) return "https://upload.wikimedia.org/wikipedia/commons/e/e9/Indian_Football_Association_logo.png";
+    if (path.includes("/organization/organization2/")) return "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Board_of_Control_for_Cricket_in_India_Logo.svg/1200px-Board_of_Control_for_Cricket_in_India_Logo.svg.png";
+    if (path.includes("/organization/organization3/")) return "https://upload.wikimedia.org/wikipedia/en/2/2a/Badminton_Association_of_India_logo.png";
+    
+    return "https://i.pinimg.com/736x/68/76/99/6876993a25a8fc274cc09aee12171034.jpg"; // Default fallback
   }
 
   function updateNavigationProfile() {
@@ -2816,7 +2411,7 @@
       status: "Completed",
       statusClass: "status-completed",
       image:
-        "images/championship_poster.png",
+        "https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       description: event.description || "Event completed successfully.",
       badges: ["Head Coach", "Completed"],
     };
@@ -2839,7 +2434,7 @@
       status: "Completed",
       statusClass: "status-completed",
       image:
-        "images/championship_poster.png",
+        "https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
       description: event.description || "Event completed successfully.",
       badges: ["Organizer", isClub ? "Club" : "Association"],
     };
@@ -2863,7 +2458,7 @@
         status: "Completed",
         statusClass: "status-completed",
         image:
-          "images/championship_poster.png",
+          "https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80",
         description: event.description || "Participated in the event.",
         badges: ["Participant", app.position || "Player"],
       };
@@ -3033,12 +2628,11 @@
     postEl.className = "post";
 
     const authorLink = getOtherProfileLink(post.authorId);
-    const authorImg = getAuthorImage(post.authorId, post.authorImage);
 
     postEl.innerHTML = `
       <div class="post-header">
         <a href="${authorLink}" class="others-profile" style="display: flex; gap: 10px; text-decoration: none; color: inherit; align-items: center;">
-          <img src="${getImagePath(authorImg)}" alt="profile" class="profile-pic" />
+          <img src="${post.authorImage}" alt="profile" class="profile-pic" />
           <div>
             <h4>${post.authorName}</h4>
             <p>${post.sport} • ${post.date}</p>
@@ -3246,11 +2840,9 @@
     const btnClass = isFollowing ? "following" : "";
     const btnText = isFollowing ? "Following" : "Follow";
 
-    const liveImg = getAuthorImage(p.id, p.image);
-
     userEl.innerHTML = `
       <a href="${profileLink}" style="display: flex; gap: 10px; text-decoration: none; color: inherit; align-items: center; flex: 1;">
-        <img src="${getImagePath(liveImg)}" alt="${p.name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
+        <img src="${p.image}" alt="${p.name}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;" />
         <div class="user-info">
           <strong>${p.name}</strong>
           <small>${p.subtitle || 'Suggested'}</small>
@@ -3383,26 +2975,6 @@
     if (feedContainer && !isOtherProfile) {
       runDynamicDashboard();
     }
-
-    // Rename Feed tab to "Posts" on profile or other profile pages
-    const path = window.location.pathname.toLowerCase();
-    const isProfilePage = path.includes("profile") || path.includes("others-profile") || path.includes("other-profile");
-    if (isProfilePage) {
-      const feedTabBtns = document.querySelectorAll(".feed-tab-btn");
-      feedTabBtns.forEach((btn) => {
-        const tabTarget = btn.getAttribute("data-tab");
-        if (tabTarget === "feed-content" || btn.textContent.includes("Feed")) {
-          const icon = btn.querySelector("i");
-          btn.innerHTML = "";
-          if (icon) {
-            btn.appendChild(icon);
-            btn.appendChild(document.createTextNode(" Posts"));
-          } else {
-            btn.textContent = "Posts";
-          }
-        }
-      });
-    }
   });
 
   // Global Exports
@@ -3447,8 +3019,6 @@
     runDynamicDashboard,
     getOtherProfileLink,
     createPostElement,
-    updateNavigationProfile,
-    getImagePath,
-    getAuthorImage
+    updateNavigationProfile
   };
 })();

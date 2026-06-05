@@ -4,7 +4,7 @@
  * ==========================================
  */
 
-  function initDashboardTabs() {
+document.addEventListener("DOMContentLoaded", () => {
   // --- SESSION/VIEWED PLAYER IDENTIFICATION ---
   const urlParams = new URLSearchParams(window.location.search);
   let playerId = urlParams.get("id");
@@ -216,25 +216,6 @@
   // --- DOM ELEMENTS ---
   const tabButtons = document.querySelectorAll(".feed-tab-btn");
   const tabContents = document.querySelectorAll(".tab-content");
-  
-  // Change feed tab to "Posts" if we are on a profile page
-  const path = window.location.pathname.toLowerCase();
-  const isProfilePage = path.includes("profile") || path.includes("others-profile") || path.includes("other-profile");
-  if (isProfilePage) {
-    tabButtons.forEach(btn => {
-      const targetTabId = btn.getAttribute("data-tab");
-      if (targetTabId === "feed-content" || btn.textContent.includes("Feed")) {
-        const icon = btn.querySelector("i");
-        btn.innerHTML = "";
-        if (icon) {
-          btn.appendChild(icon);
-          btn.appendChild(document.createTextNode(" Posts"));
-        } else {
-          btn.textContent = "Posts";
-        }
-      }
-    });
-  }
   
   const achievementsContainer = document.getElementById("achievements-list");
   const galleryContainer = document.getElementById("gallery-list");
@@ -559,11 +540,5 @@
       reader.readAsDataURL(file);
     });
   }
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", initDashboardTabs);
-} else {
-  initDashboardTabs();
-}
+});
 

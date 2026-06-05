@@ -10,9 +10,6 @@ body {
   color: #e5e7eb;
   min-height: 100vh;
   padding: 40px;
-
-  min-width: 1200px;
-  overflow-x: auto;
 }
 
 .page-title {
@@ -27,9 +24,11 @@ body {
   margin-bottom: 30px;
 }
 
+
+
 .matches-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 25px;
 }
 
@@ -72,6 +71,8 @@ body {
   background: #0ea5e9;
 }
 
+
+
 .overlay {
   position: fixed;
   top: 0;
@@ -110,6 +111,8 @@ body {
   border-radius: 6px;
   cursor: pointer;
 }
+
+
 
 .score-card {
   display: flex;
@@ -166,6 +169,8 @@ body {
   border: 2px solid #334155;
 }
 
+
+
 .detail-section {
   margin-bottom: 25px;
 }
@@ -184,6 +189,8 @@ body {
   border: 1px solid #1e293b;
   margin-bottom: 10px;
 }
+
+
 
 .progress-area {
   margin: 20px 0;
@@ -208,6 +215,7 @@ body {
   margin-top: 6px;
 }
 
+
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
@@ -229,4 +237,3 @@ body {
 .schedule-table td {
   background: #020617;
 }
-

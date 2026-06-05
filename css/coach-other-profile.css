@@ -10,18 +10,12 @@
 html,
 body {
   height: 100%;
-  overflow-x: auto; overflow-y: hidden;
-
-  min-width: 1600px;
-  overflow-x: auto;
+  overflow: hidden;
 }
 
 body {
   background-color: #0f172a;
   color: #e5e7eb;
-
-  min-width: 1600px;
-  overflow-x: auto;
 }
 
 .navbar {
@@ -177,8 +171,8 @@ body {
   justify-content: space-evenly;
   gap: 40px;
   padding: 30px;
-  margin-top: 80px;
-  height: calc(100vh - 80px);
+  margin-top: 60px;
+  height: calc(100vh - 60px);
 }
 
 .player-card {
@@ -215,6 +209,7 @@ hr {
   background: #1e293b;
 }
 
+
 .player-actions {
   display: flex;
   gap: 15px;
@@ -237,6 +232,7 @@ hr {
   transition: 0.3s ease;
 }
 
+
 .btn-follow {
   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
   color: #020617;
@@ -247,6 +243,7 @@ hr {
   transform: translateY(-3px) scale(1.05);
   box-shadow: 0 0 22px rgba(56, 189, 248, 0.9);
 }
+
 
 .btn-message {
   background: #020617;
@@ -458,6 +455,7 @@ a:hover {
   color: #38bdf8;
 }
 
+
 .overlay {
   position: fixed;
   top: 0;
@@ -467,4 +465,90 @@ a:hover {
   background: rgba(0, 0, 0, 0.5);
   display: none;
   z-index: 1500;
+}
+@media (max-width: 991px) {
+  .player-card,
+  .suggestions {
+    display: none;
+  }
+  .notification-dropdown {
+    right: 20px;
+    width: 280px;
+  }
+
+  .main-content {
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .feed {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-right a:not(.notify-only) {
+    display: none;
+  }
+
+  .nav-left {
+    flex: 1;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .search-box {
+    width: 200px;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background: #020617;
+    width: 220px;
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+    z-index: 1000;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #e5e7eb;
+    font-size: 14px;
+  }
+
+  .mobile-menu a:hover {
+    color: #38bdf8;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-box {
+    width: 150px;
+  }
+
+  .post-actions {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  #logo {
+    width: 95px;
+  }
+
+  .search-box {
+    width: 120px;
+  }
+
+  .post {
+    padding: 10px;
+  }
 }

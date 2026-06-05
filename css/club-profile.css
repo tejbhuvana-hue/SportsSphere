@@ -12,10 +12,7 @@ body {
   background-color: #0f172a;
   color: #e5e7eb;
   height: 100%;
-  overflow-x: auto;
-
-  min-width: 1600px;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -176,6 +173,7 @@ a {
   color: inherit;
 }
 
+
 .mobile-menu {
   position: fixed;
   top: 85px;
@@ -229,6 +227,7 @@ a {
   background: #1e293b;
 }
 
+
 .container {
   display: flex;
   gap: 30px;
@@ -236,6 +235,7 @@ a {
   margin-top: 90px;
   height: calc(100vh - 90px);
 }
+
 
 .sidebar {
   width: 280px;
@@ -276,6 +276,7 @@ a {
   font-size: 13px;
   color: #94a3b8;
 }
+
 
 .club-actions {
   margin-top: 20px;
@@ -334,6 +335,7 @@ a {
   color: #ef4444;
 }
 
+
 .feed {
   flex: 1;
   width: 800px;
@@ -349,6 +351,7 @@ a {
   background: #38bdf8;
   border-radius: 10px;
 }
+
 
 .post {
   background: #020617;
@@ -445,6 +448,7 @@ a {
   border: 2px solid #38bdf8;
 }
 
+
 .addpost-modal,
 .members-modal,
 .edit-modal {
@@ -471,6 +475,7 @@ a {
   display: flex;
   transform: translate(-50%, -50%) scale(1);
 }
+
 
 .addpost-header,
 .event-header,
@@ -500,6 +505,7 @@ a {
 .modal-header i:hover {
   color: #f87171;
 }
+
 
 .addpost-form {
   display: flex;
@@ -594,6 +600,7 @@ a {
   cursor: pointer;
 }
 
+
 .members-list {
   margin-top: 15px;
   display: flex;
@@ -610,3 +617,32 @@ a {
   font-size: 14px;
 }
 
+
+@media (max-width: 991px) {
+  .sidebar,
+  .rightbar,
+  .desktop-only {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .search-bar {
+    width: 180px;
+  }
+  .container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    width: 30%;
+  }
+  .nav-actions {
+    gap: 15px;
+  }
+  .addpost-modal {
+    width: 90%;
+  }
+}

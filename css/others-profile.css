@@ -10,21 +10,14 @@
 html,
 body {
   height: 100%;
-  overflow-x: auto; overflow-y: hidden;
-
-  min-width: 1600px;
-  overflow-x: auto;
+  overflow: hidden;
 }
 
 body {
   background-color: #0f172a;
   color: #e5e7eb;
-
-  min-width: 1600px;
-  overflow-x: auto;
 }
 
-/* ── NAVBAR ── */
 .navbar {
   height: 80px;
   background: linear-gradient(90deg, #020617, #1e293b);
@@ -42,12 +35,6 @@ body {
 
 #logo {
   width: 126px;
-}
-
-#Logotext {
-  font-size: 22px;
-  font-weight: 700;
-  color: #38bdf8;
 }
 
 .nav-left {
@@ -153,46 +140,20 @@ body {
 
 .mobile-menu {
   display: none;
-  position: absolute;
-  top: 80px;
-  left: 20px;
-  background: #020617;
-  width: 220px;
-  border-radius: 14px;
-  padding: 10px;
-  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
-  z-index: 1100;
 }
-
 .mobile-menu.show {
   display: block;
 }
 
-.mobile-menu a {
-  display: block;
-  padding: 12px;
-  text-decoration: none;
-  color: #e5e7eb;
-  font-size: 14px;
-  border-radius: 8px;
-}
-
-.mobile-menu a:hover {
-  background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
-}
-
-/* ── MAIN LAYOUT ── */
 .main-content {
   display: flex;
   justify-content: space-evenly;
   gap: 40px;
   padding: 30px;
-  margin-top: 80px;
-  height: calc(100vh - 80px);
+  margin-top: 60px;
+  height: calc(100vh - 60px);
 }
 
-/* ── PLAYER CARD ── */
 .player-card {
   width: 350px;
   height: fit-content;
@@ -227,6 +188,7 @@ hr {
   background: #1e293b;
 }
 
+
 .player-actions {
   display: flex;
   gap: 15px;
@@ -260,6 +222,7 @@ hr {
   box-shadow: 0 0 22px rgba(56, 189, 248, 0.9);
 }
 
+
 .btn-message {
   background: #020617;
   color: #38bdf8;
@@ -274,7 +237,6 @@ hr {
   box-shadow: 0 0 22px rgba(56, 189, 248, 0.85);
 }
 
-/* ── FEED ── */
 .feed {
   width: 1200px;
   height: 100%;
@@ -290,25 +252,20 @@ hr {
   background: #38bdf8;
   border-radius: 10px;
 }
-
 #feed-links {
   display: flex;
   gap: 30px;
   margin: 20px;
   justify-content: space-evenly;
 }
-
 a {
   text-decoration: none;
   color: white;
 }
-
 a:hover {
   color: #38bdf8;
   text-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
 }
-
-/* ── POSTS ── */
 .post {
   background: #020617;
   border-radius: 14px;
@@ -373,7 +330,6 @@ a:hover {
   text-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
 }
 
-/* ── SUGGESTIONS ── */
 .suggestions {
   width: 300px;
   position: sticky;
@@ -434,8 +390,6 @@ a:hover {
 #seeAll:hover {
   text-decoration: underline;
 }
-
-/* ── NOTIFICATIONS ── */
 .overlay {
   position: fixed;
   inset: 0;
@@ -468,10 +422,112 @@ a:hover {
   border-bottom: 1px solid #1e293b;
   font-size: 14px;
 }
-
 .notification-item small {
   display: block;
   color: #94a3b8;
   font-size: 11px;
 }
+#Logotext {
+  font-size: 22px;
+  font-weight: 700;
+  color: #38bdf8;
+}
 
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1500;
+}
+@media (max-width: 991px) {
+  .player-card,
+  .suggestions {
+    display: none;
+  }
+  .notification-dropdown {
+    right: 20px;
+    width: 280px;
+  }
+
+  .main-content {
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .feed {
+    width: 100%;
+    max-width: 750px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-right a:not(.notify-only) {
+    display: none;
+  }
+
+  .nav-left {
+    flex: 1;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .search-box {
+    width: 200px;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 80px;
+    left: 20px;
+    background: #020617;
+    width: 220px;
+    border-radius: 14px;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+    z-index: 1000;
+  }
+
+  .mobile-menu a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #e5e7eb;
+    font-size: 14px;
+  }
+
+  .mobile-menu a:hover {
+    color: #38bdf8;
+  }
+}
+
+@media (max-width: 767px) {
+  .search-box {
+    width: 150px;
+  }
+
+  .post-actions {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  #logo {
+    width: 95px;
+  }
+
+  .search-box {
+    width: 120px;
+  }
+
+  .post {
+    padding: 10px;
+  }
+}
